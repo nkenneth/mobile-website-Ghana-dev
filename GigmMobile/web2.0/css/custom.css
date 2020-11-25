@@ -1,0 +1,421 @@
+body{
+	font-family: 'Quicksand', sans-serif !important;
+}
+
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+	font-family: 'Quicksand', sans-serif !important;
+    font-weight: 600;
+    line-height: 1.1;
+    color: inherit;
+}
+p{
+	font-family: 'Quicksand', sans-serif !important;
+}
+.thm-btn {
+    display: inline-block;
+    border: none;
+    outline: none;
+    background: #6541c1;
+    background: -webkit-gradient(left top, right top, color-stop(0%, #2098d1), color-stop(98%, #2a208d), color-stop(100%, #2a208d));
+    background: -webkit-gradient(linear, left top, right top, from( #2098d1), color-stop(98%, #2a208d), to(#2a208d));
+    background: linear-gradient(to right, #2098d1 0%, #2a208d 78%, #2a208d 100%);
+
+}
+.how-app-work-section .single-how-app-work .icon-box .inner {
+
+	background: -webkit-gradient(left top, right top, color-stop(0%, #2098d1), color-stop(98%, #2a208d), color-stop(100%, #2a208d));
+    background: -webkit-gradient(linear, left top, right top, from( #2098d1), color-stop(98%, #2a208d), to(#2a208d));
+    background: linear-gradient(to right, #2098d1 0%, #2a208d 78%, #2a208d 100%);
+
+}
+.scroll-to-top {
+
+	background: -webkit-gradient(left top, right top, color-stop(0%, #2098d1), color-stop(98%, #2a208d), color-stop(100%, #2a208d));
+    background: -webkit-gradient(linear, left top, right top, from( #2098d1), color-stop(98%, #2a208d), to(#2a208d));
+    background: linear-gradient(to right, #2098d1 0%, #2a208d 78%, #2a208d 100%);
+
+}
+
+
+.banner-static {
+    background: #fff url(./img/background.png);
+    padding-top: 190px;
+    overflow: hidden;
+	background-size: cover;
+	height: 1000px;
+}
+
+.how-app-work-section .single-how-app-work .icon-box .inner i {
+    background: -webkit-gradient(linear, left top, right top, from(#ffcc2a), color-stop(98%, #222525), to(#222525));
+    background: linear-gradient(to right, #ffcc2a 0%, #b08c19 98%, #222525 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 74px;
+    font-size: 44px;
+    position: relative;
+}
+
+.how-app-work-section .single-how-app-work .icon-box .inner {
+    background: -webkit-gradient(left top, right top, color-stop(0%, #2098d1), color-stop(98%, #2a208d), color-stop(100%, #2a208d));
+    background: -webkit-gradient(linear, left top, right top, from( #ffcc2a), color-stop(98%, #ffcc2a), to(#222525));
+    background: linear-gradient(to right, #ffcc2a 0%, #a48421 78%, #222525 100%);
+}
+/* .banner-static {
+    background:yellow;
+    padding-top: 190px;
+    overflow: hidden;
+} */
+
+.how-app-work-section .download-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background: #ffcc2a;
+    background: -webkit-gradient(left top, right top, color-stop(0%, #6541c1), color-stop(98%, #d43396), color-stop(100%, #d43396));
+    background: -webkit-gradient(linear, left top, right top, from(#ffcc2a), color-stop(98%, #ffcc2a), to(#222525));
+    background: linear-gradient(to right, #ffcc2a 0%, #000000 98%, #222525 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6541c1', endColorstr='#d43396', GradientType=1);
+    position: relative;
+    padding: 12px 0;
+    padding-left: 80px;
+    border-radius: 28px;
+    padding-right: 40px;
+}
+
+.how-app-work-section .download-btn span.avail, .how-app-work-section .download-btn span.store-name {
+    display: block;
+    background: -webkit-gradient(linear, left top, right top, from(#ffcc2a), color-stop(98%, #222525), to(#222525));
+    background: linear-gradient(to right, #ffcc2a 0%, #ffcc2a 98%, #222525 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    line-height: 1em;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.header-navigation ul.navigation-box > li > a {
+    padding: 5px 0;
+    color: #333;
+    font-size: 15px;
+    font-weight: 600;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    letter-spacing: .01em;
+}
+.how-app-work-section .download-btn i.fab {
+    font-size: 30px;
+    background: -webkit-gradient(linear, left top, right top, from(#6541c1), color-stop(98%, #d43396), to(#d43396));
+    background: linear-gradient(to right, #ffcc2a 0%, #ffcc2a 98%, #d43396 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 35px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+.header-navigation.stricky-fixed ul.navigation-box > li.active > a, .header-navigation.stricky-fixed ul.navigation-box > li.current > a, .header-navigation.stricky-fixed ul.navigation-box > li > a:active, .header-navigation.stricky-fixed ul.navigation-box > li > a:focus, .header-navigation.stricky-fixed ul.navigation-box > li:hover > a {
+    color: #ffcc2a;
+}
+.intigration-section .intigration-img-box img:nth-child(1) {
+    top: -40%;
+    right: 85px;
+}
+
+.intigration-section {
+	background: #FDF9EA;
+}
+footer.footer .subscribe-section .subscribe-form {
+    background: #6541c1;
+    background: -webkit-gradient(left top, right top, color-stop(0%, #6541c1), color-stop(98%, #d43396), color-stop(100%, #d43396));
+    background: -webkit-gradient(linear, left top, right top, from(#6541c1), color-stop(98%, #d43396), to(#d43396));
+    background: linear-gradient(to right, #000000 0%, #ffcc2a 98%, #e0b325 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6541c1', endColorstr='#d43396', GradientType=1);
+    border-radius: 60px;
+    padding: 34px 35px;
+    padding-left: 70px;
+    -webkit-box-shadow: 0px 23px 42px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 23px 42px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top {
+    background: -webkit-gradient(left top, right top, color-stop(0%, #2098d1), color-stop(98%, #2a208d), color-stop(100%, #2a208d));
+    background: -webkit-gradient(linear, left top, right top, from( #2098d1), color-stop(98%, #2a208d), to(#2a208d));
+    background: linear-gradient(to right, #ffcc2a 0%, #ffcc2a 78%, #ffcc2a 100%);
+}
+
+.banner-static .banner-content h3 {
+    margin: 0;
+    color: #190A32;
+    font-size: 24px;
+    line-height: 1.2;
+    /* font-weight: 600; */
+    margin-bottom: 0;
+}
+.banner-static .banner-content p {
+    margin: 0;
+    color: #666666;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+.header-navigation.stricky-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.32);
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.32);
+}
+.header-navigation.stricky-fixed .container .navbar-brand .default-logo {
+    display: block;
+}
+.how-app-work-section .title h3 {
+    margin: 0;
+    color: #ffd540;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background: #000 !important;
+}
+.header-navigation .container .navbar-toggle {
+    margin: -20px 0 22px !important;
+}
+.intigration-section h3 {
+    margin: 0;
+    color: #ffcc2a;
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.intigration-section {
+    background: #ffffff;
+}
+
+.about-section {
+    background: url(img/about.png);
+    background-repeat: no-repeat;
+    height: 500px;
+    padding-top: 9em;
+    background-size: 90%;
+}
+
+.about-section h3, p {
+	color: white !important;
+}
+
+
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  height: 450px;
+  padding:1em;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.artimg {
+    margin: auto;
+    height: 250px;
+    padding: 3em;
+}
+
+.why h1,h4, h3, p {
+ text-align: center;
+ width: 80%;
+ margin:auto;
+}
+
+.why p {
+	color:#020202 !important
+}
+
+.boxy .container {
+	background: url(img/vision.png);
+	background-size: contain;
+	padding:8em;
+	height: 500px;
+	color:white;
+	margin-top: 5em;
+}
+
+.artimg2 {
+    margin: auto;
+    padding: 3em;
+	height: 200px;
+}
+
+@media screen and (max-width:800px) {
+	.navbar-brand > img {
+		margin-top: -18%;
+	}
+	.why p {
+    color: #020202 !important;
+    padding: 2em;
+}
+	.wrapy {
+		margin-top: 450px;
+	}
+	.how-app-work-section .how-app-work-slider-wrapper {
+    position: relative;
+    width: 305px;
+    height: 155px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    -webkit-box-shadow: 0px 18px 37px rgba(212, 50, 151, 0.2);
+    box-shadow: 0px 18px 37px rgba(212, 50, 151, 0.2);
+}
+	.about-section {
+    background: url(img/about.png);
+    background-repeat: no-repeat;
+    height: auto;
+    padding-top: 9em;
+    padding: 3em;
+    background-size: cover;
+}
+.boxy .container {
+    background: url(img/vision.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2em;
+    height: auto;
+    color: white;
+    margin-top: 5em;
+}
+}
+
+@media screen and (max-width: 1440px){
+	.banner-static .banner-moc-box > img {
+    position: relative;
+    left: 0px;
+}
+}
+.banner-static .banner-content h3 {
+    margin: 0;
+    color: #190A32;
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: left;
+    /* font-weight: 600; */
+    margin-bottom: 0;
+}
+.banner-static .banner-content p {
+    color: #190A32 !important;
+    text-align: left;
+}
+
+.bottom {
+	text-align: center;
+}
+
+.bottom2 {
+	background: #31d9b8;
+}
+
+.bottom2 {
+	padding: 2em 0 2em 0;
+    margin: 3em 0 0 0;
+}
+
+.bottom2 h5 {
+	margin: initial;
+	color:white;
+	width: 100%;
+}
+
+.bottom2 button {
+	font-family: inherit;
+    border: none;
+    background: white;
+    width: 100%;
+    color: #31d9b8;
+    padding: .5em 0 .5em 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+.why h1, h4, h3, p {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    color: black !important;
+}
+.how-app-work-section .title h3 {
+    margin: 0;
+    color: #ffd540 !important;
+    font-size: 32px;
+    font-weight: 600;
+}
+.intigration-content h3, p {
+	color:white !important;
+	text-align: left;
+}
+
+.how-app-work-content-wrap h3, p {
+	color:black !important;
+	text-align: center;
+}
+
+.how h3 {
+	margin: 0;
+    color: #ffcc2a !important;
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+#about h3, p {
+	color:white !important;
+	text-align: left;
+}
+#wrapy p {
+	color:black !important;
+	text-align: center;
+}
+.success {
+  display: none;
+  background: #E1F8ED;
+  padding: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.success.is-active {
+  display: block;
+}
+
+.preloader {
+    background: #6541c1;
+
+    background: linear-gradient(to right,  #78e2cd 0%, #31d9b8 98%, #78e2cd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6541c1', endColorstr='#d43396', GradientType=1);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999999;
+}
+.header {
+    position: absolute;
+    padding: 35px 0 35px 0;
+    background: #9e9e9e;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    top:0;
+}

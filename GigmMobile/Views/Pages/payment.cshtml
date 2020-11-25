@@ -1,0 +1,45 @@
+﻿
+
+<style>
+    .ttlr_inline {
+        visibility: hidden;
+    }
+</style>
+<form>
+    <div ng-controller="payment as vm" ng-cloak>
+        <a class="ttlr_inline"
+           data-APIKey="MmY4NzRmNmU2MTIyOGFjYWZhODFkNzFjMWEyMmJmYTc="
+           data-transid="000000000011"
+           data-amount="10"
+           data-customer_email="email@customer.com"
+           data-currency="GHS"
+           data-redirect_url="http://localhost:11506/"
+           data-pay_button_text="Pay Now"
+           data-custom_description="Payment Using InlineJS"
+           data-payment_method="both">
+        </a>
+
+    </div>
+
+</form>
+
+<script type="text/javascript" src="https://test.theteller.net/checkout/resource/api/inline/theteller_inline.js"></script>
+
+
+<p>
+    <br />
+</p>
+<div class="row main down-20 no-margin">
+    <div class="container">
+        <div class="col-sm-12 text-center">
+            <img src="img/Processing.gif" class="text-center" />
+            <span style="font-size: 20px;">
+                <p>
+                    Redirecting to payment gateway. It might take a few seconds.
+                    <br />
+                    Please do not refresh the page or click the "Back" or "Close" button of your browser.
+                </p>
+            </span>
+        </div>
+    </div>
+</div>

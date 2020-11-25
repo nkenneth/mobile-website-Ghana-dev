@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "Booking";
+}
+<style>
+	.md-form, .md-form .btn {
+    margin-bottom: 0;
+}
+	.select2-container .select2-choice {
+		display: block;
+		padding-left: 0;
+	}
+
+	select.browser-default {
+    display: block!important;
+    padding: 5% 0 5% 0;
+    border: 0;
+	    background: none;
+	    color: #4f4f4f;
+    border-bottom: 1px solid #bdbdbd;
+	outline:none;
+}
+
+	select.browser-default:after {
+	    color: #4f4f4f;
+}
+
+	.select2-drop {
+		width: 100%;
+		 top: 1px !important; 
+		position: relative !important;
+	}
+
+
+</style>
+<div ng-controller="booking as vm"  ng-cloak>
+    @{ 
+        Html.RenderPartial("SideBar");
+    }
+
+    <section id="form">
+
+        <form  name="vm.booking" novalidate>
+            <!--First row-->
+            <div class="row">
+                <!--First column-->
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <p style="font-size: .8rem; font: 400 13.3333px Arial; color: #757575;">Travelling From:</p>
+                        <!-- get selected with {{vm.terminal.selected.StateName}} -->
+                        <ui-select ng-model="vm.terminal.selected" on-select="vm.onDepartureSelected($item,$model)" theme="select2" ng-disabled="ctrl.disabled" style="width: 100%;" title="Choose a terminal">
+                            <ui-select-match placeholder="Select a Location">{{$select.selected.TerminalName}}</ui-select-match>
+                            <ui-select-choices repeat="terminal in vm.departureTerminals | propsFilter: {TerminalName: $select.search, StateName: $select.search}">
+                                <div ng-bind-html="terminal.TerminalName | highlight: $select.search"></div>
+                                <small> 
+                                    @*State: {{terminal.StateName}}*@
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <!--/Blue select-->
+
+                    </div>
+                </div>
+
+                <!--Second column-->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <p style="font-size: .8rem; font: 400 13.3333px Arial; color: #757575;">Travelling To: </p>
+                        <!-- get selected with {{vm.terminal.selected2.StateName}} -->
+                        <ui-select ng-model="vm.terminal.selected2" theme="select2" ng-disabled="vm.disabled" style="width: 100%;" title="Choose a terminal">
+                            <ui-select-match placeholder="Select a Location">{{$select.selected.TerminalName}}</ui-select-match>
+                            <ui-select-choices repeat="terminal in vm.arrivalTerminals | propsFilter: {TerminalName: $select.search}">
+                                <div ng-bind-html="terminal.TerminalName | highlight: $select.search"></div>
+                                <small>
+                                   @*State: {{terminal.StateName}}*@
+                                    <!-- age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> -->
+                                </small>
+                            </ui-select-choices>
+                        </ui-select>
+                        <!--/Blue select-->
+
+                    </div>
+                </div>
+
+            </div>
+            <!--/.First row-->
+            <!--Second row-->
+			<div class="row" style="">
+				<div class="form-group col-12">
+					<label>Adult (18+)</label>
+					<select name="mySelect" id="mySelect" style="width:100%;" ng-options="option.name for option in vm.data.availableOptions track by option.id" class="browser-default  colorful-select dropdown-danger" ng-model="vm.data.selectedOption" ng-change="vm.indexChanged()"></select>
+
+				</div>
+				<div class="form-group col-6 d-none">
+					<label>Children (2 - 10)</label>
+
+					<select name="mySelect1" id="mySelect1" style="width:100%;" ng-options="option.name for option in vm.data.childOptions track by option.id" class="browser-default colorful-select dropdown-danger" ng-model="vm.data.selectedOption_" ng-change="vm.indexChanged()"></select>
+				</div>
+			</div>
+            <div class="row" style="margin-top:3%; ">
+
+                <div class="md-form col-6">
+                    <input placeholder="Selected date"  type="text" id="date-departure" class="form-control datepicker">
+                    <label style="margin-left:7%;" for="date-picker-example">Departure date</label>
+                </div>
+
+                <div id="hide" class="md-form col-6">
+                    <input placeholder="Selected date" type="text"  ng-model="vm.booking.ReturnDate" id="date-arrival" class="form-control datepicker">
+                    <label style="margin-left:7%;" for="date-picker-example">Arrival date</label>
+                </div>
+            </div>
+            <!--/.Second row-->
+            <!--Third row-->
+          
+            <a type="button"  href="#" ng-click="vm.next()"  class=" col-12 btn btn-danger btn-rounded">Book now</a>
+            <!--/.Third row-->
+        </form>
+    </section>
+
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+    @{ 
+        Html.RenderPartial("AuthModal");
+    }
+</div>
+<script>
+	$(document).ready(function () {
+		//set minimum date users can pick
+		var numberOfDaysToAdd1 = 1;
+		//set max date they can pick
+		var numberOfDaysToAdd2 = 14;
+		//Assign the value to minimum date 
+		var minDate = new Date();
+		minDate.setDate(minDate.getDate() + numberOfDaysToAdd1);
+		//Assign the value to maximum date 
+		var maxDate = new Date();
+		maxDate.setDate(maxDate.getDate() + numberOfDaysToAdd2);
+		//assign the date to the datepicker
+
+        $('#date-departure').pickadate({
+			min: new Date(minDate),
+			max: new Date(maxDate)
+        });
+
+        $('#date-arrival').pickadate({
+            min: new Date(),
+            max: new Date(maxDate)
+        });
+	});
+
+</script>

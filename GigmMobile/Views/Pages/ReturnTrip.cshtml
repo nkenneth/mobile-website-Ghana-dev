@@ -1,0 +1,1083 @@
+﻿
+
+<style>
+
+
+    #seats:nth-child(1) > .col-md-12 .row .pad-28:nth-child(5) {
+        margin-left: -2% !important;
+    }
+
+
+
+    #panel {
+        padding: 10px;
+        height: 450px;
+        display: none;
+    }
+
+    .card:not([class*=card-outline-]) {
+        border: 0;
+        margin-bottom: 20px;
+    }
+
+    main .selected {
+        font-size: 80% !important;
+        text-align: left;
+        margin-left: 0%;
+        color: white;
+    }
+
+
+    @@media only screen and (max-width: 640px) and (min-width: 321px) and (orientation: portrait) {
+        .bus-back {
+            background-image: url(../img/small_bg.png);
+            background-size: 128% 105%;
+            background-position-x: 27%;
+        }
+
+            .bus-back .row:nth-child(1) .row {
+                padding-top: 15px;
+            }
+
+        .margin-left-10 {
+            margin-left: 0;
+        }
+
+        .legend label {
+            line-height: 19px;
+            display: block;
+            margin: 6px 0;
+            margin-top: 35%;
+        }
+
+        .legend .text-big img {
+            margin-top: 30%;
+        }
+
+        .custom-view-btn {
+            font-size: .8rem;
+            padding: .85rem 2.13rem;
+            margin: 0;
+            border-radius: 10px;
+            width: 100%;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border: 0;
+            margin-top: 5%;
+            margin-left: -3%;
+            -webkit-transition: .2s ease-out;
+            transition: .2s ease-out;
+            text-transform: uppercase;
+            white-space: normal !important;
+            cursor: pointer;
+        }
+    }
+
+    .row:nth-child(1) > .col-md-12 .row .pad-28 > seatsselect:nth-child(5) {
+        margin-left: -2%;
+    }
+</style>
+<div ng-controller="select_bus as vm">
+    <section class="main3  z-depth-1-half">
+        <!--Double navigation-->
+        <header class="">
+            <!-- Sidebar navigation -->
+            <ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="/">
+                            <img src="/img/gigm-logo.png" class="img-fluid flex-center">
+                        </a>
+                    </div>
+                </li>
+                <!--/. Logo -->
+                <!--Social-->
+                <li>
+                    <ul class="social">
+                        <li>
+                            <a class="openapp icons-sm fb-ic" data-id="217054755026942">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+                                <i class="fa fa-instagram"> </i>
+                            </a>
+                        </li>
+                        @*<li>
+                                <a class="icons-sm gplus-ic">
+                                    <i class="fa fa-google-plus"> </i>
+                                </a>
+                            </li>*@
+                        <li>
+                            <a class="opentwitter icons-sm tw-ic">
+                                <i class="fa fa-twitter"> </i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--/Social-->
+                <!--Search Form-->
+                <!-- <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group waves-light">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </li> -->
+                <!--/.Search Form-->
+                <!-- Side navigation links -->
+                <li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                                <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                            </a>
+                        </li>
+                        @{
+                            Html.RenderPartial("Profile");
+                        }
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-phone"></i> Contact us
+                                <i class="fa fa-angle-down rotate-icon"></i>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="/Pages/Faq" class="waves-effect">FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:08139851110" class="waves-effect">Call us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+                <div class="sidenav-bg mask-strong"></div>
+            </ul>
+            <!--/. Sidebar navigation -->
+            <!-- Navbar -->
+            <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+                <!-- SideNav slide-out button -->
+                <div class="paddo" style="">
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="fa fa-bars" style="color:white"></i>
+                    </a>
+
+                </div>
+
+                <div class="middle" style="">
+                    <h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+                    <h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">SIGN IN / SIGN UP</h5>
+                </div>
+                <div class="text-right">
+                    <a href="javascript:history.back()" class="button-collapse2">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- /.Navbar -->
+        </header>
+        <!--/.Double navigation-->
+        <!--Main Layout-->
+
+        <main style="">
+            <div id="header2" class="container-fluid" style="">
+
+                <div class="container-fluid departure-trip" id="main-selected">
+
+                    <div id="selected2" class="row" style="margin-left:5%;">
+
+
+                        <div class="col">
+                            <span ng-if="!vm.isArrival" class="selected">{{vm.tripDetails.Departures[0].RouteName.split('==>')[0].replace("(","").replace(")","")}}</span>
+                            <span ng-if="vm.isArrival" class="selected">{{vm.tripDetails.Arrivals[0].RouteName.split('==>')[0].replace("(","").replace(")","")}}</span>
+                        </div>
+                        <div class="col" style="">
+                            <img src="../img/minivan-facing-right.png" class="img-custom-size ">
+                        </div>
+
+
+                        <div class="col ">
+                            <span ng-if="!vm.isArrival" class="selected">{{vm.tripDetails.Departures[1].RouteName.split('==>')[1].replace("(","").replace(")","")}}</span>
+                            <span ng-if="vm.isArrival" class="selected">{{vm.tripDetails.Arrivals[1].RouteName.split('==>')[1].replace("(","").replace(")","")}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center edit2" style="padding-top:3%;">
+                        <div class="col-4 ml-auto">
+                            <span class="selected"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span ng-if="!vm.isArrival" class="selected-small">{{vm.tripDetails.Departures[0].DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+                            <span ng-if="vm.isArrival" class="selected-small">{{vm.tripDetails.Arrivals[0].DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <span class="selected-small">{{vm.maxPax}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected">  <i class="fa fa-bus" aria-hidden="true"></i></span>
+                            <span class="selected-small" ng-if="!vm.isArrival">{{vm.tripDetails.Departures.length}}</span>
+                            <span class="selected-small" ng-if="vm.isArrival">{{vm.tripDetails.Arrivals.length}}</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="container-fluid transit-departure-trip" id="main-selected">
+
+                    <div id="selected2" class="row" style="margin-left:5%;">
+
+
+                        <div class="col">
+                            <span ng-if="!vm.isArrival" class="selected">{{vm.tripDetails.Departures[0].RouteName.split('==>')[0].replace("(","").replace(")","")}}</span>
+                            <span ng-if="vm.isArrival" class="selected">{{vm.tripDetails.Arrivals[0].RouteName.split('==>')[0].replace("(","").replace(")","")}}</span>
+                        </div>
+                        <div class="col" style="">
+                            <img src="../img/minivan-facing-right.png" class="img-custom-size ">
+                        </div>
+
+
+                        <div class="col ">
+                            <span ng-if="!vm.isArrival" class="selected">{{vm.tripDetails.Departures[1].RouteName.split('==>')[1].replace("(","").replace(")","")}}</span>
+                            <span ng-if="vm.isArrival" class="selected">{{vm.tripDetails.Arrivals[1].RouteName.split('==>')[1].replace("(","").replace(")","")}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center edit2" style="padding-top:3%;">
+                        <div class="col-4 ml-auto">
+                            <span class="selected"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span ng-if="!vm.isArrival" class="selected-small">{{vm.tripDetails.Departures[0].DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+                            <span ng-if="vm.isArrival" class="selected-small">{{vm.tripDetails.Arrivals[0].DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <span class="selected-small">{{vm.maxPax}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected">  <i class="fa fa-bus" aria-hidden="true"></i></span>
+                            <span class="selected-small" ng-if="!vm.isArrival">{{vm.tripDetails.Departures.length}}</span>
+                            <span class="selected-small" ng-if="vm.isArrival">{{vm.tripDetails.Arrivals.length}}</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="container-fluid arrival-trip" id="main-selected" style="display:none">
+
+                    <div id="selected2" class="row" style="margin-left:5%;">
+
+
+                        <div class="col">
+                            <span ng-if="true" class="selected">{{vm.tripDetails.Arrivals[0].RouteName.split('==>')[0].replace("(","").replace(")","")}}</span>
+                        </div>
+                        <div class="col" style="">
+                            <img src="../img/minivan-facing-right.png" class="img-custom-size ">
+                        </div>
+
+                        <div class="col ">
+                            <span ng-if="true" class="selected">{{vm.tripDetails.Arrivals[1].RouteName.split('==>')[1].replace("(","").replace(")","")}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center edit2" style="padding-top:3%;">
+                        <div class="col-4 ml-auto">
+                            <span class="selected"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span ng-if="true" class="selected-small">{{vm.tripDetails.Arrivals[0].DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <span class="selected-small">{{vm.maxPax}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected">  <i class="fa fa-bus" aria-hidden="true"></i></span>
+                            <span class="selected-small" ng-if="true">{{vm.tripDetails.Arrivals.length}}</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="container-fluid transit-arrival-trip" id="main-selected" style="display:none">
+
+                    <div id="selected2" class="row" style="margin-left:5%;">
+
+
+                        <div class="col">
+                            <span ng-if="true" class="selected">{{vm.tripDetails.Arrivals[0].RouteName.split('==>')[0].replace("(","").replace(")","")}}</span>
+                        </div>
+                        <div class="col" style="">
+                            <img src="../img/minivan-facing-right.png" class="img-custom-size ">
+                        </div>
+
+                        <div class="col ">
+                            <span ng-if="true" class="selected">{{vm.tripDetails.Arrivals[1].RouteName.split('==>')[1].replace("(","").replace(")","")}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center edit2" style="padding-top:3%;">
+                        <div class="col-4 ml-auto">
+                            <span class="selected"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span ng-if="true" class="selected-small">{{vm.tripDetails.Arrivals[0].DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <span class="selected-small">{{vm.maxPax}}</span>
+                        </div>
+
+                        <div class="col-3 ">
+                            <span class="selected">  <i class="fa fa-bus" aria-hidden="true"></i></span>
+                            <span class="selected-small" ng-if="true">{{vm.tripDetails.Arrivals.length}}</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- <div style="height: 2000px"></div> -->
+            </div>
+        </main>
+    </section>
+
+    <section id="form3" ng-controller="select_bus as vm">
+
+        <div class="container" id="departure">
+
+            <div class="row" ng-repeat="trip in vm.tripDetails.Departures">
+
+
+
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <!-- <div class="view overlay hm-white-slight">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/food.jpg" class="img-fluid" alt="">
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div> -->
+                    <!--/.Card image-->
+                    <!--Button-->
+                    <!-- <a class="btn-floating btn-action"><i class="fa fa-chevron-right"></i></a> -->
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+
+                        <div class="row">
+                            <h4 class="card-title chip ml-1" style="background:white">
+                                AC
+                            </h4>
+                            <h4 class="card-title chip ml-1" style="background:white" ng-show="trip.HasPickup">
+                                Pick Up
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white" ng-show="vm.hasMoreLegRoom(trip.DisplayBusTypeName)">
+                                More Leg Room
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white">
+                                {{trip.VehicleName.split(' ')[1].replace('(','').replace(')','')}}
+                            </h4>
+                        </div>
+
+                        <!-- <hr> -->
+                        <!--Text-->
+                        <article class="card-text" style="box-sizing:border-box">
+
+                            <article class="row" id="busimagecenter">
+                                <div class="col-6">
+                                    <img src="../img/{{trip.DisplayBusTypeName}}.png" style="max-width:100%;" class="img-responsive">
+                                </div>
+                                <div class="col-4" ng-if="rvm.isLoggedIn">
+                                    <small style="margin-left:35%;   text-decoration: line-through; color:red">  {{vm.currency}}{{trip.FarePrice | number : 0}}</small>
+                                    <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{trip.MemberFare | number : 0}}</p>
+                                </div>
+                                <div class="col-4" ng-if="!rvm.isLoggedIn">
+                                    <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.FarePrice | number : 0}}</p>
+                                </div>
+
+                            </article>
+                        </article>
+                    </div>
+                    <!--/.Card content-->
+                    <!-- Card footer -->
+                    <div class="card-data">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i> {{trip.DepartureTime}}</li>
+                            <li>{{trip.AvailableNumberOfSeats}} seat(s) available</li>
+                            <li><button id="flip" class="btn btn-danger btn-rounded" ng-click="vm.viewSeats($index,0)">View Seats</button></li>
+                            <!-- <li><a href="#"><i class="fa fa-twitter"> </i>5</a></li> -->
+                        </ul>
+                    </div>
+                    <!-- Card footer -->
+                    <div id="panel{{$index + 1}}" class="panel">
+                        <!--Start Panel-->
+                        <div class="row down-20 add-pad-mobile" style="float: left; " id="XXXXX" ng-class="{'jet':trip.VehicleName.indexOf('Jet Prime XL') != -1}">
+                            <div class="col-sm-12 down-20">
+                                <span class="text-big"><span class="icon-seat"></span>Select Seat</span>
+
+                            </div>
+                            <div class="col-sm-5 col-sm-offset-1 col-xs-12 pad-15 margin-left-10 on-mobile-rotate">
+                                <div class="add-pad-left bus-back">
+                                    <bus-seats busindex="{{$index}}" seatsarray="{{trip.AvailableSeats}}" max="{{vm.maxPax}}" height="{{trip.seatheight}}" width="{{trip.seatweight}}" uselinear="true" totalnoofseats="{{trip.AvailableNumberOfSeats}}" seatcapacity="{{trip.TotalNumberOfSeats}}">
+                                    </bus-seats>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-2 col-xs-12 col-xs-10">
+
+                                <div class="col-sm-12 col-xs-12 pull-right">
+                                    <div class="legend pull-right row">
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat bookable"></span>*@
+                                                <img src="/img/avail.png" />
+                                                <span class="hidden-xs">Available Seat</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                <img src="/img/selected.png" />
+                                                <span class="hidden-xs">Selected  Seat</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat booked"></span>*@
+                                                <img src="/img/booked.png" />
+                                                <span class="hidden-xs">Booked Seat</span>
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="row text-center pad-15">
+                                    <Button ID="lnkbook" class="btn btn-danger custom-view-btn  red-background" ng-click="vm.continue($index, trip,0)">Continue</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End Panel-->
+                </div>
+                <!--/.Card-->
+            </div>
+
+        </div><!--End  Departure-->
+
+        <div class="container" id="transit-departure">
+
+            <div class="row" ng-repeat="trip in vm.tripDetails.Departures">
+
+
+
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <!-- <div class="view overlay hm-white-slight">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/food.jpg" class="img-fluid" alt="">
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div> -->
+                    <!--/.Card image-->
+                    <!--Button-->
+                    <!-- <a class="btn-floating btn-action"><i class="fa fa-chevron-right"></i></a> -->
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+
+                        <div class="row">
+                            <h4 class="card-title chip ml-1" style="background:white">
+                                AC
+                            </h4>
+                            <h4 class="card-title chip ml-1" style="background:white" ng-show="trip.HasPickup">
+                                Pick Up
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white" ng-show="vm.hasMoreLegRoom(trip.DisplayBusTypeName)">
+                                More Leg Room
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white">
+                                {{trip.VehicleName.split(' ')[1].replace('(','').replace(')','')}}
+                            </h4>
+                        </div>
+
+                        <!-- <hr> -->
+                        <!--Text-->
+                        <article class="card-text" style="box-sizing:border-box">
+
+                            <article class="row" id="busimagecenter">
+                                <div class="col-6">
+                                    <img src="../img/{{trip.DisplayBusTypeName}}.png" style="max-width:100%;" class="img-responsive">
+                                </div>
+                                <div class="col-4" ng-if="rvm.isLoggedIn">
+                                    <small style="margin-left:35%;   text-decoration: line-through; color:red">  {{vm.currency}}{{trip.FarePrice | number : 0}}</small>
+                                    <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.MemberFare | number : 0}}</p>
+                                </div>
+                                <div class="col-4" ng-if="!rvm.isLoggedIn">
+                                    <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.FarePrice | number : 0}}</p>
+                                </div>
+
+                            </article>
+                        </article>
+                    </div>
+                    <!--/.Card content-->
+                    <!-- Card footer -->
+                    <div class="card-data">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i> {{trip.DepartureTime}}</li>
+                            <li>{{trip.AvailableNumberOfSeats}} seat(s) available</li>
+                            <li><button id="flip" class="btn btn-danger btn-rounded" ng-click="vm.viewSeats($index,0)">View Seats</button></li>
+                            <!-- <li><a href="#"><i class="fa fa-twitter"> </i>5</a></li> -->
+                        </ul>
+                    </div>
+                    <!-- Card footer -->
+                    <div id="panel{{$index + 1}}" class="panel">
+                        <!--Start Panel-->
+                        <div class="row down-20 add-pad-mobile" style="float: left; " id="XXXXX" ng-class="{'jet':trip.VehicleName.indexOf('Jet Prime XL') != -1}">
+                            <div class="col-sm-12 down-20">
+                                <span class="text-big"><span class="icon-seat"></span>Select Seat</span>
+
+                            </div>
+                            <div class="col-sm-5 col-sm-offset-1 col-xs-12 pad-15 margin-left-10 on-mobile-rotate">
+                                <div class="add-pad-left bus-back">
+                                    <bus-seats busindex="{{$index}}" seatsarray="{{trip.AvailableSeats}}" max="{{vm.maxPax}}" height="{{trip.seatheight}}" width="{{trip.seatweight}}" uselinear="true" totalnoofseats="{{trip.AvailableNumberOfSeats}}" seatcapacity="{{trip.TotalNumberOfSeats}}">
+                                    </bus-seats>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-2 col-xs-12 col-xs-10">
+
+                                <div class="col-sm-12 col-xs-12 pull-right">
+                                    <div class="legend pull-right row">
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat bookable"></span>*@
+                                                <img src="/img/avail.png" />
+                                                <span class="hidden-xs">Available Seat</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                <img src="/img/selected.png" />
+                                                <span class="hidden-xs">Selected  Seat</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat booked"></span>*@
+                                                <img src="/img/booked.png" />
+                                                <span class="hidden-xs">Booked Seat</span>
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="row text-center pad-15">
+                                    <Button ID="lnkbook" class="btn btn-danger custom-view-btn  red-background" ng-click="vm.continue($index, trip,0)">Continue</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End Panel-->
+                </div>
+                <!--/.Card-->
+            </div>
+
+        </div><!--End Transit Departure-->
+
+        <div class="container" id="arrival">
+            <!--Start Arrival -->
+            <h5 align="center" style="color:red;display:none">Return Trip</h5>
+            <div class="row" ng-repeat="trip in vm.tripDetails.Arrivals">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <!-- <div class="view overlay hm-white-slight">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/food.jpg" class="img-fluid" alt="">
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div> -->
+                    <!--/.Card image-->
+                    <!--Button-->
+                    <!-- <a class="btn-floating btn-action"><i class="fa fa-chevron-right"></i></a> -->
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <div class="row">
+                            <h4 class="card-title chip ml-1" style="background:white">
+                                AC
+                            </h4>
+                            <h4 class="card-title chip ml-1" style="background:white" ng-show="trip.HasPickup">
+                                Pick Up
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white" ng-show="vm.hasMoreLegRoom(trip.DisplayBusTypeName)">
+                                More Leg Room
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white">
+                                {{trip.VehicleName.split(' ')[1].replace('(','').replace(')','')}}
+                            </h4>
+                            <div class="col-4 ml-auto edit" ng-if="rvm.isLoggedIn">
+                                <small style="margin-left:35%; text-decoration: line-through; color:red">  {{vm.currency}}{{trip.FarePrice | number : 0}}</small>
+                                <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.MemberFare | number : 0}}</p>
+                            </div>
+                            <div class="col-4 ml-auto edit" ng-if="!rvm.isLoggedIn">
+                                <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.FarePrice | number : 0}}</p>
+                            </div>
+                        </div>
+
+                        <!-- <hr> -->
+                        <!--Text-->
+                        <p class="card-text" style="box-sizing:border-box">
+
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="../img/{{trip.DisplayBusTypeName}}.png" style="max-width:100%;" class="img-responsive">
+                                </div>
+                                <div class="col-5 ">
+                                    <i class="fa fa-angle-double-left" style="font-size:48px;color:red"></i>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+
+                    <!--/.Card content-->
+                    <!-- Card footer -->
+                    <div class="card-data">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i> {{trip.DepartureTime}}</li>
+                            <li>{{trip.AvailableNumberOfSeats}} seat(s) available</li>
+                            <li><button id="flip" class="btn btn-danger btn-rounded" ng-click="vm.viewSeats($index,1)">View Seats</button></li>
+                            <!-- <li><a href="#"><i class="fa fa-twitter"> </i>5</a></li> -->
+                        </ul>
+                    </div>
+                    <!-- Card footer -->
+                    <div id="panel{{$index + 11}}" class="panel">
+                        <!--Start Panel-->
+                        <div class="row down-20 add-pad-mobile" style="float: left; " id="XXXXX">
+                            <div class="col-sm-12 down-20">
+                                <span class="text-big"><span class="icon-seat"></span>Select Seat</span>
+
+                            </div>
+                            <div class="col-sm-5 col-sm-offset-1 col-xs-12 pad-15 margin-left-10 on-mobile-rotate">
+                                <div class="add-pad-left bus-back">
+                                    <bus-seats busindex="{{$index + 11}}" seatsarray="{{trip.AvailableSeats}}" max="{{vm.maxPax}}" height="{{trip.seatheight}}" width="{{trip.seatweight}}" uselinear="true" totalnoofseats="{{trip.AvailableNumberOfSeats}}" seatcapacity="{{trip.TotalNumberOfSeats}}">
+                                    </bus-seats>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-2 col-xs-12 col-xs-10">
+
+                                <div class="col-sm-12 col-xs-12 pull-right">
+                                    <div class="legend pull-right row">
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat bookable"></span>*@
+                                                <img src="/img/avail.png" />
+                                                Available <span class="hidden-xs">Seat</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                <img src="/img/selected.png" />
+                                                Selected <span class="hidden-xs">Seat</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat booked"></span>*@
+                                                <img src="/img/booked.png" />
+                                                Booked <span class="hidden-xs">Seat</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="row text-center pad-15">
+                                    <Button ID="lnkbook" class="btn btn-danger custom-view-btn red-background" ng-click="vm.continue($index + 11, trip,1)">Continue</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End Panel-->
+                </div>
+                <!--/.Card-->
+            </div>
+
+        </div><!-- End Arrival -->
+
+        <div class="container" id="transit-arrival">
+            <!--Start Arrival -->
+            <h5 align="center" style="color:red;display:none">Return Trip</h5>
+            <div class="row" ng-repeat="trip in vm.tripDetails.Arrivals">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <!-- <div class="view overlay hm-white-slight">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/food.jpg" class="img-fluid" alt="">
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div> -->
+                    <!--/.Card image-->
+                    <!--Button-->
+                    <!-- <a class="btn-floating btn-action"><i class="fa fa-chevron-right"></i></a> -->
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <div class="row">
+                            <h4 class="card-title chip ml-1" style="background:white">
+                                AC
+                            </h4>
+                            <h4 class="card-title chip ml-1" style="background:white" ng-show="trip.HasPickup">
+                                Pick Up
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white" ng-show="vm.hasMoreLegRoom(trip.DisplayBusTypeName)">
+                                More Leg Room
+                            </h4>
+                            <h4 class="card-title chip ml-2" style="background:white">
+                                {{trip.VehicleName.split(' ')[1].replace('(','').replace(')','')}}
+                            </h4>
+                            <div class="col-4 ml-auto edit" ng-if="rvm.isLoggedIn">
+                                <small style="margin-left:35%; text-decoration: line-through; color:red">  {{vm.currency}}{{trip.FarePrice | number : 0}}</small>
+                                <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.MemberFare | number : 0}}</p>
+                            </div>
+                            <div class="col-4 ml-auto edit" ng-if="!rvm.isLoggedIn">
+                                <p style="margin-left:15%; font-weight:bold">  {{vm.currency}}{{trip.FarePrice | number : 0}}</p>
+                            </div>
+                        </div>
+
+                        <!-- <hr> -->
+                        <!--Text-->
+                        <p class="card-text" style="box-sizing:border-box">
+
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="../img/{{trip.DisplayBusTypeName}}.png" style="max-width:100%;" class="img-responsive">
+                                </div>
+                                <div class="col-5 ">
+                                    <i class="fa fa-angle-double-left" style="font-size:48px;color:red"></i>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+
+                    <!--/.Card content-->
+                    <!-- Card footer -->
+                    <div class="card-data">
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i> {{trip.DepartureTime}}</li>
+                            <li>{{trip.AvailableNumberOfSeats}} seat(s) available</li>
+                            <li><button id="flip" class="btn btn-danger btn-rounded" ng-click="vm.viewSeats($index,1)">View Seats</button></li>
+                            <!-- <li><a href="#"><i class="fa fa-twitter"> </i>5</a></li> -->
+                        </ul>
+                    </div>
+                    <!-- Card footer -->
+                    <div id="panel{{$index + 11}}" class="panel">
+                        <!--Start Panel-->
+                        <div class="row down-20 add-pad-mobile" style="float: left; " id="XXXXX">
+                            <div class="col-sm-12 down-20">
+                                <span class="text-big"><span class="icon-seat"></span>Select Seat</span>
+
+                            </div>
+                            <div class="col-sm-5 col-sm-offset-1 col-xs-12 pad-15 margin-left-10 on-mobile-rotate">
+                                <div class="add-pad-left bus-back">
+                                    <bus-seats busindex="{{$index + 11}}" seatsarray="{{trip.AvailableSeats}}" max="{{vm.maxPax}}" height="{{trip.seatheight}}" width="{{trip.seatweight}}" uselinear="true" totalnoofseats="{{trip.AvailableNumberOfSeats}}" seatcapacity="{{trip.TotalNumberOfSeats}}">
+                                    </bus-seats>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-2 col-xs-12 col-xs-10">
+
+                                <div class="col-sm-12 col-xs-12 pull-right">
+                                    <div class="legend pull-right row">
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat bookable"></span>*@
+                                                <img src="/img/avail.png" />
+                                                Available <span class="hidden-xs">Seat</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                <img src="/img/selected.png" />
+                                                Selected <span class="hidden-xs">Seat</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-12 col-4">
+                                            <label class="text-big small-mobile not-bold">
+                                                @*<span class="seat booked"></span>*@
+                                                <img src="/img/booked.png" />
+                                                Booked <span class="hidden-xs">Seat</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="row text-center pad-15">
+                                    <Button ID="lnkbook" class="btn btn-danger custom-view-btn red-background" ng-click="vm.continue($index + 11, trip,1)">Continue</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End Panel-->
+                </div>
+                <!--/.Card-->
+            </div>
+
+        </div><!--End Transit Arrival-->
+
+
+        <div id="rent_advert">
+            <a href="@Url.Action("HireBus", "Pages")"><img src="~/images/Rent_Banner_mobile.jpg" style="max-width: 100%; margin: auto;" /></a>
+        </div>
+
+
+
+        <div id="showModal" style="display:none" data-toggle="modal" data-target="#modalLRForm">click Me</div>
+
+        @*modal is here*@
+
+        <div class="modal fade show" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:none;padding-right: 17px;" ng-controller="login as vm">
+            <div class="modal-dialog cascading-modal modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+
+                    <!--Modal cascading tabs-->
+                    <div class="modal-c-tabs">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-2 red darken" role="tablist">
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab" aria-selected="true">
+                                    <i class="fa fa-user mr-1"></i> Login
+                                </a>
+                            </li>
+                            @*<li class="nav-item waves-effect waves-light">
+                                <a class="nav-link " data-toggle="tab" href="#panel8" role="tab" aria-selected="false">
+                                    <i class="fa fa-user-plus mr-1"></i> Register
+                                </a>
+                            </li>*@
+                        </ul>
+
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+                            <!--Panel 7-->
+                            <div class="tab-pane fade active show" id="panel7" role="tabpanel">
+
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+                                    <p class="save" ng-controller="select_bus as vvm">Save <span>{{vm.currency}}</span><span id="discount"></span> when you sign in</p>
+                                    <form name="loginForm">
+                                        <div class="md-form form-sm">
+                                            <i class="fa fa-envelope prefix"></i>
+                                            <input type="text" id="username1" class="form-control" name="username1" ng-model="vm.user.username" required>
+                                            <label for="username1">Your email or phone number</label>
+                                        </div>
+
+                                        <div class="md-form form-sm">
+                                            <i class="fa fa-lock prefix"></i>
+                                            <input type="password" id="password1" class="form-control" name="password1" ng-model="vm.user.password" required>
+                                            <label for="password1">Your password</label>
+                                        </div>
+                                        <div class="text-center mt-2">
+                                            <button class="btn btn-danger btn-rounded waves-effect waves-light" ng-click="vm.login()">
+                                                Log in
+                                                <i class="fa fa-sign-in ml-1"></i>
+                                            </button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-info">
+                                    <a class="button  red-text col2" href="@Url.Action("Passenger", "Pages")"><span>Continue without login</span></a>
+                                    <div class="col2 why">
+                                        <a class="button  mt-2 red-text">
+                                            Why Signup
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <ul class="messages">
+                                    <li>Get 5% Discount</li>
+                                    <li>Manage your booking</li>
+                                    <li>Get exclusive deals and special offers</li>
+                                </ul>
+                                <div class="modal-footer" style="display:block;">
+                                    <div class="options  pull-left ">
+                                        <!-- <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p> -->
+                                        <p>
+                                            @*Forgot*@
+                                            <a href="@Url.Action("SignUp", "Pages")" class="red-text">Signup</a>
+                                        </p>
+                                    </div>
+                                    <div class="options pull-right mt-1">
+                                        <!-- <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p> -->
+                                        <p>
+                                            Forgot
+                                            <a href="#" class="red-text">Password?</a>
+                                        </p>
+                                    </div>
+                                    <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button> -->
+                                </div>
+
+                            </div>
+                            <!--/.Panel 7-->
+                            <!--Panel 8-->
+                            <div class="tab-pane fade in show" id="panel8" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body">
+                                    <div class="md-form form-sm">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input type="text" id="form24" class="form-control">
+                                        <label for="form24">Your email</label>
+                                    </div>
+
+                                    <div class="md-form form-sm">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="form25" class="form-control">
+                                        <label for="form25">Your password</label>
+                                    </div>
+
+                                    <div class="md-form form-sm">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="form26" class="form-control">
+                                        <label for="form26">Repeat password</label>
+                                    </div>
+
+                                    <div class="text-center form-sm mt-2">
+                                        <button class="btn btn-danger waves-effect btn-rounded waves-light">
+                                            Sign up
+                                            <i class="fa fa-sign-in ml-1"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="container">
+                                        <div class="row">
+                                            <p class="col-12">
+                                                Already have an account?
+                                                <a href="#" class="red-text">Log In</a>
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <a type="button" href="index.html" class="btn-rounded col-12 btn btn-outline-danger waves-effect ml-auto">Continue without Login</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--/.Panel 8-->
+                        </div>
+
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        @*modal ends*@
+
+    </section>
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+</div>
+
+
+
+<script>
+        // SideNav init
+
+        //console.log($('.button-collapse'));
+
+
+        /*  $(document).ready(function () {
+              $(".button-collapse").sideNav();
+
+              // Custom scrollbar init
+              var el = document.querySelector('.custom-scrollbar');
+              console.log(el);
+              Ps.initialize(el);
+              $('.mdb-select').material_select();
+
+              $('.datepicker').pickadate();
+          });*/
+		//$().click(function () {
+		//	$("html, body").animate({ scrollTop: 0 }, "slow");
+		//	return false;
+		//});
+
+
+	$(".custom-view-btn ").click(function () {
+			$('html, body').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+
+	}); // click() scroll top EMD
+
+
+	$(document).ready(function () {
+	$(".seatsselect").click(function () {
+
+		var $this = $(this), text = $this.text();
+		console.log(text);
+
+		//if ($("text:contains('14')").length) {
+		//	$(".bus-selected").css("margin-left", "-15%");
+		//	console.log("got here");
+		//}
+
+	//	$("div.seatselect:contains('14')").css("margin-left", "-25%");
+
+	//	var spanContent = "14",
+    //spanElement = $("#seats > span:contains('" + spanContent + "')");
+
+	//	spanElement.css("color", "red");
+	});
+
+
+
+
+	});
+
+
+
+</script>

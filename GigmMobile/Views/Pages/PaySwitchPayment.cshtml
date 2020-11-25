@@ -1,0 +1,19 @@
+﻿
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '@Url.Action("PaySwitchPayment","Pages")',
+            type: "POST",
+            dataType: "html",
+            data: JSON.stringify(parameter),
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $("div.modal-content").empty();
+                $("div.modal-content").html(data);
+                $("#myModal").modal();
+            }
+        });
+        console.log( "ready!" );
+    });
+</script>

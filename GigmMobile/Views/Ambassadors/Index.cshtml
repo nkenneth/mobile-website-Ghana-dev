@@ -1,0 +1,223 @@
+﻿
+@{
+	ViewBag.Title = "GIGM AMBASSADORS";
+	Layout = "~/Views/Shared/_AmbassadorsLayout.cshtml";
+}
+
+<style>
+	.hamburger--spin .hamburger-inner {
+		display: none;
+	}
+
+	@@media (max-width: 769px) {
+		.splash-wrapper {
+			background-position: top;
+			/*background-size: cover;*/
+			background:linear-gradient(0deg, rgba(23, 22, 22, 0.7), rgba(16, 16, 16, 0.3)), url('../../AssetsAmbassadors/assets/img/bgd ambassador.jpg') no-repeat;
+			/*background: url('../../AssetsAmbassadors/assets/img/bgd ambassador.jpg') no-repeat;*/
+			background-size:cover;
+			background-position: top;
+			/*background: url('../../AssetsAmbassadors/assets/img/img-bg.png') no-repeat;*/
+		}
+		.splash-wrapper__content {
+			top: 20rem;
+		}
+	}
+
+	@@media (max-width: 1030px) and (min-width: 769px) {
+
+		.splash-wrapper__content p {
+			visibility: hidden;
+		}
+
+		.splash-wrapper__content h1 {
+			visibility: hidden;
+		}
+
+		.splash-wrapper__content {
+			right: 27rem !important;
+			top: 15rem;
+		}
+	}
+
+	@@media screen and (min-width: 1024px) and (max-width: 1366px) {
+
+
+
+		.splash-wrapper {
+			width: 100%;
+			height: 100vh;
+			/* background-position: 180% 30%; */
+			/* background-repeat: no-repeat; */
+			background-attachment: fixed;
+			background-position: top right;
+			background-size: 110%;
+			position: relative;
+			font-family: "Open Sans";
+		}
+
+		.splash-wrapper__content {
+			right: 5rem;
+		}
+
+			.splash-wrapper__content p {
+				margin: 1.5rem 0;
+				font-size: 1.4rem;
+				font-weight: 300;
+			}
+	}
+
+	@@media screen and (min-width: 1366px) and (max-width:1440px) {
+
+		.splash-wrapper {
+			background-position: 100% 30%;
+			background-size: 120%;
+			position: relative;
+			font-family: "Open Sans";
+		}
+
+		.splash-wrapper__content p {
+			margin: 1.5rem 0;
+			font-size: 1.4rem;
+			font-weight: 300;
+		}
+	}
+</style>
+<nav class="navbar">
+	<a href="#" class="navbar-brand">
+		<img src="~/AssetsAmbassadors/assets/img/gigm-logo.png" alt="GIGM Logo" />
+	</a>
+
+	<ul class="navbar-list" id="responsiveMenu">
+		<li class="navbar-items">
+			<a href="#">gigm experience</a>
+			<div class="dropdown-items">
+				<div class="dropdown-items__top">
+					<ul class="dropdown-items__top__list">
+						<h4>explore</h4>
+						<li>
+							<a href="https://gigm.com/Learning-Academy.aspx">learning academy</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Travels-Tours.aspx">tour packages</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Safety.aspx">travel safety</a>
+						</li>
+						<!-- <li><a href="#">campus direct</a></li> -->
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>more with gigm</h4>
+						<li>
+							<a href="https://gigm.com/hire-vehicle.aspx">bus hire</a>
+						</li>
+						<li><a href="https://gigm.com/#">priority services</a></li>
+						<li>
+							<a href="http://giglogistics.ng/">logistics platform</a>
+						</li>
+						<li>
+							<a href="http://mtest2.gigm.com/pages/campus">campus ambassador</a>
+						</li>
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>who we are</h4>
+						<li><a href="https://gigm.com/About-Us.aspx">about us</a></li>
+						<li><a href="https://gigm.com/Awards.aspx">awards</a></li>
+						<li><a href="https://gigm.com/Careers.aspx">careers</a></li>
+					</ul>
+				</div>
+				<div class="dropdown-items__bottom t-1"></div>
+			</div>
+		</li>
+		<li class="navbar-items">
+			<a href="https://gigm.com/pickupservice.aspx">pickup service</a>
+		</li>
+		<li class="navbar-items">
+			<a href="#"> quick information</a>
+			<div class="dropdown-items">
+				<div class="dropdown-items__top">
+					<ul class="dropdown-items__top__list">
+						<h4>customer service</h4>
+						<li><a href="https://gigm.com/Faq.aspx">FAQs</a></li>
+						<li>
+							<a href="https://gigm.com/Luggage-Allowance.aspx">luggage allowance</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Terms-and-Conditions.aspx">terms and conditions</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Customer-Care.aspx">customer care</a>
+						</li>
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>travel info</h4>
+						<li><a href="https://gigm.com/Terminals.aspx">terminals</a></li>
+						<!-- <li><a href="#">bus routes</a></li> -->
+						<!-- <li><a href="#">ticket details</a></li> -->
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>experience our app</h4>
+						<li>
+							<a href="https://gigm.com/gigm-mobile-app.aspx">get the mobile app</a>
+						</li>
+					</ul>
+				</div>
+				<div class="dropdown-items__bottom t-2"></div>
+			</div>
+		</li>
+		<li class="navbar-items">
+			<a href="https://gigm.com/enterprisepartners.aspx">become an enterprise partner</a>
+		</li>
+		<il class="navbar-buttons">
+			<!-- <button class="rewards">pickup rewards</button> -->
+			<button class="rewards rewards--flag">
+				<img src="~/AssetsAmbassadors/assets/img/nigeria.png" alt="Nigeria Flag" />
+				Nigeria
+			</button>
+		</il>
+		@*<li class="navbar-items navbar-items--avatar">
+				<a href="#" id="logout">
+					<i class="fas fa-user-circle"></i>
+					Login
+				</a>
+			</li>*@
+	</ul>
+	<div class="nav-toggler">
+		<button class="intl">
+			<img src="~/AssetsAmbassadors/assets/img/nigeria.png" alt="Nigeria Flag" />
+			Nigeria
+		</button>
+		<button class="hamburger hamburger--spin" type="button">
+			<span class="hamburger-box">
+				<span class="hamburger-inner"></span>
+			</span>
+		</button>
+	</div>
+</nav>
+
+<div class="splash-wrapper">
+	<div class="splash-wrapper__content">
+		<h1>Be part of the movement</h1>
+		<p>
+			GIGM your favourite transport platform is empowering Corp members/Students all over Nigeria through our Ambassador program.
+		</p>
+
+		<p>
+			Make money by referring a friend to download and use the GIGM App.
+		</p>
+
+		<p>
+			Become and Ambassador today.
+		</p>
+		@*<a href="@Url.Action("Login","Ambassadors")" class="">Ambassadors</a>*@
+		<a href="@Url.Action("Login","Ambassadors")" class="link">Click here to find out more<i class="fas fa-arrow-right"></i></a>
+	</div>
+</div>
+
+@*<script>
+		$(document).ready(function () {
+			$('.box').hide();
+		});
+</script>*@
+@*hi*@
+@*<script src="~/Views/Ambassadors/sw.js"></script>*@

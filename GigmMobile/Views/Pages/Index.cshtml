@@ -1,0 +1,483 @@
+﻿    @*<div ui-view></div>*@
+
+
+@*This is where spinner begins*@
+
+
+@if (Request.UserAgent.ToString().ToLower().Contains("opera mini") || Request.UserAgent.ToString().ToLower().Contains("uc"))
+{
+
+	<div class="old-browsers">
+		<img src="https://gigm.com/webassets/img/gigm-logo.png" />
+		<h2>Browser not currently supported!!!</h2>
+		<p>We are working on a lite version of our site and this will be available to use soon. <br> However, please use your default device browser or choose from any of the following browsers to begin your transaction. Thanks!</p>
+		<ul>
+			<li>
+				<a href="#">
+					<img src="https://kni-labs.github.io/old-browsers/img/chrome_128x128.png" alt="Google Chrome">
+					<p>Google Chrome</p>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="https://kni-labs.github.io/old-browsers/img/firefox_128x128.png" alt="Mozilla Firefox">
+					<p>Mozilla Firefox</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="#">
+					<img src="https://kni-labs.github.io/old-browsers/img/safari_128x128.png" alt="Safari">
+					<p>Safari</p>
+				</a>
+			</li>
+
+		</ul>
+	</div>
+
+}
+else
+{
+
+
+	<div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="false">
+		<img src="~/img/spinner.gif" class="img-fluid flex-center">
+	</div>
+	@*This is where the spinner ends*@
+
+
+
+	<div ng-controller="home as vm" ng-cloak>
+		<section class="main fixed-top z-depth-1-half">
+			<!--Double navigation-->
+			<header class="">
+				<ul id="slide-out" style="" class="side-nav fixed sn-bg-1 custom-scrollbar">
+					<!-- Logo -->
+					<li>
+						<div class="logo-wrapper waves-light">
+							<a href="/">
+								<img src="~/img/GLOGO.png" class="img-fluid flex-center">
+							</a>
+						</div>
+					</li>
+					<!--/. Logo -->
+					<!--Social-->
+					<li>
+						<ul class="social">
+							<li>
+								<a class="openapp icons-sm fb-ic" href="https://www.facebook.com/GIGMobility/" data-id="217054755026942">
+									<i class="fab fa-facebook" style="color:white;"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/gigmobility/?hl=en" class="icons-sm pin-ic">
+									<i class="fab fa-instagram" style="color:white;"> </i>
+								</a>
+							</li>
+							@*<li>
+									<a class="icons-sm gplus-ic">
+										<i class="fa fa-google-plus"> </i>
+									</a>
+								</li>*@
+							<li>
+								@*<a class="opentwitter icons-sm tw-ic">*@
+									<a href="https://twitter.com/gigmobility?lang=en" class="icons-sm tw-ic">
+										<i class="fab fa-twitter" style="color:white;"> </i>
+									</a>
+</li>
+						</ul>
+					</li>
+
+					<li id="links">
+                        <ul class="collapsible collapsible-accordion ">
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r" href="@Url.Action("Booking", "Pages")">
+                                    <i class="fas fa-bus"></i> Bus Booking
+                                    <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                                </a>
+
+                            </li>
+                            @{
+                                Html.RenderPartial("Profile");
+                            }
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r">
+                                    <i class="fa fa-phone"></i> Contact us
+                                    <i class="fa fa-angle-down rotate-icon"></i>
+                                </a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>
+                                            <a href="/Pages/Faq" class="waves-effect">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:08139851110" class="waves-effect">Call us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <!--/. Sidebar navigation -->
+                                <a href="@Url.Action("Terminals","Pages")" class="collapsible-header waves-effect arrow-r">
+                                    <i class="fas fa-info"></i> Bus Terminal info
+                                </a>
+                            </li>
+                            <li>
+                                <!--/. Sidebar navigation -->
+                                <a href="@Url.Action("Term","Pages")" style="height:100%" class="collapsible-header waves-effect arrow-r">
+                                    <i class="fas fa-info-circle" style="margin-right: 8px;"></i> Terms & Conditions
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index","Ambassadors")" class="">
+                                    <i class="fas fa-users" style="margin-right: 2px;"></i>	Ambassadors
+                                </a>
+                            </li>
+
+                            <li>
+                                <!--/. Sidebar navigation -->
+                                <a href="@Url.Action("Enterprise","Pages")" style="height:100%" class="collapsible-header waves-effect arrow-r">
+                                    <i class="fas fa-handshake" style="margin-right: 2px;"></i> Become An Enterprise <p style="margin-left:11.5%; margin-top: -5%;">Partner</p>
+                                </a>
+                            </li>
+
+                            <li>
+
+
+                                <!--/. Sidebar navigation -->
+                                <a href="@Url.Action("pickup","Pages")" style="height:100%;  margin-top: -10%;" class="collapsible-header waves-effect arrow-r">
+                                    <i class="fas fa-map-marker" style="margin-right: 8px; "></i> Pickup
+                                </a>
+                            </li>
+
+                            <!--Country change-->
+                            <li>
+                                <a class="collapsible-header waves-effect arrow-r">
+                                    <i class="fas fa-flag" style="color:white"></i> Change Country
+                                    <i class="fa fa-angle-down rotate-icon"></i>
+                                </a>
+                                <div class="collapsible-body" id="countrydropdown">
+                                    <ul>
+                                        <li>
+                                            <a ng-click="vm.changeCountryToNigeria(1)" class="waves-effect">Nigeria</a>
+                                        </li>
+                                        <li>
+                                            <a ng-click="vm.changeCountryToGhana(2)" class="waves-effect">Ghana</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+					</li>
+					<!--/. Side navigation links -->
+					<div class="sidenav-bg mask-strong"></div>
+				</ul>
+
+			</header>
+		</section>
+		<section class="main2 fixed-top ">
+			<!--Double navigation-->
+			<header class="">
+				<!-- Sidebar navigation -->
+				<!--/. Sidebar navigation -->
+				<!-- Navbar -->
+				<div class="click" style="height: 200px;  z-index: -1;"></div>
+				<nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+					<!-- SideNav slide-out button -->
+					<div class="paddo paddo2 row"  style="">
+						<a href="#" data-activates="slide-out" class="button-collapse col-1">
+							<i class="fa fa-bars" style="color:red"></i>
+						</a>
+						<a href="/" class="col-2">
+							<img src="~/img/GLOGO.png" class="img-cus img-responsive" style="max-width:100%;" />
+							@*<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-cus">*@
+						</a>
+
+						<button data-toggle="modal" data-target="#orangeModalSubscription2" type="button" style="background: white; border: none; padding: .5rem .75rem; padding-top: .46rem; padding-bottom: .46rem; margin-top: -.5%;" class="offset-sm-4 ml-auto btn btn-outline-info btn-rounded waves-effect">
+							
+							<img class="img-round nigeria-round" style="border-radius: 50%;width: 20px;height: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2000px-Flag_of_Nigeria.svg.png">
+							<img class="img-round ghana-round " style="border-radius: 50%;width: 20px; height: 20px; display:none; " src="https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg">
+
+							<i class="fa fa-angle-down" aria-hidden="true" style="font-size:1em; padding-left:1em; padding-top: .08em;"></i>
+
+						</button>
+					</div>
+					<!-- Breadcrumb-->
+					<!-- <div class="breadcrumb-dn mr-auto ">
+						<p>Material Design for Bootstrap</p>
+					</div> -->
+
+
+					@*<div class="middle2" style="">
+						<a href="/">
+							<img src="~/img/GLOGO.png"  class="img-cus"/>
+							@*<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-cus">
+						</a>
+					</div>*@
+
+					<div class="loginName">
+						<h5 class="text-left red text-white" style="" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+						@*<h5 class="text-left red text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">sign-in</h5>*@
+					</div>
+
+				</nav>
+
+				<!-- /.Navbar -->
+			</header>
+			<!--/.Double navigation-->
+			<!--Main Layout-->
+
+
+		</section>
+
+		<main id="mainGrid">
+
+
+			<div class="container position">
+				<div class="row">
+
+					<a class="col-6 text-center gray" href="@Url.Action("Booking", "Pages")">
+						<div class="col-12 padded" style="">
+							<img src="~/img/plane-copy1.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+						</div>
+						<div class="col-12 fonted" style="">Book a seat</div>
+					</a>
+					<div class="col-6 text-center waves-effect ">
+
+						<a href="@Url.Action("HireBus", "Pages")" style="color:black; text-decoration:none;">
+							<div class="col-12 padded" style="">
+								<img src="~/img/planecopy2.png" style="width:50%; margin:auto" class="img-fluid flex-center">
+							</div>
+							<div class="col-12 fonted" style=""> Rent a bus</div>
+
+						</a>
+					</div>
+					<div class="col-6 text-center waves-effect">
+						<a data-toggle="modal" data-target="#orangeModalSubscription" style="color:black; text-decoration:none; outline:none;">
+							<div class="col-12 padded" style="">
+								<img src="~/img/planecopy3.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+							</div>
+							<div class="col-12 fonted" style=""> Booking Status</div>
+						</a>
+
+					</div>
+					<div class="col-6 text-center gray">
+						<a href="@Url.Action("Schedule", "Pages")" style="color:black; text-decoration:none;">
+							<div class="col-12 padded" style="">
+								<img src="~/img/planecopy4.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+							</div>
+							<div class="col-12 fonted" style="">Schedule</div>
+							@*<a href="@Url.Action("Schedule", "Pages")" class="waves-effect">Schedule</a>*@
+
+						</a>
+					</div>
+					@*modal is called in the next line*@
+					<div class="col-6 text-center gray" data-toggle="modal" data-target="#modalLRForm" ng-if="!vm.isLoggedIn">
+						<div class="col-12 padded" style="" data-toggle="modal" data-target="#modalLRForm">
+							<img src="~/img/planecopy5.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+						</div> 
+						<div class="col-12 fonted" style=""> Login / Sign up</div>
+					</div>
+
+					<div class="col-6 text-center gray" ng-if="vm.isLoggedIn">
+						<div ng-click="vm.logout()">
+							<div class="col-12 padded" style="">
+								<img src="~/img/planecopy5.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+							</div>
+							<div class="col-12 fonted" style="">Logout</div>
+						</div>
+					</div>
+
+					<div class="col-6 text-center waves-effect">
+
+						<a href="@Url.Action("Enterprise", "Pages")">
+							<div class="col-12 padded">
+								<img src="~/img/planecopy6.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+							</div>
+							<div class="col-12 fonted" style="color:black"> Become a Partner</div>
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+
+
+			@{
+				Html.RenderPartial("AuthModal");
+			}
+
+
+		</main>
+		<!--Main Layout-->
+
+		<div class="modal fade show" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-notify modal-danger" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<h4 class="modal-title white-text w-100 font-bold py-2">Booking Status</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<form name="bookingStausForm" novalidate>
+						<!--Body-->
+						<div class="modal-body">
+
+
+							<div class="md-form">
+								<i class="fa fa-key prefix grey-text"></i>
+								<input type="text" id="refcode" class="form-control validate" ng-model="vm.refcode" required>
+								<label data-error="wrong" data-success="" for="refcode">Enter ref code</label>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="modal-footer justify-content-center">
+							<button ng-click="vm.checkStatus()" class="btn btn-outline-secondary-modal waves-effect" ng-disabled="!bookingStausForm.$valid">
+								Check Status
+								@*<i class="fa fa-paper-plane-o ml-1"></i>*@
+							</button>
+						</div>
+					</form>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+
+		<div class="modal fade show" id="orangeModalSubscription2"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-notify modal-danger" role="document">
+				<!--Content-->
+				<div class="modal-content" style="padding: 2em;">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<h5 class="modal-title white-text w-100 font-bold py-2">Change country</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					
+						<!--Body-->
+						<div class="modal-body">
+
+
+							<div class="md-form">
+								<img class="img-round" style="border-radius: 50%; width: 20px;height: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2000px-Flag_of_Nigeria.svg.png">
+								<text ng-click="vm.changeCountryToNigeria(1)" class="waves-effect" style="padding-left:2em" id="nigeria">Nigeria</text>
+
+</div>
+							<hr/>
+							<div class="md-form">
+								<img class="img-round" style="border-radius: 50%; width: 20px;height: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg">
+								<text ng-click="vm.changeCountryToGhana(2)" class="waves-effect" style="padding-left:2em" id="ghana">Ghana</text>
+							</div>
+						</div>
+
+						<!--Footer-->
+				
+				
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+			<img src="~/img/spinner.gif" class="img-fluid flex-center">
+		</div>
+
+	</div>
+
+			}
+
+<script>
+	//alert("Welcome index");
+	//self.addEventListener('activate', function (event) {
+	//	event.waitUntil(
+	//	  caches.keys().then(function (preCacheNames) {
+	//	  	return Promise.all(
+	//		  preCacheNames.filter(function (preCacheName) {
+	//		  	// Return true if you want to remove this cache,
+	//		  	// but remember that caches are shared across
+	//		  	// the whole origin
+	//		  }).map(function (preCacheName) {
+	//		  	return caches.delete(preCacheName);
+	//		  	return caches.delete(preCacheFiles);
+	//		  })
+	//		);
+	//	  })
+	//	);
+	////});
+	//$(body).hide();
+	console.log("This is me" );
+
+	$.getJSON('http://jsonip.com/?callback=?', function (r) {
+
+
+
+		console.log(r.ip);
+
+		var ip1 = r.ip;
+		console.log(ip1 + "got here");
+		localStorage.setItem("ip", ip1);
+
+
+		var ip = localStorage.getItem("ip");
+		console.log(ip + "got here too");
+		// the request will be to http://www.geoplugin.net/json.gp?ip=my.ip.number but we need to avoid the cors issue, and we use cors-anywhere api.
+
+
+		// set endpoint and your access key
+		var access_key = '21ac44c187219f932764ffd4dde9c2f7';
+
+		// get the API result via jQuery.ajax
+		$.ajax({
+			url: 'https://api.ipstack.com/' + ip + '?access_key=' + access_key,
+			dataType: 'jsonp',
+			success: function (json) {
+
+				// output the "capital" object inside "location"
+				//alert(json.country_code);
+				console.log("inside oh" + json.country_code);
+				//	var flag = null;
+				console.log(localStorage.getItem("flager"));
+
+				localStorage.setItem("countryCoder", json.country_code);
+
+				if (localStorage.getItem("countryCoder") === "GH" ) {
+						$('.ghana-round').show();
+						$('.nigeria-round').hide();
+
+				}
+				else {
+					$('.ghana-round').hide();
+					$('.nigeria-round').show();
+				}
+		
+			}
+		});
+	});
+
+
+
+	//if ($localstorage.getObject('countrycode') == "NG") {
+
+	//	$('.ghana-round').show();
+	//	$('.nigeria-round').hide();
+	//}
+	//$http.get("https://geoip-db.com/json/").then(function (response) {
+	//	vm.geoApi = response.data.country_code;
+	//	vm.countrycode = vm.geoApi;
+	//	$localstorage.setObject("countrycode", vm.countrycode);
+	//	$localstorage.removeItem("iSCountryDropDown");
+	//	if ($localstorage.getObject('countrycode') == "NG") {
+
+	//		$('.ghana-round').show();
+	//		$('.nigeria-round').hide();
+	//	}
+	//	//$(body).show();
+	//});
+
+
+</script>

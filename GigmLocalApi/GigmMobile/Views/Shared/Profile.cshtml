@@ -1,0 +1,33 @@
+﻿<li>
+     <a class="collapsible-header waves-effect arrow-r" href="@Url.Action("Schedule", "Pages")">
+		<i class="fa fa-clock-o" aria-hidden="true"></i>View Schedule
+    </a>
+</li>
+<li>
+    <a class="collapsible-header waves-effect arrow-r">
+		<i class="fa fa-user" aria-hidden="true"></i> My Profile
+        <i class="fa fa-angle-down rotate-icon"></i>
+    </a>
+    <div class="collapsible-body">
+        <ul>
+            <li ng-if="!rvm.isLoggedIn">
+                <a href="#" class="waves-effect" data-toggle="modal" data-target="#modalLRForm">Login</a>
+            </li>
+            <li ng-if="!rvm.isLoggedIn">
+                <a href="@Url.Action("SignUp", "Pages")" class="waves-effect">Signup</a>
+            </li>
+            <li ng-if="rvm.isLoggedIn">
+                <a href="" ng-click="rvm.logout()" class="waves-effect">Log Out</a>
+            </li>
+            <li ng-if="false">
+                <a href="@Url.Action("Schedule", "Pages")" class="waves-effect">Schedule</a>
+            </li>
+            <li ng-if="rvm.isLoggedIn">
+                <a class="collapsible-header waves-effect arrow-r" ng-click="rvm.getHistory()">
+                    <i class="fa fa-hand-pointer-o"></i> My Bookings History
+                    @*<i class="fa fa-angle-down rotate-icon"></i>*@
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>

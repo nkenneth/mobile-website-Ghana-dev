@@ -1,0 +1,120 @@
+﻿	.card {
+		    padding: 5%;
+    margin-bottom: 2%;
+	}
+	.collapsed {
+		font-size: .8em;
+	}
+	a {
+    color: #2e2e2e;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8em;
+}
+	a:focus, a:hover {
+    text-decoration: none;
+    font-size: .8em;
+}
+
+	a:hover {
+    color: #ce3333;
+    text-decoration: underline;
+}
+
+	.tw-ic {
+		color: black !important;
+	}
+
+		.tw-ic i {
+			margin-left: 5%;
+		}
+
+		.tw-ic i:before {
+    /*content: "\f003";*/
+    padding-right: 5px;
+}
+
+.peach-gradient {
+    /*background: -webkit-linear-gradient(50deg,#FFD86F,#FC6262);*/
+        background: linear-gradient(40deg,#EF3A37,#e23d41) !important;
+}
+
+	.fa-search:before {
+		content: "\f002";
+		/* margin-right: 10px; */
+		margin: 10px;
+	}
+
+	.card.card-cascade {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+	.custom-search-account {
+    position: absolute!important;
+    margin-top: -15%;
+    right: 2%;
+    color: #a7a6a6;
+}
+
+	.custom-md-form {
+		margin: auto;
+		width: 80%;
+		margin-top: 5%;
+	
+	}
+.download-app a.appicon.app_and {
+    background: url(../img/google-play-store.png);
+    /*margin-right: 15px;*/
+	background-repeat: no-repeat;
+	    width: 50%;
+    height: 50px;
+    display: block;
+
+}
+
+.app-list li{
+    font-size: 18px;
+    font-weight: 500;
+	list-style:none;
+    padding: 10px 0;
+    /*letter-spacing: 1px;*/
+	    font-family: "Montserrat", sans-serif !important;
+}
+
+.app-img img {
+	width: 100%;
+	margin: auto;
+}
+
+.download-app {
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.download-app a.appicon.app_ios {
+    background: url(../img/ios-app-store.png);
+	background-repeat: no-repeat;
+
+	    width: 50%;
+    height: 50px;
+    display: block;
+}
+
+.header-intro h3 {
+
+
+	font-size: 1.2em;
+    padding-top: 2em;
+    font-weight: bold;
+
+
+    line-height: 28px;
+    margin-bottom: 30px;
+	color: #EF3A37;
+}
+
+.app-list ul {
+	padding: 0;
+}

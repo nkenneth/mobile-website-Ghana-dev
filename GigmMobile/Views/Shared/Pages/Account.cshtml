@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+}
+
+<style>
+
+	.middle {
+    padding-top: 5.8%!important;
+    margin: auto auto auto 22%;
+}
+	.content {
+		display: flex;
+	}
+		.content div {
+			flex: 1;
+			text-align:center;
+		}
+</style>
+<section class="main4  z-depth-1-half">
+	<!--Double navigation-->
+	<header class="">
+		<!-- Sidebar navigation -->
+		<ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+			<!-- Logo -->
+			<li>
+				<div class="logo-wrapper waves-light">
+					<a href="@Url.Action("Home", "Pages")">
+						<img src="/img/gigm-logo.png" class="img-fluid flex-center">
+					</a>
+				</div>
+			</li>
+			<!--/. Logo -->
+			<!--Social-->
+			<li>
+				<ul class="social">
+					<li>
+						<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+							<i class="fa fa-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+							<i class="fa fa-instagram"> </i>
+						</a>
+					</li>
+					@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+					<li>
+						<a class="opentwitter icons-sm tw-ic">
+							<i class="fa fa-twitter"> </i>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li id="links">
+                <ul class="collapsible collapsible-accordion ">
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r" href="/">
+                            <i class="fa fa-home"></i> Home
+                            <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                        </a>
+                    </li>
+                    @{
+        Html.RenderPartial("Profile");
+                    }
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-phone"></i> Contact us
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+								</li>
+								<li>
+									<a href="tel:08139851110" class="waves-effect">Call us</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+                    <li>
+                        <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                            <i class="fa fa-info"></i> Bus Terminal info
+                        </a>
+                    </li>
+                </ul>
+			</li>
+			<!--/. Side navigation links -->
+			<div class="sidenav-bg mask-strong"></div>
+		</ul>
+		<!--/. Sidebar navigation -->
+		<!-- Navbar -->
+        <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+            <!-- SideNav slide-out button -->
+            <div class=" paddo" style="">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="fa fa-bars" style="color:white"></i>
+                </a>
+
+            </div>
+
+
+            <div class="middle" style="">
+                <h5 class="text-left text-white" ng-if="rvm.isLoggedIn">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+                <h5 class="text-left red text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">sign-in</h5>
+            </div>
+            <div class="text-right">
+                <a href="javascript:history.back()" class="button-collapse2">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+            </div>
+        </nav>
+
+		<!-- /.Navbar -->
+	</header>
+
+	<main style="">
+		<div id="header2" class=" pushers2 container-fluid " style="padding-top: 3%">
+
+		</div>
+
+
+
+	</main>
+</section>
+
+
+<section ng-controller="home as vm"  ng-cloak>
+    <content>
+        @*<a align="center" href="/">Home</a>*@
+        <div class="content-container">
+            <div class="history-name">
+                @*<h4>Welcome, {{vm.user.FirstName}}</h4>*@
+                <h6><i class="fa fa-phone"></i> {{vm.user.PhoneNumber}}  </h6>
+                <h6><i class="fa fa-envelope-o"></i> {{vm.user.Email}}</h6>
+            </div>
+        </div>
+        <hr/> 
+        <div class="content-container">
+            @*<h4 align="center">Booking History</h4>*@
+            <div class="col-12 search-custom">
+                @*<div class="md-form form-group">
+                    <p>Tickets Page: {{ vm.currentPage }}</p>
+                </div>*@
+                <div class="md-form form-group">
+
+                    <label for="search">Search for booking:</label>
+                    <input type="text" ng-model="vm.q" id="search" class="form-control">
+					<i class="fa fa-search custom-search-account"></i>
+                </div>
+                @*<div class="md-form form-group">
+                    <label for="perPage">tickets per page:</label>
+                    <input type="number" min="1" id="perPage" max="100" class="form-control" ng-model="vm.pageSize">
+                </div>*@
+            </div>
+            <div dir-paginate="booking in vm.bookings | filter:vm.q | itemsPerPage: vm.pageSize" current-page="vm.currentPage">
+                <div class="card" style="width:95%; margin: auto; margin-bottom:4%;">
+                    <div class="card-body">
+                        <!--Title-->
+                        <h5 class="card-title history-title">
+                            {{booking.RouteName}}
+                            @*<i ng-if="booking.BookingStatus == 1" class="fa fa-check-circle success" aria-hidden="true"></i>
+                <i ng-if="booking.BookingStatus !== 1" class="fa fa-times-circle fail" aria-hidden="true"></i>*@
+                        </h5>
+                        <hr>
+                        <div class="content">
+                            <div><i class="fa fa-ticket pr-1" style="font-size:150%;"></i> <br> {{booking.BookingReferenceCode}}</div>
+                            <div><i class="fa fa-hashtag  pr-1" style="font-size:150%;"></i> <br>₦{{booking.Amount | number}}</div>
+                            @*<div><i class="fa fa-hashtag  pr-1" style="font-size:150%;"></i> <br>₦{{booking.Discount | number}}</div>*@
+                        </div>
+                        <!--Text-->
+                        @*<p class="font-small grey-dark-text mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                    </div>
+                    <!--/.Card content-->
+                    <!-- Card footer -->
+                    <div class="mdb-color danger-3 text-center" style="background-color: #E23D41 !important;">
+                        <ul class="list-unstyled list-inline font-small mt-3">
+                            <li class="list-inline-item pr-2 white-text"><i class="fa fa-calendar  pr-1"></i>{{rvm.convertDate(booking.DepartureDate.split('T')[0])}}</li>
+                            <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fa fa-clock-o pr-1"></i>{{booking.DepartureTime}}</a></li>
+                            @*<li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fa fa-facebook pr-1"> </i>21</a></li>
+                <li class="list-inline-item"><a href="#" class="white-text"><i class="fa fa-twitter pr-1"> </i>5</a></li>*@
+                            <li class="list-inline-item pr-2"><i ng-if="booking.BookingStatus == 1" class="fa fa-check-circle success" style="color:white" aria-hidden="true"></i></li>
+                            <li class="list-inline-item pr-2"><i ng-if="booking.BookingStatus !== 1" class="fa fa-times-circle fail" style="color:white" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    <!-- Card footer -->
+                </div>
+            </div>
+            <div class="text-center">
+                <dir-pagination-controls boundary-links="true" on-page-change="vm.pageChangeHandler(newPageNumber)" template-url="~/app/directives/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+            @*<div class="panel panel-default">
+            <div class="panel-body">
+                <ul>
+                    <li dir-paginate="booking in vm.bookings | filter:q | itemsPerPage: vm.pageSize" current-page="currentPage">{{ meal }}</li>
+                </ul>
+            </div>
+        </div>*@
+        </div>
+
+        <div class="jumbotron">
+
+
+        </div>
+    </content>
+</section>

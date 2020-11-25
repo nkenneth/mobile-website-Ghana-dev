@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "Booking";
+}
+<link href="~/Content/schedule.css" rel="stylesheet" />
+<link href="~/Content/terminal.css" rel="stylesheet" />
+
+<div ng-controller="schedule as vm" ng-cloak>
+    <section class="main z-depth-1-half">
+        <!--Double navigation-->
+        <header class="">
+            <!-- Sidebar navigation -->
+            <ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="@Url.Action("Home", "Pages")">
+                            <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+                        </a>
+                    </div>
+                </li>
+                <!--/. Logo -->
+                <!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+                <li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                            </a>
+                        </li>
+                        @{
+        Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+						<li>
+							<!--/. Sidebar navigation -->
+							<a href="@Url.Action("Enterprise","Pages")" style="height:100%" class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-check" style="margin-right: 8px;"></i> Become An Enterprise <p style="margin-left:11.5%; margin-top: -5%;">Partner</p>
+							</a>
+						</li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+                <div class="sidenav-bg mask-strong"></div>
+            </ul>
+            <!--/. Sidebar navigation -->
+            <!-- Navbar -->
+            <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+                <!-- SideNav slide-out button -->
+
+
+
+                <div class="paddo" style="">
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="fa fa-bars" style="color:white"></i>
+                    </a>
+
+                </div>
+                <!-- Breadcrumb-->
+                <!-- <div class="breadcrumb-dn mr-auto ">
+                    <p>Material Design for Bootstrap</p>
+                </div> -->
+
+
+                <div class="middle">
+                    @*<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>*@
+                    <h5 class="text-left text-white" style="padding-left:5px"  href="#" data-toggle="modal" data-target="#modalLRForm">Terminals</h5>
+                </div>
+                <div class="text-right">
+                    <a href="javascript:history.back()" class="button-collapse2">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+
+
+
+            </nav>
+           
+            <!-- /.Navbar -->
+        </header>
+        <!--/.Double navigation-->
+        <!--Main Layout-->
+
+
+    </section>
+
+    <section id="form">   
+        
+        <article>
+            <div>
+                <div class="md-form form-group">
+                    <label for="search">Search for Terminal</label>
+                    <input type="text" ng-model="vm.q" id="search" class="form-control">
+                    <i class="fa fa-search custom-search-account"></i>
+                </div>
+
+				<div class="card card-cascade" dir-paginate="(key,value) in vm.terminal | filter:vm.q | toArray:true | orderBy:'$key' | groupBy:'StateName' |  itemsPerPage: vm.pageSize" current-page="vm.currentPage">
+
+					<!--Card image-->
+					<div class="view gradient-card-header peach-gradient">
+						<h2 class="h2-responsive">{{ key }}</h2>
+
+					</div>
+					<!--/Card image-->
+					<!--Card content-->
+					<div class="card-body text-center" ng-repeat="x in value">
+						<b>{{x.TerminalName}}</b>
+						<p class="card-text">
+							{{x.TerminalAddress}}
+						</p>
+						@*<h3 class="card-text" ng-repeat="x in player.Routes">
+					{{x.route}}
+				</h3>*@
+						<hr>
+						<!--Twitter-->
+				<button class="btn btn-outline-danger" ng-click="vm.getSchedule(x.TerminalId)">View Routes</button>
+
+					</div>
+					<!--/.Card content-->
+
+				</div>
+
+
+                @*<div dir-paginate="(key,value) in vm.terminal | filter:vm.q | orderBy:'StateName' | groupBy:'StateName' |  itemsPerPage: vm.pageSize" current-page="vm.currentPage">
+                    <ul>
+                        <li ng-click="vm.getSchedule(terminal.TerminalId)">{{terminal.TerminalName}}</li>
+                    </ul>
+					<b>{{key}}</b>
+
+					<div ng-repeat="x in value">
+						<div class="card" ng-click="vm.getSchedule(x.TerminalId)">
+							<div class="card-body collapsed" data-toggle="collapse">
+								<a class="card-title">
+									{{$index + 1}} {{x.TerminalName}} {{x.TerminalAddress}}
+								</a>
+							</div>
+						</div>
+
+
+					</div>
+
+
+                </div>*@
+                <div class="text-center">
+                    <dir-pagination-controls boundary-links="true" on-page-change="vm.pageChangeHandler(newPageNumber)" template-url="~/app/directives/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+</article>
+    </section>
+
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+    @{
+        Html.RenderPartial("AuthModal");
+    }
+</div>

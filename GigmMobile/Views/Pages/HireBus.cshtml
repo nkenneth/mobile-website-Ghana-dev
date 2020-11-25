@@ -1,0 +1,309 @@
+﻿<style>
+
+	.fixed-sn main {
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+}
+	.switch {
+    border-radius: 20px!important;
+    position: relative!important;
+    height: 38px!important;
+    width: 305px!important;
+    margin: 0px auto!important;
+    background: rgba(0,0,0,.25)!important;
+}
+
+
+</style>
+
+<div ng-controller="hire_bus as vm"  ng-cloak>
+    <section class="main  z-depth-1-half">
+        <!--Double navigation-->
+        <header class="">
+            <!-- Sidebar navigation -->
+            <ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="/">
+                            <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+                        </a>
+                    </div>
+                </li>
+                <!--/. Logo -->
+				 m
+                <!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+                <!--/Social-->
+                <!--Search Form-->
+                <!-- <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group waves-light">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </li> -->
+                <!--/.Search Form-->
+                <!-- Side navigation links -->
+                <li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                                <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                            </a>
+
+                        </li>
+                        @{
+        Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+                        <li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+						<li>
+							<!--/. Sidebar navigation -->
+							<a href="@Url.Action("Enterprise","Pages")" style="height:100%" class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-check" style="margin-right: 8px;"></i> Become An Enterprise <p style="margin-left:11.5%; margin-top: -5%;">Partner</p>
+							</a>
+						</li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+                <div class="sidenav-bg mask-strong"></div>
+            </ul>
+            <!--/. Sidebar navigation -->
+            <!-- Navbar -->
+            <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+                <!-- SideNav slide-out button -->
+                <div class="paddo" style="">
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="fa fa-bars" style="color:white"></i>
+                    </a>
+
+                </div>
+
+                <div class="middle" style="margin: auto;">
+                    @{
+                        Html.RenderPartial("TopBarAuthIndicator");
+                    }
+                </div>
+                <div class="text-right" style="">
+                    <a href="javascript:history.back()" class="button-collapse2">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main style="">
+            <div id="header2" class=" container-fluid ">
+                <div class="switch switch-blue" style="border-radius:20px; ">
+                    <input type="radio" class="switch-input" ng-model="vm.tripType" name="view2" onclick="showDepart();" value="1" id="week2">
+                    <label for="week2" class="switch-label switch-label-off">One Way</label>
+                    <input type="radio" class="switch-input" ng-model="vm.tripType" name="view2" onclick="showArrive();" value="2" id="month2" checked>
+                    <label for="month2" class="switch-label switch-label-on" style="margin-left:-5%;">Round Trip</label>
+                    <span class="switch-selection"></span>
+
+                    <span id="hide" style="display:none"></span>
+
+                </div>
+
+            </div>
+        </main>
+    </section>
+
+    <section id="form">
+        <div class="form-group" id="chkDiv">
+            <input type="checkbox" id="checkboxRetain" ng-true-value="'yes'" ng-false-value="'no'" ng-model="vm.retain">
+            <label for="checkboxRetain">Retain bus for the night?</label>
+        </div>
+        <form style="float: left;" name="hireBusForm" novalidate>
+            <!--First row-->
+            <div class="row">
+                <!--First column-->
+                <div class="col-md-6 hirebussearch">
+                    <div class="form-group" id="sel2">
+                        <label for="sel2">Travelling From</label>
+                        <input class="form-control" placeholder="Type to select Location" style="" id="HireDeparturePoint" required name="travelingFrom" ng-model="vm.travelingFrom" data-live-search="true">
+                    </div>
+                </div>
+
+                <!--Second column-->
+                <div class="col-md-6 hirebussearch">
+                    <div class="form-group" id="sel2">
+                        <label for="sel2">Travelling To</label>
+                        <input class="form-control" placeholder="Type to select Location" id="HireDestinationPoint" name="travelingTo" ng-model="vm.travelingTo" required>
+                        <!--/Blue select-->
+                    </div>
+                </div>
+            </div>
+            <!--/.First row-->
+            <!--Second row-->
+            <div class="row" style="margin-top:3%; ">
+
+                <div class="md-form form-group col-6">
+                    <input placeholder="Selected date" type="text" id="hireDepart" name="departDate" class="form-control datepicker"
+                           data-language='en' ForeColor="#3c3939" ng-required="true">
+                    <label style=" margin-left:7%;" for="hireDepart">Departure date</label>
+                </div>
+
+                <div id="hireArrive" class="md-form form-group col-6">
+                    <input placeholder="Selected date" type="text" id="hireReturn" required="{{vm.tripType == '2'?true:false}}" 
+                            name="arriveDate" class="form-control datepicker">
+                    <label style=" margin-left:7%;" for="hireArrive">Arrival date</label>
+                </div>
+            </div>
+            <button ng-click="vm.continue()" class="main-btn col-12 btn btn-danger btn-rounded" ng-disabled="hireBusForm.$invalid">Hire now</button>
+            <!--/.Third row-->
+        </form>
+
+
+    </section>
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+
+</div>
+
+@*<script src="assets/js/wow.js"></script>*@
+<script src="~/Scripts/plugins/DateTime.js"></script>
+<script src="~/Scripts/dates.js"></script>
+<script src="~/Scripts/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="~/Scripts/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.min.js"></script>
+<script src="~/Scripts/plugins/moment.min.js"></script>
+<script src="~/Scripts/plugins/jquery.touchSwipe.min.js"></script>
+<!-- Only if touchswipe is enabled -->
+<script src="~/Scripts/plugins/datepicker-in-fullscreen.js"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAztnWnHBWxpPggjiVQeS9nhiBdDHFUmf0&libraries=places"></script>
+<script type="text/javascript">
+    
+    var theStartDate = Date.now().addDays(1);
+    //var theEndDate = new Date.now().addWeeks(2);
+    var theEndDate = new Date.now().addDays(3);
+    var new_date = moment(theStartDate, "DD-MM-YYYY").add(5, 'days');
+    console.log(new_date);
+    //Comment this out at the start of the month *************************************
+    //$('#txtdepart.ClientID').val(new Date(theStartDate).format('MMMM dd, yyyy'));
+    console.log(theStartDate);    
+    //$('#hireDepart').val(new Date(theStartDate).format('MMMM dd, yyyy'));
+    var startDate = moment().add(1, 'days').format("MMMM DD, YYYY");
+    $('#hireDepart').val(startDate);
+
+    var endDate = moment(startDate).add(1, 'days').format("MMMM DD, YYYY")
+
+    $('#hireArrive').val(endDate);
+    //********************************************************************************
+    var countries = ["ng", "gh"]
+    google.maps.event.addDomListener(window, 'load', function () {
+        var options = {
+            componentRestrictions: { country: countries }
+        };
+        var places = new google.maps.places.Autocomplete(document.getElementById('HireDeparturePoint'), options);
+        google.maps.event.addListener(places, 'place_changed', function () {
+            var place = places.getPlace();
+            var address = place.formatted_address;
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+            var mesg = "Address: " + address;
+            mesg += "\nLatitude: " + latitude;
+            mesg += "\nLongitude: " + longitude;
+            //alert(mesg);
+        });
+    });
+
+
+    google.maps.event.addDomListener(window, 'load', function () {
+        var options = {
+            componentRestrictions: { country: "ng" }
+        };
+        var places = new google.maps.places.Autocomplete(document.getElementById('HireDestinationPoint'), options);
+        google.maps.event.addListener(places, options, 'place_changed', function () {
+            var place = places.getPlace();
+            var address = place.formatted_address;
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+            var mesg = "Address: " + address;
+            mesg += "\nLatitude: " + latitude;
+            mesg += "\nLongitude: " + longitude;
+            //alert(mesg);
+        });
+    });
+
+    $('document').ready(function () {
+        //set minimum date users can pick
+        var numberOfDaysToAdd1 = 1;
+        //set max date they can pick
+        var numberOfDaysToAdd2 = 14;
+        //Assign the value to minimum date 
+        var minDate = new Date();
+        minDate.setDate(minDate.getDate() + numberOfDaysToAdd1);
+        //Assign the value to maximum date 
+        var maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + numberOfDaysToAdd2);
+        //assign the date to the datepicker
+        $('.datepicker').pickadate({
+            min: new Date(minDate),
+            max: new Date(maxDate)
+        });
+
+        $('#hireReturn').pickadate({
+            min: new Date(minDate),
+            max: new Date(maxDate)
+        });
+
+        $('#chkDiv').hide();
+
+
+
+    });
+
+    function showArrive() {
+        $('#hireArrive').show();
+        $('#chkDiv').show();
+    }
+    function showDepart() {
+        $('#hireArrive').hide();
+        $('#chkDiv').hide();
+    }
+</script>

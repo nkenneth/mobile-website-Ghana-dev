@@ -1,0 +1,188 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/icons.css" rel="stylesheet" />
+<link href="~/Content/hire.css" rel="stylesheet" />
+
+<div ng-controller="hire_bus as vm" ng-cloak>
+
+<section class="main3  z-depth-1-half">
+    <!--Double navigation-->
+    <header class="">
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a href="/">
+                        <img src="/img/gigm-logo.png" class="img-fluid flex-center">
+                    </a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+			<li>
+				<ul class="social">
+					<li>
+						<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+							<i class="fa fa-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+							<i class="fa fa-instagram"> </i>
+						</a>
+					</li>
+					@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+					<li>
+						<a class="opentwitter icons-sm tw-ic">
+							<i class="fa fa-twitter"> </i>
+						</a>
+					</li>
+				</ul>
+			</li>
+            <!--/Social-->
+            <!--Search Form-->
+            <!-- <li>
+                <form class="search-form" role="search">
+                    <div class="form-group waves-light">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </li> -->
+            <!--/.Search Form-->
+            <!-- Side navigation links -->
+            <li id="links">
+                <ul class="collapsible collapsible-accordion ">
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r" href="/">
+                            <i class="fa fa-home"></i> Home
+                            <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                        </a>
+                    </li>
+                    @{
+                        Html.RenderPartial("Profile");
+                    }
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-phone"></i> Contact us
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+								</li>
+								<li>
+									<a href="tel:08139851110" class="waves-effect">Call us</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+            <!-- SideNav slide-out button -->
+            <div class="paddo" style="">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="fa fa-bars" style="color:white"></i>
+                </a>
+
+            </div>
+
+            <div class="middle" style="">
+                @{
+        Html.RenderPartial("TopBarAuthIndicator");
+                }
+            </div>
+
+        </nav>
+
+        <!-- /.Navbar -->
+    </header>
+</section>
+
+<section>
+
+    <div id="successdiv" class="results col-md-9">
+        <!-- Item -->
+        <article class="result card" ng-repeat="bus in vm.bussesForHire.Departures">
+            <div >
+                <input type="hidden" name="hdfvehiclemodelID" id="hire_hdfvehiclemodelID_0" value="1">
+                <input type="hidden" name="hdfsleepOver" id="hire_hdfsleepOver_0" value="0.0">
+                <div class="one-fourth heightfix">
+                    <img id="hire_hireimg_0" src="~/webassets/fleets/{{bus.VehicleModelName}}.png">
+                    <h3>
+                        <span id="hire_lblbustype_0" style="font-weight:bold;">{{bus.VehicleModelName}}</span>
+
+                    </h3>
+                    <div class="price">
+                        <small>{{bus.Currency}}</small><span id="price_0" style="font-weight:bold;">{{bus.FarePrice | number}}</span>
+                    </div>
+                </div>
+                <div class="one-half heightfix">
+                    <ul>
+                        <li>
+                            <span class="icon icon-themeenergy_user-3"></span>
+                            <p>
+
+                                Max <br>  Capacity <br>
+                                <strong id="seatcapacity_0" ng-if="bus.VehicleModelName=='Sprinter' || bus.VehicleModelName=='Hiace'">14</strong>
+                                <strong id="seatcapacity_0"  ng-if="bus.VehicleModelName=='Sienna'">6</strong>
+                                <strong id="seatcapacity_0" ng-if="bus.VehicleModelName=='Prime'">10</strong>
+
+								@*Seat no*@ 
+                            </p>
+                        </li>
+                        <li>
+                            <span class="icon icon-themeenergy_travel-bag-2"></span>
+                            <p>
+                                Excess Luggage<br>
+                                <strong>Not allowed</strong>
+                            </p>
+                        </li>
+                        <li>
+                            <span class="icon icon-themeenergy_arrow-right-over"></span>
+                            <p>
+                                Estimated distance
+                                <br>
+                                <strong id="">
+                                    <span id="distance" style="font-weight:bold;">{{vm.distance}}km</span>
+                                </strong>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="one-fourth heightfix">
+                    <div class="form-group">
+                        <div class="select-menu">
+                            <select name="quantity{{$index + 1}}" id="quantity{{$index + 1}}" class="form-control selectddl browser-default" style="height:40px;" ng-model="item" ng-change="vm.update(bus, $index)">
+                                <option selected="selected" value="">Quantity</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="one-fourth heightfix">
+                </div>
+
+            </div>
+         
+        </article>
+		<div class="form-group">
+			<button class="main-btn col-12 btn btn-small btn-danger btn-rounded" ng-click="vm.hireBus()">Continue</button>
+		</div>
+    </div>
+</section>
+</div>

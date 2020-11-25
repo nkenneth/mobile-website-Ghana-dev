@@ -1,0 +1,88 @@
+.mx-height {
+  height: 100%;
+}
+.splash-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: url(../assets/img/img-bg.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  font-family: map-get($fonts, nav-family);
+  @include responsiv-tablet($tablet) {
+    background: url(../assets/img/img.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__content {
+    position: absolute;
+    width: 40rem;
+    overflow: hidden;
+    top: 13rem;
+    right: 15rem;
+    color: map-get($fonts, default);
+    @include responsiv-tablet($tablet) {
+      width: 100%;
+      padding: 3rem;
+      right: 0;
+      top: 5rem;
+    }
+
+    h1 {
+      margin: 1.3rem 0;
+      word-spacing: 1px;
+      font-size: 3.1rem;
+      letter-spacing: -0.1rem;
+      @include responsiv-tablet($tablet) {
+        font-size: 4rem;
+        margin: 0.3rem 0;
+      }
+    }
+    p {
+      margin: 1.5rem 0;
+      font-size: 1.3rem;
+      font-weight: 300;
+      @include responsiv-tablet($tablet) {
+        font-size: 2rem;
+      }
+    }
+    a {
+      display: inline-block;
+      text-transform: uppercase;
+      color: map-get($fonts, primary-default);
+      font-weight: bold;
+      margin-top: 2rem;
+      @include responsiv-tablet($tablet) {
+        font-size: 1.6rem;
+      }
+
+      i {
+        transform: translateX(2px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      &:hover {
+        i {
+          transform: translate(-1px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .flex-1 {
+    flex: 0.1;
+  }
+
+  .flex-2 {
+    flex: 3;
+  }
+}

@@ -1,0 +1,9 @@
+2019-Nov-30-11:29:15:469
+OJM-B1C61B5721
+
+2019-Nov-30-11:29:45:931
+Object reference not set to an instance of an object.::   at GigmMobile.Controllers.PagesController.<PayStackResponse>d__23.MoveNext() in C:\Users\thepe\source\repos\mobile-website\GigmMobile\Controllers\PagesController.cs:line 221
+
+2019-Nov-30-11:29:49:195
+Unable to cast object of type 'PayStack.Net.TransactionVerifyResponse' to type 'GIGMWEB.Models.ProcessPayStackPayment'.::   at GigmMobile.Controllers.PagesController.<PayStackResponse>d__23.MoveNext() in C:\Users\thepe\source\repos\mobile-website\GigmMobile\Controllers\PagesController.cs:line 185
+

@@ -1,0 +1,287 @@
+.navbar {
+  width: 100%;
+  height: 4.5rem;
+  box-shadow: 0px 6px 29px 0 rgba(0, 0, 0, 0.14);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-family: map-get($fonts, nav-family);
+  z-index: 999;
+  // padding-left: 1rem;
+  @include responsiv-tablet($tablet) {
+    padding: 1rem 3rem;
+    justify-content: space-between;
+  }
+  .navbar-brand {
+    margin-right: 3rem;
+    // margin-left: 3rem;
+    z-index: 99;
+    img {
+      width: 6rem;
+      height: 6.9rem;
+    }
+    // position: absolute;
+  }
+
+  &-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include responsiv-tablet($tablet) {
+      display: none;
+
+      &.show {
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        top: 4.5rem;
+        border-top: 0.5px solid map-get($fonts, faded-white);
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 80vh;
+        background-color: map-get($fonts, default);
+        flex-direction: column;
+        text-align: center;
+        animation: fadeIn 0.3s ease-in;
+        box-shadow: map-get($fonts, shadow);
+      }
+    }
+  }
+  &-items {
+    margin-right: 3rem;
+    text-transform: uppercase;
+    position: relative;
+    // width: 100%;
+    // height: 6rem;
+
+    &:hover {
+      .dropdown-items {
+        // display: block;
+        visibility: visible;
+        opacity: 1;
+        // transform: translateX(0);
+        // transform: scale(0);
+        // height: 30.5rem;
+      }
+    }
+
+    .dropdown-items {
+      // display: none;
+      visibility: hidden;
+      opacity: 0;
+      font-family: map-get($fonts, nav-family), sans-serif;
+      transition: all 0.3s ease-out;
+      position: absolute;
+      margin-top: 0.4rem;
+      min-width: 60.4rem;
+      height: 30.5rem;
+      background: #fff;
+      // box-shadow: map-get($fonts, shadow);
+      z-index: 999;
+      box-shadow: 0 16px 16px 10px rgba(0, 0, 0, 0.14);
+
+      @include responsiv-tablet($tablet) {
+        display: none;
+      }
+
+      &__top {
+        display: flex;
+        justify-content: flex-start;
+        padding: 2rem;
+        text-align: left;
+
+        &__list {
+          margin-right: 3rem;
+          list-style: none;
+          li {
+            a {
+              color: map-get($fonts, light-grey);
+              font-size: 1rem;
+              text-transform: capitalize;
+            }
+          }
+
+          h4 {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: map-get($fonts, primary-default);
+          }
+        }
+      }
+
+      &__bottom {
+        &.t-1 {
+          background: url(../assets/img/dropdown-img@3x.png) no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+        width: 100%;
+        height: 40%;
+        &.t-2 {
+          background: url(../assets/img/info@3x.png) no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+    }
+    @include responsiv-tablet($tablet) {
+      margin-bottom: 3rem;
+    }
+    a {
+      text-decoration: none;
+      color: map-get($fonts, dark);
+      font-weight: 500;
+      display: inline-block;
+      padding: 1.5rem;
+      transition: all 0.3s ease-out;
+      &:hover {
+        color: map-get($fonts, primary-default);
+        background: map-get($fonts, light-green);
+      }
+      @include responsiv-tablet($tablet) {
+        font-size: 1.7rem;
+        margin-left: 8rem;
+      }
+    }
+    &--avatar {
+      color: map-get($fonts, primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include responsiv-tablet($tablet) {
+        // margin-left: 8rem;
+        justify-content: flex-start;
+      }
+      i {
+        font-size: 2rem;
+        // margin-right: 5px;
+        @include responsiv-tablet($tablet) {
+          margin-right: 0;
+        }
+      }
+      a {
+        color: map-get($fonts, primary);
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 1.3rem;
+        @include responsiv-tablet($tablet) {
+          font-size: 1.7rem;
+        }
+      }
+    }
+    .avatar {
+      color: map-get($fonts, primary);
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &-buttons {
+    margin-right: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+
+    @include responsiv-tablet($tablet) {
+      flex-direction: column;
+    }
+
+    .rewards {
+      position: relative;
+      &:not(:last-child) {
+        margin-right: 3rem;
+
+        @include responsiv-tablet($tablet) {
+          margin-bottom: 1rem;
+          font-size: 1.7rem;
+          margin-left: 11.8rem;
+        }
+      }
+
+      &:last-child {
+        @include responsiv-tablet($tablet) {
+          display: none;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &--flag {
+        img {
+          margin-left: -1rem;
+          display: inline-block;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+    button {
+      position: relative;
+      border: none;
+      //   width: 14rem;
+      padding: 0.9rem 2.3rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      //   border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      color: map-get($fonts, primary);
+      border-radius: 50px;
+      background-color: #eeecec;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    height: 0vh;
+  }
+  80% {
+    opacity: 0.7;
+    height: 50vh;
+  }
+  100% {
+    opacity: 1;
+    height: 80vh;
+  }
+}
+
+.nav-toggler {
+  // margin-top: -1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .intl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    color: map-get($fonts, primary-default);
+    font-weight: bolder;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    img {
+      margin-right: 0.6rem;
+    }
+    &:focus {
+      outline: none;
+    }
+    @include responsiv-desktop($tablet) {
+      display: none;
+    }
+  }
+}

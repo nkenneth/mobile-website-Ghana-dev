@@ -1,0 +1,286 @@
+﻿
+@{
+    ViewBag.Title = "Booking";
+}
+<style>
+
+	.btn-floating {
+    z-index: 1;
+    overflow: hidden;
+    width: 47px !important;
+    height: 33px !important;
+    padding: 0;
+    border-radius: 0 !important;
+    background-color: #F44336;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+	.unique-card-text {
+	
+	padding: 5%;
+    padding-left: 1%;
+	width:80%;
+	margin:auto;
+	
+	}
+	.btn-floating.btn-large i, .btn-floating.btn-lg i {
+    font-size: 1.625rem;
+    line-height: 35.1px;
+}
+
+	.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: flex;
+    padding: 1.25rem;
+}
+
+	.card-title {
+		margin: auto;
+	}
+    /*.md-form, .md-form .btn {
+        margin-bottom: 0;
+    }
+
+    .select2-container .select2-choice {
+        display: block;
+        padding-left: 0;
+    }
+
+    select.browser-default {
+        display: block !important;
+        padding: 5% 0 5% 0;
+        border: 0;
+        background: none;
+        color: #4f4f4f;
+        border-bottom: 1px solid #bdbdbd;
+        outline: none;
+    }
+
+        select.browser-default:after {
+            color: #4f4f4f;
+        }
+
+    .select2-drop {
+        width: 100%;
+        top: 1px !important;
+        position: relative !important;
+    }
+
+	.card {
+		margin-bottom: 5%;
+	}
+
+	 .card-body:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+ .card-body.collapsed:after {
+   
+    content: "\f067"; 
+}
+
+ .light-blue-skin .card-body, .light-blue-skin .form-header {
+    background-color: #ffffff;
+	
+}
+
+
+ a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+    box-shadow: none;
+    background: rgba(255,255,255,0);
+    padding-bottom: 10%;
+    border: 0;
+    border-bottom: none;
+}
+
+	.pagination {
+		width: 100%;
+		padding-bottom: 5%;
+		justify-content: space-around;
+	}*/
+</style>
+<link href="~/Content/schedule.css" rel="stylesheet" />
+<div ng-controller="schedule as vm" ng-cloak>
+    <section class="main z-depth-1-half">
+        <!--Double navigation-->
+        <header class="">
+            <!-- Sidebar navigation -->
+            <ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="@Url.Action("Home", "Pages")">
+                            <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+                        </a>
+                    </div>
+                </li>
+                <!--/. Logo -->
+                <!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+                <li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                            </a>
+                        </li>
+                        @{
+        Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+                        <li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+                <div class="sidenav-bg mask-strong"></div>
+            </ul>
+            <!--/. Sidebar navigation -->
+            <!-- Navbar -->
+            <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+                <!-- SideNav slide-out button -->
+
+
+
+                <div class="paddo" style="">
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="fa fa-bars" style="color:white"></i>
+                    </a>
+
+                </div>
+                <!-- Breadcrumb-->
+                <!-- <div class="breadcrumb-dn mr-auto ">
+                    <p>Material Design for Bootstrap</p>
+                </div> -->
+
+
+                <div class="middle">
+                    @*<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>*@
+                    <h5 class="text-left text-white" style="padding-left:5px" href="#" data-toggle="modal" data-target="#modalLRForm">Routes</h5>
+                </div>
+                <div class="text-right">
+                    <a href="javascript:history.back()" class="button-collapse2">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- /.Navbar -->
+        </header>
+        <!--/.Double navigation-->
+        <!--Main Layout-->
+    </section>
+
+    <section id="form">
+
+		<article>
+			<div>
+				<div class="md-form form-group">
+					<label for="search">Search Routes</label>
+					<input type="text" ng-model="vm.q" id="search" class="form-control">
+					<i class="fa fa-search custom-search-account"></i>
+				</div>
+				<div dir-paginate="schedule in vm.schedules | filter:vm.q | itemsPerPage: vm.pageSize" current-page="vm.currentPage">
+					@*<ul>
+						<li ng-click="vm.getRoute(schedule.RouteId)">{{schedule.RouteName}}</li>
+					</ul>*@
+                   
+					<div class="card" ng-click="vm.getRoute(schedule.RouteId)">
+						<div class="card-body collapsed" data-toggle="collapse">
+
+							@*<img src="~/img/Transport-Bus-2-icon.png" />*@
+							
+						
+							<p id="tt" class="card-title" style="margin:auto; flex-basis:70%;">
+								{{schedule.RouteName.replace("==>","to")}}
+								@*<p >Hello {{html}}!</p>*@
+							</p>
+							<a href="#" class="btn-floating btn-lg btn-danger"><i class="fa fa-angle-double-down "></i></a>
+						</div>
+
+					</div>
+
+
+					<div class="card" id="schedule{{schedule.RouteId}}" style="display:none">
+						<div class="card-block" ng-repeat="schedule in vm.newSchedule.schedule" ng-if="vm.newSchedule.schedule.length > 0">
+							<input id="hidden1" type="hidden" ng-model="vm.current" value="{{schedule.RouteId}}" />
+							@*<h4 class="card-title">Card title</h4>*@
+
+							
+							<p class="card-text unique-card-text">{{$index + 1}}. {{schedule.RouteName}}</p>
+						</div>
+                        <div class="card-block" ng-if="vm.newSchedule.schedule.length < 1">
+                            <p class="card-text unique-card-text"> No schedule available</p>
+                        </div>
+					</div>
+
+
+
+                
+				</div>
+
+
+
+
+				<div class="text-center">
+					<dir-pagination-controls boundary-links="true" on-page-change="vm.pageChangeHandler(newPageNumber)" template-url="~/app/directives/dirPagination.tpl.html"></dir-pagination-controls>
+				</div>
+			</div>
+		</article>
+    </section>
+
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+    @{
+        Html.RenderPartial("AuthModal");
+    }
+</div>
+
+

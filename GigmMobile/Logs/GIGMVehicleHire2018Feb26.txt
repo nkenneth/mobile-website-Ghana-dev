@@ -1,0 +1,5 @@
+2018-Feb-26-08:46:25:565
+Object reference not set to an instance of an object.
+GigmMobile
+   at GigmMobile.Controllers.DataController.<processGoogleMap>d__10.MoveNext() in C:\Users\user\Source\Repos\m.gigm-Material\GigmMobile\Controllers\DataController.cs:line 336
+

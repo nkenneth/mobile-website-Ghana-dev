@@ -1,0 +1,327 @@
+﻿@{
+    Layout = "~/Views/Shared/_AmbassadorsLayout.cshtml";
+}
+
+
+<link rel="stylesheet"
+	  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	  crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials-theme-flat.css" />
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" />
+<link rel="stylesheet" href="~/AssetsAmbassadors/css/main.css" />
+<link rel="stylesheet" href="~/AssetsAmbassadors/css/responsive.css" />
+
+<style>
+      .jssocials-share-logo {
+        font-size: 2em !important;
+      }
+    .swal-button {
+    background-color: #41747b;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: 0;
+    cursor: pointer;
+}
+/* .jssocials-share-link { border-radius: 50%; } */
+.swal-button:not([disabled]):hover {
+    background-color: #41747b;
+}
+.navbar-items {
+    visibility: hidden;
+  }
+
+  .navbar-items--avatar {
+    visibility: visible;
+  }
+  @@media (max-width: 769px){
+    .navbar-items--avatar a {
+    font-size: 1.7rem;
+    margin-top: 2em;
+    }
+  }
+
+</style>
+
+
+	<nav class="navbar">
+		<a href="https://gigm.com" class="navbar-brand">
+
+			<img src="~/AssetsAmbassadors/assets/img/gigm-logo.png" alt="GIGM Logo" />
+		</a>
+
+		<ul class="navbar-list" id="responsiveMenu">
+			<li class="navbar-items">
+				<a href="#">gigm experience</a>
+				<div class="dropdown-items">
+					<div class="dropdown-items__top">
+						<ul class="dropdown-items__top__list">
+							<h4>explore</h4>
+							<li>
+								<a href="https://gigm.com/Learning-Academy.aspx">learning academy</a>
+							</li>
+							<li>
+								<a href="https://gigm.com/Travels-Tours.aspx">tour packages</a>
+							</li>
+							<li>
+								<a href="https://gigm.com/Safety.aspx">travel safety</a>
+							</li>
+							<!-- <li><a href="#">campus direct</a></li> -->
+						</ul>
+						<ul class="dropdown-items__top__list">
+							<h4>more with gigm</h4>
+							<li>
+								<a href="https://gigm.com/hire-vehicle.aspx">bus hire</a>
+							</li>
+							<li><a href="https://gigm.com/#">priority services</a></li>
+							<li>
+								<a href="http://giglogistics.ng/">logistics platform</a>
+							</li>
+							<li>
+								<a href="http://mtest2.gigm.com/pages/campus">campus ambassador</a>
+							</li>
+						</ul>
+						<ul class="dropdown-items__top__list">
+							<h4>who we are</h4>
+							<li><a href="https://gigm.com/About-Us.aspx">about us</a></li>
+							<li><a href="https://gigm.com/Awards.aspx">awards</a></li>
+							<li><a href="https://gigm.com/Careers.aspx">careers</a></li>
+						</ul>
+					</div>
+					<div class="dropdown-items__bottom t-1"></div>
+				</div>
+			</li>
+			<li class="navbar-items">
+				<a href="https://gigm.com/pickupservice.aspx">pickup service</a>
+			</li>
+			<li class="navbar-items">
+				<a href="#"> quick information</a>
+				<div class="dropdown-items">
+					<div class="dropdown-items__top">
+						<ul class="dropdown-items__top__list">
+							<h4>customer service</h4>
+							<li><a href="https://gigm.com/Faq.aspx">FAQs</a></li>
+							<li>
+								<a href="https://gigm.com/Luggage-Allowance.aspx">luggage allowance</a>
+							</li>
+							<li>
+								<a href="https://gigm.com/Terms-and-Conditions.aspx">terms and conditions</a>
+							</li>
+							<li>
+								<a href="https://gigm.com/Customer-Care.aspx">customer care</a>
+							</li>
+						</ul>
+						<ul class="dropdown-items__top__list">
+							<h4>travel info</h4>
+							<li><a href="https://gigm.com/Terminals.aspx">terminals</a></li>
+							<!-- <li><a href="#">bus routes</a></li> -->
+							<!-- <li><a href="#">ticket details</a></li> -->
+						</ul>
+						<ul class="dropdown-items__top__list">
+							<h4>experience our app</h4>
+							<li>
+								<a href="https://gigm.com/gigm-mobile-app.aspx">get the mobile app</a>
+							</li>
+						</ul>
+					</div>
+					<div class="dropdown-items__bottom t-2"></div>
+				</div>
+			</li>
+			<li class="navbar-items">
+				<a href="https://gigm.com/enterprisepartners.aspx">become an enterprise partner</a>
+			</li>
+			<il class="navbar-buttons">
+				<!-- <button class="rewards">pickup rewards</button> -->
+				<button class="rewards rewards--flag">
+					<img src="~/AssetsAmbassadors/assets/img/nigeria.png" alt="Nigeria Flag" />
+					Nigeria
+				</button>
+			</il>
+			<!-- <li class="navbar-items navbar-items--avatar">
+			  <a href="#" id="logout">
+				<i class="fas fa-user-circle"></i>
+				Logout
+			  </a>
+			</li> -->
+		</ul>
+		<div class="nav-toggler">
+			<li class="navbar-items navbar-items--avatar">
+				<a href="#" id="logout">
+					<i class="fas fa-user-circle"></i>
+					Logout
+				</a>
+			</li>
+			<!-- <button class="intl">
+				<img src="./assets/img/nigeria.png" alt="Nigeria Flag" />
+				Nigeria
+			  </button> -->
+			<!-- <button class="hamburger hamburger--spin" type="button">
+			  <span class="hamburger-box">
+				<span class="hamburger-inner"></span>
+			  </span>
+			</button> -->
+		</div>
+	</nav>
+
+	<div class="dashboard-wrapper grey">
+		<div class="top-container">
+			<div class="top-container__left">
+				<img src="~/AssetsAmbassadors/assets/img/sim.png" alt="Sim" />
+				<h1 id="name">
+					Loading....
+				</h1>
+			</div>
+
+			<div class="top-container__right">
+				<button id="withdraw" href="#" class="btn btn-primary" style="background: #6cbcbb;">
+					<!-- <i class="fas fa-pencil-alt mr-1"></i> -->
+					WITHDRAW
+				</button>
+			</div>
+		</div>
+		<div class="middle-container">
+			<div class="middle-container__left">
+				<h4>Refer people using this code</h4>
+
+				<div class="referral">
+					<span id="refcode" class="referral__code">
+						Loading...
+					</span>
+					<!-- <a href="#" id="copy">Copy this code</a> -->
+				</div>
+				<div class="socials">
+
+
+					<div id="shareRoundIcons">
+
+					</div>
+
+
+
+					<!-- <img src="./assets/img/facebook@3x.png" alt="Facebook Icon" />
+					<img src="./assets/img/twitter@3x.png" alt="Twitter Icon" />
+					<img src="./assets/img/whatsapp@3x.png" alt="Whatsapp Icon" />
+					<img src="./assets/img/envelope@3x.png" alt="Envelope Icon" /> -->
+				</div>
+			</div>
+
+			<div class="middle-container__right"></div>
+		</div>
+		<div class="bottom-container">
+			<div class="bottom-container__left">
+				<h4>REFERRAL SUMMARY</h4>
+				<div class="item-1">
+					<h4>Invited</h4>
+					<p id="invited">156</p>
+				</div>
+				<!-- <div class="item-2">
+				  <h4>Overall Rank</h4>
+				  <p>12</p>
+				</div> -->
+				<div class="item-total">
+					<h4>You've earned</h4>
+					<h1 id="amount">Loading..</h1>
+				</div>
+			</div>
+			<div class="bottom-container__right">
+
+
+				<div class="list-wrapper" ng-cloak ng-app="myApp" ng-controller="myCtrl">
+					<h4>REFERRAL LIST</h4>
+					<div class="item-total list-item" ng-repeat="x in data">
+						<p>{{ x.FirstName}}</p>
+						<p class="price">430</p>
+					</div>
+				</div>
+				<!-- <div class="item-total">
+				  <p>Jackson Odoi</p>
+				  <p class="price">430</p>
+				</div>
+				<div class="item-total">
+				  <p>Morgan Ji</p>
+				  <p class="price">430</p>
+				</div>
+				<div class="item-total">
+				  <p>Chukwuma Obinna</p>
+				  <p class="price">430</p>
+				</div> -->
+
+				<div class="hr"></div>
+				<div id="pagination-container"></div>
+
+				<!-- <div class="dots">
+				  <span class="ellipses"></span>
+				  <span class="ellipses"></span>
+				  <span class="ellipses"></span>
+				  <span class="ellipses"></span>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/AssetsAmbassadors/js/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials.min.js"></script>
+
+<script src="~/AssetsAmbassadors/js/main.js"></script>
+<script src="~/AssetsAmbassadors/js/dashboard.js"></script>
+	<script src="~/AssetsAmbassadors/js/dangular.js"></script>
+	<script>
+		                
+
+
+
+$(document).ready(function() {
+
+  $('#withdraw').click(function(){
+
+swal({
+          title: "You are not eligible for withdrawal yet",
+          // text: response.ShortDescription,
+          icon: "warning"
+        }).then(function () {
+          console.log("warning")
+
+        });
+
+
+});
+
+
+  var items = $(".list-wrapper .list-item");
+        var numItems = items.length;
+        var perPage = 3;
+
+        items.slice(perPage).hide();
+
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            prevText: "&laquo;",
+            nextText: "&raquo;",
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
+ // use setTimeout() to execute
+ setTimeout(pagination, 1000)
+
+
+
+
+});
+
+
+
+
+	</script>

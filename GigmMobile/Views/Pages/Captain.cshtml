@@ -1,0 +1,359 @@
+﻿
+@{
+	ViewBag.Title = "Captain";
+}
+<link href="~/Content/captain.css" rel="stylesheet" />
+
+<style>
+
+	@@media (max-width: 500px){
+.container2 {
+    justify-content: space-around;
+    width: 100%;
+}
+.modal2 .form {
+    height: 1040px !important;
+    width: 98% !important;
+}
+	}
+	.col2:nth-child(2) a {
+    width: 100%;
+    background: red !important;
+    padding: 7px 12px !important;
+}
+	.middle {
+		padding-top: 5.8% !important;
+		margin: auto auto auto 22%;
+	}
+
+	.content {
+		display: flex;
+	}
+
+		.content div {
+			flex: 1;
+			text-align: center;
+		}
+		.col2:nth-child(2) a {
+    width: 100%;
+    background: red !important;
+    padding: 15px 12px !important;
+}
+</style>
+<section class="main4  z-depth-1-half">
+	<!--Double navigation-->
+	<header class="">
+		<!-- Sidebar navigation -->
+		<ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+			<!-- Logo -->
+			<li>
+				<div class="logo-wrapper waves-light">
+					<a href="@Url.Action("Home", "Pages")">
+						<img src="/img/gigm-logo.png" class="img-fluid flex-center">
+					</a>
+				</div>
+			</li>
+			<!--/. Logo -->
+			<!--Social-->
+			<li>
+				<ul class="social">
+					<li>
+						<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+							<i class="fa fa-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+							<i class="fa fa-instagram"> </i>
+						</a>
+					</li>
+					@*<li>
+							<a class="icons-sm gplus-ic">
+								<i class="fa fa-google-plus"> </i>
+							</a>
+						</li>*@
+					<li>
+						<a class="opentwitter icons-sm tw-ic">
+							<i class="fa fa-twitter"> </i>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li id="links">
+				<ul class="collapsible collapsible-accordion ">
+					<li>
+						<a class="collapsible-header waves-effect arrow-r" href="/">
+							<i class="fa fa-home"></i> Home
+							<!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+						</a>
+					</li>
+					@{
+						Html.RenderPartial("Profile");
+					}
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-phone"></i> Contact us
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+								</li>
+								<li>
+									<a href="tel:08139851110" class="waves-effect">Call us</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-info"></i> Bus Terminal info
+						</a>
+					</li>
+				</ul>
+			</li>
+			<!--/. Side navigation links -->
+			<div class="sidenav-bg mask-strong"></div>
+		</ul>
+		<!--/. Sidebar navigation -->
+		<!-- Navbar -->
+		<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+			<!-- SideNav slide-out button -->
+			<div class=" paddo" style="">
+				<a href="#" data-activates="slide-out" class="button-collapse">
+					<i class="fa fa-bars" style="color:white"></i>
+				</a>
+
+			</div>
+
+
+			<div class="middle" style="">
+				<h5 class="text-left  text-white"  href="#" data-toggle="modal" data-target="#modalLRForm">Captain Application</h5>
+			</div>
+		
+		</nav>
+
+		<!-- /.Navbar -->
+	</header>
+
+	<main style="">
+		<div id="header2" class=" pushers2 container-fluid " style="padding-top: 3%">
+
+		</div>
+
+
+
+	</main>
+</section>
+
+
+
+
+<article>
+	<div id="modal2-container" class="modal2 ">
+		<div class="close hidden"></div>
+		<div class="form">
+			<form id="former">
+				<a class="close">X</a>
+				<h1 style="margin-bottom:5%;">SIGN <span>UP</span></h1>
+				<div class="form-group">
+
+					<div class="group">
+						<input type="text" class="name required" name="name" required="required" />
+						<i class="fa fa-user"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Full Name</label>
+					</div>
+					<div class="group">
+						<input type="text" class="email required" name="email" required="required" />
+						<i class="fa fa-envelope"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Email</label>
+					</div>
+
+
+					<div class="group">
+						<input type="number" class="phone required" name="phone" required="required" />
+						<i class="fa fa-mobile"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Phone number</label>
+					</div>
+
+				 @*<div class="group">
+						<input type="text" name="work" required="required" />
+						<i class="fa fa-mobile"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Last two places of work </label>
+					</div>*@
+
+					<input type="text" name="device" class="device" style="display:none" />
+					<div class="group custom-row">
+						<div class="col">
+							<input type="text" class="years required" name="years" required="required" />
+							<label style="font-size: 14px;">Last place of Work</label>
+						</div>
+						<div class="col">
+							<input type="number" class="years2 required" name="years2" required="required" />
+							<label style="font-size: 13px;">how many years did you spend </label>
+						</div>
+
+					</div>
+
+					<div class="group custom-row">
+						<div class="col">
+							<input type="text" class="work2 required" name="work2" required="required" />
+							<label style="font-size:13px;">Current place of Work</label>
+						</div>
+						<div class="col">
+							<input type="number" class="work3 required" name="work3" required="required" />
+
+							<label style="font-size:12px;">How long have you worked here?</label>
+						</div>
+					</div>
+
+					<div class="group">
+						<input type="number" class="number required" name="experience" required="required" />
+						<i class="fa fa-clock-o"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label style="font-size:14px;">Years of driving experience</label>
+					</div>
+
+					<div class="group">
+						<input type="number" class="age required" name="age" required="required" />
+						<i class="fa fa-calendar-times-o"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Age</label>
+					</div>
+
+					<div class="group">
+						<input type="text" class="qualification required" name="qualification" required="required" />
+						<i class="fa fa-graduation-cap"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>
+							Qualifications (e.g BSC, HND, SSCE)
+						</label>
+					</div>
+
+
+				
+					<div class="group">
+						<select name="knowlegde" class="knowlegde mdb-select" style="width: 100%; padding: 2%;" required="required">
+							<option value="none">Choose your Knowledge of Nigerian roads</option>
+							<option value="Poor">Poor</option>
+							<option value="Intermediate">intermediate</option>
+							<option value="Good">Good</option>
+							<option value="Excellent">Excellent</option>
+						</select>
+
+					</div>
+
+					<div class="group custom-row">
+						<div class="col2">
+							<select name="states" style="width: 100%; padding: 3%;" class="states mdb-select" required="required">
+								<option value="none">Select State</option>
+								<option>ABUJA FCT</option>
+								<option>ABIA</option>
+								<option>ADAMAWA</option>
+								<option>AKWA IBOM</option>
+								<option>ANAMBRA</option>
+								<option>BAUCHI</option>
+								<option>BAYELSA</option>
+								<option>BENUE</option>
+								<option>BORNO</option>
+								<option>CROSS RIVER</option>
+								<option>DELTA</option>
+								<option>EBONYI</option>
+								<option>EDO</option>
+								<option>EKITI</option>
+								<option>ENUGU</option>
+								<option>GOMBE</option>
+								<option>IMO</option>
+								<option>JIGAWA</option>
+								<option>KADUNA</option>
+								<option>KANO</option>
+								<option>KATSINA</option>
+								<option>KEBBI</option>
+								<option>KOGI</option>
+								<option>KWARA</option>
+								<option>LAGOS</option>
+								<option>NASSARAWA</option>
+								<option>NIGER</option>
+								<option>OGUN</option>
+								<option>ONDO</option>
+								<option>OSUN</option>
+								<option>OYO</option>
+								<option>PLATEAU</option>
+								<option>RIVERS</option>
+								<option>SOKOTO</option>
+								<option>TARABA</option>
+								<option>YOBE</option>
+								<option>ZAMFARA</option>
+							</select>
+						</div>
+						<div class="col2">
+							<a class="buttoner secondary  btn btn-danger">Submit</a>
+
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</form>
+
+		</div>
+
+	</div>
+
+	<div class="logo">
+		<img src="~/images/captain-logo.jpg" />
+	</div>
+
+	<nav>
+	</nav>
+</article>
+<section class="container2">
+
+	<article id="captain"></article>
+
+
+	<article id="text">
+
+		<h1>DRIVING HAS NEVER BEEN <span>COOLER</span></h1>
+		<p class="perks">PERKS</p>
+		<ul>
+
+			<li>HMO (Health Insurance)</li>
+			<li>Growth and Financial Stability</li>
+			<li>Opportunity to be your own boss</li>
+			<li>Self Improvement Training</li>
+			<li>Coolest place to work in Nigeria</li>
+
+
+
+		</ul>
+		<img src="~/images/buses.png" class="image-bus" />
+		<div>
+			<button id="one" class="button">Apply</button>
+		</div>
+
+
+	</article>
+
+
+
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/app/js/captain.js"></script>

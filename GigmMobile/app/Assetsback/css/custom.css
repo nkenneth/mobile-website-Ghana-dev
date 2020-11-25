@@ -1,0 +1,51 @@
+
+
+
+@media screen and (min-width: 1600px){
+    .banner {
+        position: absolute;
+        top: 30rem;
+        left: 20rem;
+    }
+    .logo {
+        width: 58rem;
+        height: 58rem;
+        position: absolute;
+        top: -3rem;
+        left: 15rem;
+    }
+}
+
+.students {
+    width: 60rem;
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 73.3%;
+    left: -2rem;
+    /* bottom: 0; */
+}
+
+@media screen and (max-width: 425px){
+    .navbar-brand img {
+        width: 7rem;
+        height: 7rem;
+    }
+    form {
+            width: 90%;
+    position: relative;
+    top: 20%;
+    margin: auto;
+    right: 0;
+    }
+    .responsive-header {
+        display: block;
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        margin-bottom: 5rem;
+        margin-top: -10rem;
+    }
+}

@@ -1,0 +1,212 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/captain.css" rel="stylesheet" />
+
+<header>
+	<div id="modal2-container" class="modal2 ">
+		<div class="close hidden"></div>
+		<div class="form">
+			<form id="former">
+				<a class="close">X</a>
+				<h1 style="margin-bottom:5%;">SIGN <span>UP</span></h1>
+				<div class="form-group">
+
+					<div class="group">
+						<input type="text" class="name required" name="name" required="required" />
+						<i class="fa fa-user"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Full Name</label>
+					</div>
+					<div class="group">
+						<input type="text" class="email required" name="email" required="required" />
+						<i class="fa fa-envelope"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Email</label>
+					</div>
+
+
+					<div class="group">
+						<input type="number" class="phone required" name="phone" required="required" />
+						<i class="fa fa-mobile"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Phone number</label>
+					</div>
+
+					<%--  <div class="group">
+						<input type="text" name="work" required="required" />
+						<i class="fa fa-mobile"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Last two places of work </label>
+					</div>--%>
+
+					<input type="text" name="device" class="device" style="display:none" />
+					<div class="group custom-row">
+						<div class="col">
+							<input type="text" class="years required" name="years" required="required" />
+							<label style="font-size: 14px;">Last place of Work</label>
+						</div>
+						<div class="col">
+							<input type="number" class="years2 required" name="years2" required="required" />
+							<label style="font-size: 13px;">how many years did you spend </label>
+						</div>
+
+					</div>
+
+					<div class="group custom-row">
+						<div class="col">
+							<input type="text" class="work2 required" name="work2" required="required" />
+							<label style="font-size:13px;">Current place of Work</label>
+						</div>
+						<div class="col">
+							<input type="number" class="work3 required" name="work3" required="required" />
+
+							<label style="font-size:12px;">How long have you worked here?</label>
+						</div>
+					</div>
+
+					<div class="group">
+						<input type="number" class="number required" name="experience" required="required" />
+						<i class="fa fa-clock-o"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label style="font-size:14px;">Years of driving experience</label>
+					</div>
+
+					<div class="group">
+						<input type="number" class="age required" name="age" required="required" />
+						<i class="fa fa-calendar-times-o"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Age</label>
+					</div>
+
+					<div class="group">
+						<input type="text" class="qualification required" name="qualification" required="required" />
+						<i class="fa fa-graduation-cap"></i>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>
+							Qualifications (e.g BSC, HND, SSCE)
+						</label>
+					</div>
+
+
+					<%--Knowlegde of nigerian roads--%>
+					<div class="group">
+						<select name="knowlegde" class="knowlegde" style="width: 100%; padding: 2%;" required="required">
+							<option value="none">Choose your Knowledge of Nigerian roads</option>
+							<option value="Poor">Poor</option>
+							<option value="Intermediate">intermediate</option>
+							<option value="Good">Good</option>
+							<option value="Excellent">Excellent</option>
+						</select>
+
+					</div>
+
+					<div class="group custom-row">
+						<div class="col2">
+							<select name="states" style="width: 100%; padding: 3%;" class="states" required="required">
+								<option value="none">Select State</option>
+								<option>ABUJA FCT</option>
+								<option>ABIA</option>
+								<option>ADAMAWA</option>
+								<option>AKWA IBOM</option>
+								<option>ANAMBRA</option>
+								<option>BAUCHI</option>
+								<option>BAYELSA</option>
+								<option>BENUE</option>
+								<option>BORNO</option>
+								<option>CROSS RIVER</option>
+								<option>DELTA</option>
+								<option>EBONYI</option>
+								<option>EDO</option>
+								<option>EKITI</option>
+								<option>ENUGU</option>
+								<option>GOMBE</option>
+								<option>IMO</option>
+								<option>JIGAWA</option>
+								<option>KADUNA</option>
+								<option>KANO</option>
+								<option>KATSINA</option>
+								<option>KEBBI</option>
+								<option>KOGI</option>
+								<option>KWARA</option>
+								<option>LAGOS</option>
+								<option>NASSARAWA</option>
+								<option>NIGER</option>
+								<option>OGUN</option>
+								<option>ONDO</option>
+								<option>OSUN</option>
+								<option>OYO</option>
+								<option>PLATEAU</option>
+								<option>RIVERS</option>
+								<option>SOKOTO</option>
+								<option>TARABA</option>
+								<option>YOBE</option>
+								<option>ZAMFARA</option>
+							</select>
+						</div>
+						<div class="col2">
+							<a class="buttoner secondary  btn btn-danger">Submit</a>
+
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</form>
+
+		</div>
+
+	</div>
+
+	<div class="logo">
+		<img src="~/images/captain-logo.jpg" />
+	</div>
+
+	<nav>
+	</nav>
+</header>
+<section class="container2">
+
+	<article id="captain"></article>
+
+
+	<article id="text">
+
+		<h1>DRIVING HAS NEVER BEEN <span>COOLER</span></h1>
+		<p class="perks">PERKS</p>
+		<ul>
+
+			<li>HMO (Health Insurance)</li>
+			<li>Growth and Financial Stability</li>
+			<li>Opportunity to be your own boss</li>
+			<li>Self Improvement Training</li>
+			<li>Coolest place to work in Nigeria</li>
+
+
+
+		</ul>
+		<img src="~/images/buses.png"  class="image-bus"/>
+		<div>
+			<button id="one" class="button">Apply</button>
+		</div>
+
+
+	</article>
+
+
+
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/app/js/captain.js"></script>

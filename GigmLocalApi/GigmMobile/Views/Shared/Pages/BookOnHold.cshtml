@@ -1,0 +1,763 @@
+﻿
+@*@{
+        ViewBag.Title = "BookOnHold";
+    }*@
+
+
+<style>
+
+    .middle {
+        padding-top: 5.8% !important;
+        margin: auto auto auto 18%;
+    }
+</style>
+
+
+<section class="main4  z-depth-1-half"  ng-cloak>
+    <!--Double navigation-->
+    <header class="">
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a href="#">
+                        <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+                    </a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+			<li>
+				<ul class="social">
+					<li>
+						<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+							<i class="fa fa-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+							<i class="fa fa-instagram"> </i>
+						</a>
+					</li>
+					@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+					<li>
+						<a class="opentwitter icons-sm tw-ic">
+							<i class="fa fa-twitter"> </i>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+            <li id="links">
+                <ul class="collapsible collapsible-accordion ">
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r" href="@Url.Action("Index", "Pages")">
+                            <i class="fa fa-home"></i> Home
+                            <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                        </a>
+
+                    </li>
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fa fa-hand-pointer-o"></i> My Bookings History
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                        </a>
+                        <!-- <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">For bloggers</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">For authors</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </li>
+                    @{Html.RenderPartial("Profile");}
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-phone"></i> Contact us
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+								</li>
+								<li>
+									<a href="tel:08139851110" class="waves-effect">Call us</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+            <!-- SideNav slide-out button -->
+            <div class=" paddo" style="">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="fa fa-bars" style="color:white"></i>
+                </a>
+
+            </div>
+            <!-- Breadcrumb-->
+            <!-- <div class="breadcrumb-dn mr-auto ">
+                <p>Material Design for Bootstrap</p>
+            </div> -->
+
+
+            <div class="middle" style="">
+                <h5 class="white-text"> Booking Status</h5>
+            </div>
+            <!-- <div class="text-right">
+                    <a href="javascript:history.back()" class="button-collapse2">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+            </div> -->
+
+
+
+        </nav>
+
+        <!-- /.Navbar -->
+    </header>
+    <!--/.Double navigation-->
+    <!--Main Layout-->
+
+    <main style="">
+        <div id="header2" class=" pushers2  container-fluid " style=" padding-top: 3%">
+
+        </div>
+
+
+
+    </main>
+</section>
+
+
+@if (ViewBag.HireService == null)
+{
+
+    <div class="row down-20 no-margin" ng-controller="passengerDetails as vm">
+        <div class="">
+            <div class=" pax">
+                <div class="container">
+                    <div class="row shadow-box">
+                        <div class="col-12">
+
+                            <div id="theZenithApp" ng-if="@Model.BookingRequest.PaymentMethod == 14">
+
+                                <Label ID="lblguestName"></Label>    <h4>Thank you for choosing GIGM.com</h4>
+
+
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                Please proceed to your Zenith Bank's Mobile App to complete your booking with the steps below:
+                                <p>Launch your Zenith Bank Mobile App</p>
+                                <p>Go to Bill Payment</p>
+                                <p>Under Bill Payment select category</p>
+                                <p>Category select transportation</p>
+                                <p>Under transportation select God is good motors.</p>
+                                <p>
+                                    Enter your reference code as
+                                    <h4 style="text-decoration: solid">
+                                        <Label ID="lblreference1" Text="">@Model.BookingResponse.BookingReferenceCode</Label>
+                                    </h4>
+                                </p>
+                                <p>Confirm Payment</p>
+                                <a href="Pay-Zenith-App.aspx" target="_blank" style="color: red">Learn More</a>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                            <div class="bankDetails" id="payInTheBank" ng-if="false">
+                                <p>
+                                    <Label ID="lblguestName2" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                Please pay the sum of &#x20A6;<Label ID="amountToPay" Text=""></Label>
+                                into any of the accounts below, stating your reference code as
+                                <h4 style="text-decoration: solid">
+                                    <Label ID="lblreference2" Text=""></Label>
+                                </h4>
+                                <div class="jumbotron col-12">
+                                    <div class="col-sm-6">
+                                        <h4>Bank</h4>
+                                        <p>Zenith Bank</p>
+                                        <h4>Account Name</h4>
+                                        <p>GOD IS GOOD MOTORS</p>
+                                        <h4>Account Number</h4>
+                                        <p>1012207832</p>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h4>Bank</h4>
+                                        <p>Guaranty Trust Bank</p>
+                                        <h4>Account Name</h4>
+                                        <p>GOD IS GOOD MOTORS</p>
+                                        <h4>Account Number</h4>
+                                        <p>0032156202</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+
+                            <div class="col-sm-12 bankDetails" id="payInTheBankHire" ng-if="false">
+                                <p>
+                                    <Label ID="lblguestNameHire" Text=""></Label>Thank you for choosing GIGM.com
+                                </p>
+
+                                <p>
+                                    <br />
+                                </p>
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                Please pay the sum of &#x20A6;<Label ID="amountToPayHire" Text=""></Label>
+                                into any of the accounts below, stating your reference code as
+                                <h4 style="text-decoration: solid">
+                                    <Label ID="lblreference2Hire" Text="">@Model.BookingResponse.BookingReferenceCode</Label>
+                                </h4>
+                                <div class="jumbotron col-12">
+                                    <div class="col-sm-6">
+                                        <h4>Bank</h4>
+                                        <p>Union Bank Plc</p>
+                                        <h4>Account Name</h4>
+                                        <p>God is Good Nigeria Limited (ACC2)</p>
+                                        <h4>Account Number</h4>
+                                        <p>0053987991</p>
+                                        <p>
+                                            <br />
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                            <div id="gtbUssdDiv" ng-if="@Model.BookingRequest.PaymentMethod == 7">
+                                <p>
+                                    <Label ID="lblguestName3" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                </p>
+
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                <p>Complete your transaction by dialling <span class="boldTxt">*737*50*<Label ID="lblfinalPayment3" Text="">@Model.BookingRequest.Amount</Label>*120# </span></p>
+
+                                <p>
+                                    Your Reference Code (RefCode) is <span style="text-decoration: solid" class="boldTxt">
+                                        <Label ID="lblreference3" Text="">@Model.BookingResponse.BookingReferenceCode</Label>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div id="fbnUssdDiv" ng-if="@Model.BookingRequest.PaymentMethod == 12">
+                                <p>
+                                    <Label ID="Label1" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                </p>
+
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                <p>Complete your transaction by dialling <span class="boldTxt">*894*89404789*<Label ID="lblfinalPaymentFbn" Text="">@Model.BookingRequest.Amount</Label>#</span></p>
+
+                                <p>
+                                    Your Reference Code (RefCode) is <span style="text-decoration: solid" class="boldTxt">
+                                        <Label ID="lblreferenceFbn" Text="@Model.BookingResponse.BookingReferenceCode"></Label>
+                                    </span>
+                                </p>
+                            </div>
+                            <div id="ubnUssdDiv" ng-if="@Model.BookingRequest.PaymentMethod == 10">
+                                <p>
+                                    <Label ID="Label13" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                </p>
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+
+                                <div class="col-sm-6">
+                                    <p class="alert alert-success">To Complete your transaction;</p>
+                                    <ul>
+                                        <li>Dial *826#</li>
+                                        <li>Select pay merchant option (5)</li>
+                                        <li>Select GIGM</li>
+                                        <li>Inputs ref code <span class="boldTxt" style="text-decoration:solid"><Label ID="lblreferenceUbnUssd" Text="@Model.BookingResponse.BookingReferenceCode"></Label></span></li>
+                                        <li>Confirm details and input PIN</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="alert alert-success">To complete your transaction using Union bank mobile app;</p>
+
+                                    <ul>
+                                        <li>Login to the UnionMobile app</li>
+                                        <li>Select Lifestyle</li>
+                                        <li>Select GIGM (Pay for your tickets)</li>
+                                        <li>Enter your Reference Code <span class="boldTxt" style="text-decoration:solid"><Label ID="lblreferenceUbnApp" Text="@Model.BookingResponse.BookingReferenceCode"></Label></span></li>
+                                        <li>Confirm booking details and enter transaction PIN to complete payment.</li>
+                                    </ul>
+                                </div>
+                                <p>
+                                    Your Reference Code (RefCode) is <span style="text-decoration: solid" class="boldTxt">
+                                        <Label ID="lblreferenceUbn" Text="@Model.BookingResponse.BookingReferenceCode">@Model.BookingResponse.BookingReferenceCode</Label>
+                                    </span>
+                                </p>
+
+                            </div>
+                            <div id="quickTeller" ng-if="@Model.BookingRequest.PaymentMethod == 16">
+                                <p>
+                                    <Label ID="lblQuickName" Text="@Model.BookingRequest.FirstName"></Label>, Thank you for choosing GIGM.com
+                                </p>
+
+                                <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+
+                                <p>Click here to complete your transaction on Quickteller <strong> <a href="https://www.quickteller.com/gigmobilitylimited?option=" target="_blank">Click here</a></strong></p>
+
+                                <p>
+                                    Your Reference Code (RefCode) is <span style="text-decoration: solid" class="boldTxt">
+                                                                         <Label ID="lblreference5" Text="@Model.BookingResponse.BookingReferenceCode">@Model.BookingResponse.BookingReferenceCode</Label>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                @if (ViewBag.HireService == null)
+                {
+
+
+                    <div class="shadow-box" id="detailsDiv">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4 class="bold">Passenger Details </h4>
+                                    <hr />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label>Fullname</label>
+                                        <p>
+                                            <Label ID="lblpax1fullname2">@Model.BookingRequest.FirstName</Label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <p>
+                                            <Label ID="lblpax1gender2" ng-bind="@Model.BookingRequest.Gender == 0? 'Male':'Female'"></Label>
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <p>
+                                            <Label ID="lblphone2" ng-bind="'0' + @Model.BookingRequest.PhoneNumber.ToString()"><span>0</span></Label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Seat No.</label>
+                                        <p>
+                                            <Label ID="lblpax1Seat2">@Model.BookingRequest.SeatNumber</Label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <hr />
+                                    <Label ID="lblothers2" Visible="@Model.BookingRequest.Beneficiaries.Count > 0" Font-Size="Larger" Text="Other Beneficiaries"></Label>
+                                </div>
+
+                            </div>
+                            @*<div ID="lvbeneficiaries2" ng-repeat="beneficiary in @Model.BookingRequest.Beneficiaries" ng-if="false">
+                                <div class="row">
+                                    <div class="col-12">
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <p>
+                                                    <Label ID="lblbeFullname" ng-bind="beneficiary.FullName"></Label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label>RefCode</label>
+                                                <p>
+                                                    <Label ID="lblRefCode" ng-bind="@Model.BookingResponse.BookingReferenceCode"></Label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label>Seat No.</label>
+                                                <p>
+                                                    <Label ID="lblSeatNo" ng-bind="beneficiary.SeatNumber"></Label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                  
+                                    <div class="row">
+                                        <div class="col-12 pad-0">
+                                            <ul class="list-group trip-details" ng-if="false">
+                                                <li class="list-group-item" ng-if="true">
+                                                    <p>
+                                                        <Label ID="lblTrip2" Text="Traveling from {{vm.departureTrip.RouteName.split[0]}} to {{vm.departureTrip.RouteName.split[1]}}"></Label>
+                                                    </p>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Depart:</b>
+                                                    <Label ID="lblDepartDate2" ng-bind="@Model.BookingResponse.DepartureDate">@Model.BookingResponse.DepartureDate</Label>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Bus Type:</b>
+                                                    <Label ID="lblbustype2" ng-bind="vm.departureTrip.VehicleName"></Label>
+                                                </li>
+                                                <li class="list-group-item text-right">
+                                                    <h5 class="bold">
+                                                        <small>Price:</small>
+                                                        <Label ID="lblmainPrice2" ng-bind="@Model.BookingResponse.Amount"></Label>
+                                                    </h5>
+
+                                                    <h5 class="bold">
+                                                        <small>Discount:</small>
+                                                        <Label ID="lbldiscount2" ng-bind="@Model.BookingRequest.Discount"></Label>
+                                                    </h5>
+                                                </li>
+                                                <li class="list-group-item text-right" style="border-bottom: none;">
+                                                    <h4 class="bold">
+                                                        <small>Total to Pay:</small>
+                                                        &#x20A6;
+                                                        <Label ID="lblfinalPayment2" ng-bind="@Model.BookingResponse.Amount"></Label>
+                                                    </h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+
+    @if (ViewBag.HireService == true)
+    {
+        <div class="row down-20 no-margin" ng-controller="busBookerPay as vm">
+            <div class="">
+                <div class=" pax">
+                    <div class="container">
+                        <div class="row shadow-box">
+                            <div class="col-12">
+
+                                <div id="theZenithApp" ng-if="false">
+
+                                    <Label ID="lblguestName"></Label>    <h4>Thank you for choosing GIGM.com</h4>
+
+
+                                    <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                    Please proceed to your Zenith Bank's Mobile App to complete your booking with the steps below:
+                                    <p>Launch your Zenith Bank Mobile App</p>
+                                    <p>Go to Bill Payment</p>
+                                    <p>Under Bill Payment select category</p>
+                                    <p>Category select transportation</p>
+                                    <p>Under transportation select God is good motors.</p>
+                                    <p>
+                                        Enter your reference code as
+                                        <h4 style="text-decoration: solid">
+                                            <Label ID="lblreference1" Text=""></Label>
+                                        </h4>
+                                    </p>
+                                    <p>Confirm Payment</p>
+                                    <a href="Pay-Zenith-App.aspx" target="_blank" style="color: red">Learn More</a>
+                                    <p>
+                                        <br />
+                                    </p>
+                                </div>
+                                <div class="bankDetails" id="payInTheBank" ng-if="false">
+                                    <p>
+                                        <Label ID="lblguestName2" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                    </p>
+                                    <p>
+                                        <br />
+                                    </p>
+                                    <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                    Please pay the sum of &#x20A6;<Label ID="amountToPay" Text="">@*@Model.BookingResponse.Amount*@{{vm.fares.total | number}}</Label>
+                                    into any of the accounts below, stating your reference code as
+                                    <h4 style="text-decoration: solid">
+                                        <Label ID="lblreference2" Text="@Model.BookingResponse.BookingReferenceCode">@Model.BookingResponse.BookingReferenceCode</Label>
+                                    </h4>
+                                    <div class="jumbotron col-12">
+                                        <div class="col-sm-6">
+                                            <h4>Bank</h4>
+                                            <p>Zenith Bank</p>
+                                            <h4>Account Name</h4>
+                                            <p>GOD IS GOOD MOTORS</p>
+                                            <h4>Account Number</h4>
+                                            <p>1012207832</p>
+                                            <p>
+                                                <br />
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4>Bank</h4>
+                                            <p>Guaranty Trust Bank</p>
+                                            <h4>Account Name</h4>
+                                            <p>GOD IS GOOD MOTORS</p>
+                                            <h4>Account Number</h4>
+                                            <p>0032156202</p>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <br />
+                                    </p>
+                                </div>
+
+                                <div class="col-sm-12 bankDetails" id="payInTheBankHire" ng-if="@Model.BookingRequest.PaymentMethod == 12">
+                                    <p>
+                                        <Label ID="lblguestNameHire" Text=""></Label>Thank you for choosing GIGM.com
+                                    </p>
+
+                                    <p>
+                                        <br />
+                                    </p>
+                                    <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                    Please pay the sum of &#x20A6;<Label ID="amountToPayHire" Text=""></Label>
+                                    into any of the accounts below, stating your reference code as
+                                    <h4 style="text-decoration: solid">
+                                        <Label ID="lblreference2Hire" Text=""></Label>
+                                    </h4>
+                                    <div class="jumbotron col-12">
+                                        <div class="col-sm-6">
+                                            <h4>Bank</h4>
+                                            <p>Union Bank Plc</p>
+                                            <h4>Account Name</h4>
+                                            <p>God is Good Nigeria Limited (ACC2)</p>
+                                            <h4>Account Number</h4>
+                                            <p>0053987991</p>
+                                            <p>
+                                                <br />
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <p>
+                                        <br />
+                                    </p>
+                                </div>
+                                <div id="gtbUssdDiv" ng-if="@Model.BookingRequest.PaymentMethod == 7">
+                                    <p>
+                                        <Label ID="lblguestName3" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                    </p>
+
+                                    <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                    <p>Complete your transaction by dialling <span class="boldTxt">*737*50*<Label ID="lblfinalPayment3" Text="@Model.BookingRequest.Amount"></Label>*120# </span></p>
+
+                                    <p>
+                                        Your Reference Code (RefCode) is <span style="text-decoration: solid" class="boldTxt">
+                                            <Label ID="lblreference3" Text="@Model.BookingResponse.BookingReferenceCode"></Label>
+                                        </span>
+                                    </p>
+                                </div>
+                               
+
+                                <div id="fbnUssdDiv" ng-if="@Model.BookingRequest.PaymentMethod == 14">
+                                    <p>
+                                        <Label ID="Label1" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                    </p>
+
+                                    <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+                                    <p>Complete your transaction by dialling <span class="boldTxt">*894*89404789*<Label ID="lblfinalPaymentFbn" Text="@Model.BookingRequest.Amount"></Label># </span></p>
+
+                                    <p>
+                                        Your Reference Code (RefCode) is <span style="text-decoration: solid" class="boldTxt">
+                                            <Label ID="lblreferenceFbn" Text="@Model.BookingResponse.BookingReferenceCode"></Label>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div id="ubnUssdDiv" ng-if="@Model.BookingRequest.PaymentMethod == 10">
+                                    <p>
+                                        <Label ID="Label13" Text=""></Label><h4>Thank you for choosing GIGM.com</h4>
+                                    </p>
+                                    <p class="alert alert-danger" role="alert">Kindly note that this booking would expire after 1 hour if payment is not made</p>
+
+                                    <div class="col-sm-6">
+                                        <p class="alert alert-success">To Complete your transaction;</p>
+                                        <ul>
+                                            <li>Dial *826#</li>
+                                            <li>Select pay merchant option (5)</li>
+                                            <li>Select GIGM</li>
+                                            <li>Inputs ref code <span class="boldTxt" style="text-decoration:solid"><Label ID="lblreferenceUbnUssd" Text="">@Model.BookingResponse.BookingReferenceCode</Label></span></li>
+                                            <li>Confirm details and input PIN</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="alert alert-success">To complete your transaction using Union bank mobile app;</p>
+
+                                        <ul>
+                                            <li>Login to the UnionMobile app</li>
+                                            <li>Select Lifestyle</li>
+                                            <li>Select GIGM (Pay for your tickets)</li>
+                                            <li>Enter your Reference Code <span class="boldTxt" style="text-decoration:solid"><Label ID="lblreferenceUbnApp" Text="">@Model.BookingResponse.BookingReferenceCode</Label></span></li>
+                                            <li>Confirm booking details and enter transaction PIN to complete payment.</li>
+                                        </ul>
+                                    </div>
+                                    <p>
+                                        Your Reference Code (RefCode) is 08080<span style="text-decoration: solid" class="boldTxt">
+                                            <Label ID="lblreferenceUbn" Text="">@Model.BookingResponse.BookingReferenceCode</Label>
+                                        </span>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    @if (ViewBag.HireService == null)
+                    {
+                        <div class="shadow-box" id="detailsDiv">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 class="bold">Passenger Details </h4>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Fullname</label>
+                                            <p>
+                                                <Label ID="lblpax1fullname2" ng-bind="@Model.BookingRequest.FirstName">@Model.BookingRequest.FirstName</Label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <p>
+                                                <Label ID="lblpax1gender2" ng-bind="@Model.BookingRequest.Gender == 0? 'Male':'Female'"></Label>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Phone Number</label>
+                                            <p>
+                                                <Label ID="lblphone2" ng-bind="@Model.BookingRequest.PhoneNumber.ToString()"></Label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Seat No.</label>
+                                            <p>
+                                                <Label ID="lblpax1Seat2">@Model.BookingResponse.SeatNumber</Label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <hr />
+                                        <Label ID="lblothers2" Visible="@Model.BookingRequest.Beneficiaries.Count > 0" Font-Size="Larger" Text="Other Beneficiaries"></Label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h4>
+                                                    Trip Details
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 pad-0">
+                                                <ul class="list-group trip-details">
+                                                    <li class="list-group-item" ng-if="true">
+                                                        <p>
+                                                            <Label ID="lblTrip2" Text="Traveling from {{vm.departureTrip.RouteName.split[0]}} to {{vm.departureTrip.RouteName.split[1]}}"></Label>
+                                                        </p>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <b>Depart:</b>
+                                                        <Label ID="lblDepartDate2" ng-bind="@Model.BookingResponse.DepartureDate">@Model.BookingResponse.DepartureDate</Label>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <b>Bus Type:</b>
+                                                        <Label ID="lblbustype2" ng-bind="vm.departureTrip.VehicleName"></Label>
+                                                    </li>
+                                                    <li class="list-group-item text-right">
+                                                        <h5 class="bold">
+                                                            <small>Price:</small>
+                                                            <Label ID="lblmainPrice2" ng-bind="@Model.BookingResponse.Amount"></Label>
+                                                        </h5>
+
+                                                        <h5 class="bold">
+                                                            <small>Discount:</small>
+                                                            <Label ID="lbldiscount2" ng-bind="@Model.BookingRequest.Discount"></Label>
+                                                        </h5>
+                                                    </li>
+                                                    <li class="list-group-item text-right" style="border-bottom: none;">
+                                                        <h4 class="bold">
+                                                            <small>Total to Pay:</small>
+                                                            &#x20A6;
+                                                            <Label ID="lblfinalPayment2" ng-bind="@Model.BookingResponse.Amount"></Label>
+                                                        </h4>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    }
+
+

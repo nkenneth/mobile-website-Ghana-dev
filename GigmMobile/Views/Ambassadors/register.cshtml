@@ -1,0 +1,756 @@
+﻿@{
+	Layout = "~/Views/Shared/_AmbassadorsLayout.cshtml";
+}
+
+<title>
+	Campus Ambassadors &mdash; GIGM Ambassadors For Universities across
+	Nigeria
+</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+<link rel="stylesheet" href="./css/main.css" />
+<link href="~/AssetsAmbassadors/css/Modal.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<style>
+	.left-wrapper-nysc {
+		width: 50vw;
+		background-image: url('../../AssetsAmbassadors/assets/img/NYSC AMBASSADORS WEB.jpg') !important;
+		background-size: cover;
+		background-position: 70% 70%;
+		z-index: 2;
+		position: relative;
+		text-align: center;
+	}
+
+	.left-wrapper-employee {
+		width: 50vw;
+		background-image: url('../../AssetsAmbassadors/assets/img/employee ambassador.jpg') !important;
+		/*background-image: url('../../AssetsAmbassadors/assets/img/NYSC AMBASSADORS WEB.jpg') !important;*/
+		background-size: cover;
+		background-position: 70% 70%;
+		z-index: 2;
+		position: relative;
+		text-align: center;
+	}
+
+
+	.gignation {
+		display: none;
+	}
+
+
+
+	.custom-flex {
+		display: flex;
+		justify-content: space-between;
+	}
+
+		.custom-flex .button-group {
+			flex-basis: 45%;
+		}
+
+		.custom-flex .btn {
+			padding: 0;
+			border: none;
+			width: 100%;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		.custom-flex #back {
+			background: black;
+		}
+
+	.left-wrapper {
+		background: url('../../AssetsAmbassadors/assets/img/camp.jpg');
+		background-size: cover;
+		background-position: 70% 70%;
+	}
+
+	.modal-footer-nysc {
+		background: #BADD63;
+	}
+
+	.container input:checked ~ .checkmark-nysc {
+		background-color: #BADD63 !important;
+	}
+
+	.container input:checked ~ .checkmark-employee {
+		background-color: #e11d00 !important;
+	}
+
+	.hidden1 {
+		display: none;
+	}
+
+	.hidden2 {
+		display: none;
+	}
+</style>
+<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="768" height="800" viewBox="0 0 768 800"><defs><g id="icon-close"><path class="path1" d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path></g></defs></svg>
+<div class="modal is-visible">
+	<div class="modal-overlay modal-toggle"></div>
+	<div class="modal-wrapper modal-transition">
+		<div class="modal-header">
+			<h2 class="modal-heading"><text style="color:#e11d00">Choose </text>your user type</h2>
+		</div>
+
+		<div class="modal-body">
+			<div class="modal-content">
+				<label class="container">
+					CAMPUS AMBASSADOR (Undergraduate)
+					<input type="radio" checked="checked" value="campus" name="radio">
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">
+					NYSC AMBASSADOR (Currently Serving)
+					<input type="radio" value="nysc" name="radio">
+					<span class="checkmark checkmark-nysc"></span>
+				</label>
+				<label class="container">
+					EMPLOYEE AMBASSADOR
+					<input type="radio" value="employee" name="radio">
+					<span class="checkmark checkmark-employee"></span>
+				</label>
+
+			</div>
+		</div>
+		<div class="modal-footer proceed">
+			<a id="proceed" style="text-align:center; margin:auto; color:white;  padding: 2em 0 2em 0">Proceed</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal modal2 ">
+	<div class="modal-overlay modal-toggle"></div>
+	<div class="modal-wrapper modal-transition">
+		<div class="modal-header">
+			<h2 class="modal-heading"><text style="color:#e11d00">Choose </text>your verification type</h2>
+		</div>
+
+		<div class="modal-body">
+			<div class="modal-content">
+
+				<label class="container verify">
+					Send link to my Email <text id="emailLink"></text>
+					<input type="radio" checked="checked" value="email" name="verify">
+					<span class="checkmark"></span>
+				</label>
+				<label class="container verify">
+					Send text to <text id="phoneLink"></text>
+					<input type="radio" value="phone" name="verify">
+					<span class="checkmark checkmark-nysc"></span>
+				</label>
+				<div class="form-group otpcode">
+					<label for="#">Kindly enter the OTP<text style="color: red">*</text></label>
+					<input type="text" class="otp form-control" placeholder="Enter OTP" id="otpCode" />
+				</div>
+				<p id="demo"></p>
+			</div>
+		</div>
+		<div class="modal-footer proceed2">
+			<a id="proceed2" style="text-align:center; margin:auto; color:white;  padding: 2em 0 2em 0">Proceed</a>
+		</div>
+		<div class="modal-footer proceed3">
+			<a id="proceed3" style="text-align:center; margin:auto; color:white;  padding: 2em 0 2em 0">Proceed</a>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper" ng-app="app">
+	<div class="left-wrapper">
+		<img src="~/AssetsAmbassadors/assets/img/gignation@3x.png" alt="GiG Nation banner" class="gignation" />
+	</div>
+	<div class="banner">
+		<img src="~/AssetsAmbassadors/assets/img/gignation-dark.png" alt="GiG Nation banner" class="v-toggle" />
+	</div>
+	<div class="right-wrapper overflow-y">
+		<div class="nyscno">
+			<h1>
+				<span>Sign Up</span> now to become one of our NYSC Ambassadors for
+				across Nigeria
+			</h1>
+			<p>
+				Who says you cannot make extra cash while serving? Oh, you absolutely can under the GIGM NYSC ambassador program. Earn when people download the app and register with your referral code and a whole lot more when they actually book tickets from the app.
+			</p>
+		</div>
+		<div class="campus">
+			<h1>
+				<span>Sign Up</span> now to become one of our Campus Ambassadors for
+				across Nigeria
+			</h1>
+			<p>
+				Who says you cannot make extra cash while schooling? Oh, you absolutely can under the GIGM campus ambassador program. Earn when people download the app and register with your referral code and a whole lot more when they actually book tickets from the app.
+			</p>
+
+		</div>
+		<div class="employee">
+			<h1>
+				<span>Sign Up</span> now to become one of our Employee Ambassadors for
+				across Nigeria
+			</h1>
+			<p>
+				Who says you cannot make extra cash while working within the company? Oh you absolutely can under the employee ambassador program. Earn when people download the app and register with your referral code and a whole lot more when they actually book tickets from the app.
+			</p>
+
+		</div>
+		<br />
+		<p>
+			You absolutely can as a GIGM ambassador. You earn money when people download the app and register with your referral code but earn a whole lot more when they actually book tickets from the app the first time.
+			<br />
+			Earn 100 Naira every time you get someone to download the GIGM app and register using your referral code and a whopping 300 Naira when the person you reffered actually does a booking via the app the first time.
+		</p>
+		<br />
+		<p>
+			With this program, there are no limits. The more you refer the more you earn.
+		</p>
+		<br />
+		<p>Interested? Sign up now.</p>
+
+		<form id="form1">
+			<div class="form-group">
+				<label for="#" style="font-size: 1.25rem;">(<text style="color: red">*</text>) Fields are required.</label>
+			</div>
+			<div class="selector">
+				<div class="form-group hidden2">
+					<label for="#">Title<text style="color: red">*</text></label>
+					<select name="Title" id="title" class="form-control" required>
+						<option value="Mr" selected>Mr</option>
+						<option value="Mrs">Mrs</option>
+						<option value="Miss">Miss</option>
+					</select>
+				</div>
+				<div class="form-group hidden3">
+					<label for="#">First Name<text style="color: red">*</text></label>
+					<input type="text" name="FirstName" id="FirstName" class="form-control" required />
+				</div>
+				<div class="form-group hidden2">
+					<label for="#">Middle Name<text style="color: red">*</text></label>
+					<input type="text" value="name" name="MiddleName" class="form-control" required />
+				</div>
+				<div class="form-group hidden3">
+					<label for="#">Last Name<text style="color: red">*</text></label>
+					<input type="text" name="LastName" id="LastName" class="form-control" required />
+				</div>
+				<div class="form-group hidden2">
+					<label for="#">Date Of Birth<text style="color: red">*</text> </label>
+					<input id="dateOfBirth" value="1980-08-26" type="date" name="DateOfBirth" class="form-control" required />
+				</div>
+
+				<div class="form-group hidden3">
+					<label for="#">Email<text style="color: red">*</text></label>
+					<input type="email" name="Email" id="email" class="form-control" required />
+				</div>
+				<div class="form-group hidden3">
+					<label for="#">phone number<text style="color: red">*</text></label>
+					<input type="number" maxlength="14" name="PhoneNumber" id="number" class="form-control" required />
+				</div>
+				<div class="form-group password hidden3">
+					<label for="#">Password<text style="color: red">*</text></label>
+					<input type="password" name="Password" id="password" class="form-control" required />
+				</div>
+				<div class="form-group password hidden3">
+					<label for="#">Confirm Password<text style="color: red">*</text></label>
+					<text style="color:red;" id="passwordValidation">Please check and input matching passwords</text>
+					<input type="password" id="confirmPassword" class="form-control" required />
+				</div>
+				<div class="form-group hidden2">
+					<label for="#">Address<text style="color: red">*</text></label>
+					<input type="text" value="Address" name="Address" class="form-control" required />
+				</div>
+			</div>
+
+
+			<div class="form-group hidden1 school" ng-controller="schools">
+				<label for="#">Schools<text style="color: red">*</text></label>
+
+				<select ng-model="selectedSchools" name="School" class="form-control">
+					<option ng-repeat="s in schools" value="{{s}}">{{s}}</option>
+				</select>
+
+
+			</div>
+
+
+			@*<div class="form-group school hidden1">
+					<label for="#">Institute name<text style="color: red">*</text></label>
+					<input type="text" name="School" class="form-control" required />
+				</div>*@
+
+			<div class="form-group nyscstate hidden1">
+				<label for="#">Nysc State<text style="color: red">*</text></label>
+
+				<select name="NyscState" id="NyscState">
+					<option>ABUJA FCT</option>
+					<option>ABIA</option>
+					<option>ADAMAWA</option>
+					<option>AKWA IBOM</option>
+					<option>ANAMBRA</option>
+					<option>BAUCHI</option>
+					<option>BAYELSA</option>
+					<option>BENUE</option>
+					<option>BORNO</option>
+					<option>CROSS RIVER</option>
+					<option>DELTA</option>
+					<option>EBONYI</option>
+					<option>EDO</option>
+					<option>EKITI</option>
+					<option>ENUGU</option>
+					<option>GOMBE</option>
+					<option>IMO</option>
+					<option>JIGAWA</option>
+					<option>KADUNA</option>
+					<option>KANO</option>
+					<option>KATSINA</option>
+					<option>KEBBI</option>
+					<option>KOGI</option>
+					<option>KWARA</option>
+					<option>LAGOS</option>
+					<option>NASSARAWA</option>
+					<option>NIGER</option>
+					<option>OGUN</option>
+					<option>ONDO</option>
+					<option>OSUN</option>
+					<option>OYO</option>
+					<option>PLATEAU</option>
+					<option>RIVERS</option>
+					<option>SOKOTO</option>
+					<option>TARABA</option>
+					<option>YOBE</option>
+					<option>ZAMFARA</option>
+				</select>
+
+
+
+			</div>
+
+			<div class="form-group campus hidden1">
+				<label for="#">Campus<text style="color: red">*</text></label>
+				<input type="text" id="campus" name="Campus" class="form-control " />
+			</div>
+			<div class="form-group AmbassadorType hidden1">
+				<label for="#">AmbassadorType<text style="color: red">*</text></label>
+				<input type="text" id="AmbassadorType" name="AmbassadorType" class="form-control " />
+			</div>
+			<div class="form-group nyscno hidden1">
+				<label for="#">Nysc No<text style="color: red">*</text></label>
+				<input type="text" id="nysc" name="NyscNumber" class="form-control " />
+			</div>
+
+
+			@*<div class="form-group employee hidden1">
+					<label for="#">Terminal Name<text style="color: red">*</text></label>
+					<input type="text" id="TerminalName" name="TerminalName" class="form-control " />
+				</div>*@
+
+			<div class="form-group hidden1 employee" ng-controller="schools">
+				<label for="#">Terminals<text style="color: red">*</text></label>
+
+				<select ng-model="selectedTerminals" name="StaffCategoryName" class="form-control">
+					<option ng-repeat="s in Terminals" value="{{s.DepartmentName}}">{{s.TerminalName}}</option>
+				</select>
+
+
+			</div>
+
+			<div class="form-group hidden1 employee" ng-controller="schools">
+				<label for="#">Staff Category Name<text style="color: red">*</text></label>
+
+				<select ng-model="StaffCategoryName" name="StaffCategoryName" class="form-control">
+					<option ng-repeat="s in Departments" value="{{s.DepartmentName}}">{{s.DepartmentName}}</option>
+				</select>
+
+
+			</div>
+
+			@*<div class="form-group employee hidden1">
+					<label for="#">Staff Category Name<text style="color: red">*</text></label>
+					<input type="text" id="StaffCategoryName" name="StaffCategoryName" class="form-control " />
+				</div>*@
+
+			<div class="form-group hidden1">
+				<label for="#">Gender<text style="color: red">*</text></label>
+				<select name="Gender" class="form-control" required>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+			<div class="form-group hidden1" ng-controller="banks">
+				<label for="#">Bank<text style="color: red">*</text></label>
+				<select ng-model="Bank" name="Bank" class="form-control" required>
+					<option ng-repeat="x in banks" value="{{x.name}}">{{x.name}}</option>
+				</select>
+			</div>
+			<div class="form-group hidden1">
+				<label for="#">Account Name<text style="color: red">*</text></label>
+				<input type="text" name="AccountName" class="form-control" required />
+			</div>
+
+			<div class="form-group hidden1">
+				<label for="#">Account Number<text style="color: red">*</text></label>
+				<input type="number" name="AccounNumber" pattern="\d*" class="form-control" id="account" maxlength="10" required />
+			</div>
+
+			<div class="d-flex">
+				<div class="button-group">
+					<button id="next" type="submit" class="btn red hidden3">
+						Next
+					</button>
+				</div>
+
+				<div class="custom-flex">
+					<div class="button-group hidden1">
+						<button id="buttoner" type="submit" class="btn red">
+							register
+						</button>
+					</div>
+
+
+					<div class="button-group">
+						<button id="back" type="submit" class="btn red hidden1">
+							back
+						</button>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top:10px">
+				<ul class="nav">
+					<li class="nav-item" style="list-style-type:none">
+						<em>
+							Already got an account?
+							<a href="@Url.Action("Login")" class="nav-item"><span>Login</span></a>
+						</em>
+					</li>
+				</ul>
+
+			</div>
+		</form>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+	//const hamburger = document.querySelector(".hamburger");
+	//const navbarList = document.querySelector(".navbar-list");
+
+	//hamburger.addEventListener("click", function () {
+	//	this.classList.toggle("is-active");
+	//	navbarList.classList.toggle("show");
+	//});
+
+
+</script>
+
+
+
+<script>
+	//$(document).ready(function() {
+	//	$('.left-wrapper').addClass('left-wrapper-nysc');
+
+	//});
+</script>
+<script>
+
+
+
+
+	$("#next").click(function (e) {
+		e.preventDefault();
+
+		//$(".selector").find(".hidden3").find("input").each(function() {
+		//$(".selector .hidden3 input").each(function () {
+
+		if ($('#FirstName').val().length !== 0 && $('#LastName').val().length !== 0
+			&& $('#title').val().length !== 0 && $('#email').val().length !== 0 && $('#number').val().length !== 0 && $('#confirmPassword').val().length) {
+			password = $("#password").val();
+			confirmPassword = $("#confirmPassword").val();
+
+
+			if ($(this).val() === 'employee') {
+
+			    if ($("#email-error").is(':visible')) {
+
+					swal({
+						// title: response.ShortDescription,
+						text: 'Please enter a valid email before you proceed',
+						icon: "warning"
+					})
+
+				}
+
+				else if ($("#numer-error").is(':visible')) {
+
+					swal({
+						// title: response.ShortDescription,
+						text: 'Please enter a valid Phone Number before you proceed',
+						icon: "warning"
+					})
+
+				}
+
+				else {
+					$(".hidden1").show();
+					$(".hidden3").hide();
+					$(".AmbassadorType").hide();
+					console.log(localStorage.getItem('radioVal'));
+					if (localStorage.getItem('radioVal') === "nysc") {
+
+						$('.campus').hide();
+						$('.employee').hide();
+						$('.school').hide();
+						$('#nysc').attr('required', 'required');
+						$('#NyscState').attr('required', 'required');
+						$("#AmbassadorType").val(1);
+					}
+					else if (localStorage.getItem('radioVal') === "campus") {
+
+						$('.nyscno').hide();
+						$('.employee').hide();
+						$('.nyscstate').hide();
+						$('#campus').attr('required', 'required');
+						$("#AmbassadorType").val(0);
+					}
+
+					else if (localStorage.getItem('radioVal') === "employee") {
+
+						$('.nyscno').hide();
+						$('.password').hide();
+						$('.campus').hide();
+						$('.school').hide();
+						$('.nyscstate').hide();
+						$('.campus').hide();
+						$('.school').hide();
+						$('.campus').css('display', 'none !important');
+						$('.school').css('display', 'none !important');
+						//$('#campus').attr('required', 'required');
+						$("#AmbassadorType").val(2);
+					}
+				}
+
+
+
+			}
+
+			else {
+
+
+
+				if (password !== confirmPassword) {
+					swal({
+						// title: response.ShortDescription,
+						text: 'Please check your password',
+						icon: "warning"
+					})
+				}
+
+				else if ($("#email-error").is(':visible')) {
+
+					swal({
+						// title: response.ShortDescription,
+						text: 'Please enter a valid email before you proceed',
+						icon: "warning"
+					})
+
+				}
+
+				else if ($("#numer-error").is(':visible')) {
+
+					swal({
+						// title: response.ShortDescription,
+						text: 'Please enter a valid Phone Number before you proceed',
+						icon: "warning"
+					})
+
+				}
+
+				else {
+					$(".hidden1").show();
+					$(".hidden3").hide();
+					$(".AmbassadorType").hide();
+					console.log(localStorage.getItem('radioVal'));
+					if (localStorage.getItem('radioVal') === "nysc") {
+
+						$('.campus').hide();
+						$('.employee').hide();
+						$('.school').hide();
+						$('#nysc').attr('required', 'required');
+						$('#NyscState').attr('required', 'required');
+						$("#AmbassadorType").val(1);
+					}
+					else if (localStorage.getItem('radioVal') === "campus") {
+
+						$('.nyscno').hide();
+						$('.employee').hide();
+						$('.nyscstate').hide();
+						$('#campus').attr('required', 'required');
+						$("#AmbassadorType").val(0);
+					}
+
+					else if (localStorage.getItem('radioVal') === "employee") {
+
+						$('.nyscno').hide();
+						$('.password').hide();
+						$('.campus').hide();
+						$('.school').hide();
+						$('.nyscstate').hide();
+						$('.campus').hide();
+						$('.school').hide();
+						$('.campus').css('display', 'none !important');
+						$('.school').css('display', 'none !important');
+						//$('#campus').attr('required', 'required');
+						$("#AmbassadorType").val(2);
+					}
+				}
+
+			}
+		
+		}
+		else {
+
+			swal({
+				// title: response.ShortDescription,
+				text: 'Please fill in all the details before you proceed',
+				icon: "warning"
+			})
+		}
+
+		//});
+
+
+
+
+	});
+
+	$("#back").click(function (e) {
+		$(".hidden1").hide();
+		$(".hidden3").show();
+
+	});
+
+	$('input:radio[name="radio"]').change(
+    function () {
+
+    	if ($(this).val() === 'nysc') {
+    		$('.left-wrapper').removeClass('left-wrapper-employee');
+    		$('.modal-footer').removeClass('modal-footer-employee');
+    		$('.left-wrapper').addClass('left-wrapper-nysc');
+    		$('.modal-footer').addClass('modal-footer-nysc');
+    		//$('input:checked ~ .checkmark').addClass('check-footer-nysc');
+
+    	}
+    else if ($(this).val() === 'employee') {
+    		$('.left-wrapper').addClass('left-wrapper-employee');
+    		$('.modal-footer').addClass('modal-footer-employee');
+    		$('.left-wrapper').removeClass('left-wrapper-nysc');
+    		$('.modal-footer').removeClass('modal-footer-nysc');
+    		//$('input:checked ~ .checkmark').addClass('check-footer-nysc');
+
+    	}
+
+    	else {
+
+    		$('.left-wrapper').removeClass('left-wrapper-nysc');
+    		$('.modal-footer').removeClass('modal-footer-nysc');
+    		$('.left-wrapper').removeClass('left-wrapper-employee');
+    		$('.modal-footer').removeClass('modal-footer-employee');
+    		//$('input:checked ~ .checkmark').removeClass('check-footer-nysc');
+
+    	}
+    });
+
+
+
+
+
+	$('#account').keypress(function (e) {
+		// var account = $("#account").val();
+		// $("#account").attr('maxlength', '10');
+
+		if (this.value.length > 9) {
+			// alert("You cant enter more than 10 characters");
+			e.preventDefault();
+			// $("#account").attr('maxlength','10');
+			e.stopImmediatePropagation();
+
+			console.log("hmmmm");
+		}
+	});
+
+	$("#account").on('keydown paste', function (event) {
+		var cntMaxLength = parseInt($(this).attr('maxlength'));
+
+		if ($(this).text().length === cntMaxLength && event.keyCode != 8) {
+			event.preventDefault();
+		}
+	});
+
+	$('#number').keypress(function (e) {
+		// var account = $("#account").val();
+		// $("#account").attr('maxlength', '10');
+
+		if (this.value.length > 14) {
+			// alert("You cant enter more than 10 characters");
+			e.preventDefault();
+			// $("#account").attr('maxlength','10');
+			e.stopImmediatePropagation();
+
+			console.log("hmmmm");
+		}
+	});
+
+	$("#number").on('keydown paste', function (event) {
+		var cntMaxLength = parseInt($(this).attr('maxlength'));
+
+		if ($(this).text().length === cntMaxLength && event.keyCode != 14) {
+			event.preventDefault();
+		}
+	});
+
+
+	//          $('#account').on('input', function() {
+
+
+	// });
+
+</script>
+<script src="~/AssetsAmbassadors/js/nextV2.js"></script>
+
+
+
+
+
+
+<script>
+
+
+
+
+	$(document).ready(function () {
+		$("#number").attr('maxlength', '14');
+		$(".otpcode").hide();
+		$(".proceed3").hide();
+
+
+
+
+
+	});
+
+	//});
+</script>
+<script src="~/AssetsAmbassadors/js/banks.js"></script>
+<script src="~/AssetsAmbassadors/js/registerserviceV2.js"></script>
+<script src="~/AssetsAmbassadors/js/schools.js"></script>
+
+<script>
+
+
+
+
+
+</script>

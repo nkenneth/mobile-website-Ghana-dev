@@ -1,0 +1,283 @@
+﻿<div ng-controller="booking as vm">
+<section class="main fixed-top z-depth-1-half">
+    <!--Double navigation-->
+    <header class="">
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a href="#">
+                        <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+                    </a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+            <li>
+                <ul class="social">
+                    <li>
+                        <a class="icons-sm fb-ic">
+                            <i class="fa fa-facebook"> </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="icons-sm pin-ic">
+                            <i class="fa fa-pinterest"> </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="icons-sm gplus-ic">
+                            <i class="fa fa-google-plus"> </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="icons-sm tw-ic">
+                            <i class="fa fa-twitter"> </i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--/Social-->
+            <!--Search Form-->
+            <!-- <li>
+                <form class="search-form" role="search">
+                    <div class="form-group waves-light">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </li> -->
+            <!--/.Search Form-->
+            <!-- Side navigation links -->
+            <li id="links">
+                <ul class="collapsible collapsible-accordion ">
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r" href="index.html">
+                            <i class="fa fa-chevron-right"></i> Home
+                            <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                        </a>
+                        <!-- <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">Submit listing</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">Registration form</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fa fa-hand-pointer-o"></i> My Bookings History
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                        </a>
+                        <!-- <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">For bloggers</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">For authors</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fa fa-eye"></i> My Profile
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">Login</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">Signup</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fa fa-envelope-o"></i> Contact US
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">Write a message</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+            <!-- SideNav slide-out button -->
+
+
+
+            <div class=" paddo" style="">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="fa fa-bars" style="color:white"></i>
+                </a>
+
+            </div>
+            <!-- Breadcrumb-->
+            <!-- <div class="breadcrumb-dn mr-auto ">
+                <p>Material Design for Bootstrap</p>
+            </div> -->
+
+
+            <div class="middle" style="">
+                <h5 class="white-text"> Book a bus</h5>
+            </div>
+            <div class="text-right">
+                <a href="javascript:history.back()" class="button-collapse2">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+            </div>
+
+
+
+        </nav>
+        <main style="">
+            <div id="header2" class="container-fluid ">
+                <div class="switch switch-blue" style="border-radius:20px; ">
+                    <input type="radio" class="switch-input " name="view2" onclick="show1();" value="week2" id="week2">
+                    <label for="week2" class="switch-label switch-label-off">One Way</label>
+                    <input type="radio" class="switch-input" name="view2" onclick="show2();" value="month2" id="month2" checked>
+                    <label for="month2" class="switch-label switch-label-on" style="margin-left:-5%;">Round Trip</label>
+                    <span class="switch-selection"></span>
+
+                </div>
+
+
+            </div>
+
+
+
+        </main>
+        <!-- /.Navbar -->
+    </header>
+    <!--/.Double navigation-->
+    <!--Main Layout-->
+
+
+</section>
+
+<section id="form">
+
+    <form style="float: left;">
+        <!--First row-->
+        <div class="row">
+            <!--First column-->
+            <div class="col-md-6 ">
+                <div class="form-group" id="sel2">
+                    <div ng-repeat="people in vm.People" id="first">
+                        <label for="sel3">Travelling From</label>
+                        <select class="selectpicker " id="sel3" ng-model="somethingHere" data-live-search="true" ng-init="somethingHere = choice.Items[0]">
+                            <option ng-repeat-start="choice in people.Object" ng-bind="choice.TerminalId"></option>
+                            <option ng-repeat-end ng-repeat="opt in choice.Items" ng-bind="opt.TerminalName"></option>
+                        </select>
+                    </div>
+
+                    <!--/Blue select-->
+
+                </div>
+            </div>
+
+            <!--Second column-->
+            <div class="col-md-6">
+                <div class="form-group" id="sel1">
+                    <div ng-repeat="people in vm.People" id="second">
+                        <label for="sel1">Travelling To</label>
+                        <select class="selectpicker " id="sel1" data-show-subtext="true" data-live-search="true" ng-model="somethingHere" ng-init="somethingHere = choice.Items[0]">
+                            <option ng-repeat-start="choice in people.Object" ng-bind="choice.TerminalId"></option>
+                            <option ng-repeat-end ng-repeat="opt in choice.Items" ng-bind="opt.TerminalName"></option>
+                        </select>
+                        <!-- <label>Travelling To</label> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <!--
+                            <div class="col-md-6 " ng-controller="Terminal">
+
+                                    <div  class="form-group">
+                                        <label for="sel2">Travelling To</label>
+                                                        <select class="selectpicker " id="sel2" data-show-subtext="true" data-live-search="true">
+                                            <option data-subtext="Rep California">Tom Foolery</option>
+                                            <option data-subtext="Sen California">Bill Gordon</option>
+                                            <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
+                                            <option data-subtext="Rep Alabama">Mario Flores</option>
+                                            <option data-subtext="Rep Alaska">Don Young</option>
+                                            <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
+                                          </select>
+                                    </div>
+
+                            </div> -->
+        </div>
+        <!--/.First row-->
+        <!--Second row-->
+        <div class="row" style="margin-top:3%; ">
+
+            <div class="md-form form-group col-6">
+                <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
+                <label style=" margin-left:7%;" for="date-picker-example">Depart date</label>
+            </div>
+
+            <div id="hide" class="md-form form-group col-6 ">
+                <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
+                <label style=" margin-left:7%;" for="date-picker-example">Arrival date</label>
+            </div>
+
+
+
+
+        </div>
+        <!--/.Second row-->
+        <!--Third row-->
+        <div class="row" style="margin-top:1%; ">
+
+            <div class="md-form form-group col-6 ">
+                <select class="mdb-select colorful-select dropdown-danger">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <label style="margin-left:7%; ">Adult (18+)</label>
+            </div>
+
+            <div class="md-form form-group col-6 " id="arrival">
+                <select class="mdb-select colorful-select dropdown-danger">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <label style="margin-left:7%; ">Children (2 - 17)</label>
+            </div>
+        </div>
+
+        <a type="button" href="selectbus.html" class="main-btn col-12 btn btn-danger btn-rounded">Book now</a>
+        <!--/.Third row-->
+    </form>
+</section>
+
+</div>
+

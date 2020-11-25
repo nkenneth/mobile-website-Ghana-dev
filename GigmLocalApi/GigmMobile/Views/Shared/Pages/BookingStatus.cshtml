@@ -1,0 +1,254 @@
+﻿
+<div ng-controller="home as vm"  ng-cloak>
+<section class="main4 fixed-top z-depth-1-half">
+    <!--Double navigation-->
+    <header class="">
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar ">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a href="/">
+                        <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+                    </a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+			<li>
+				<ul class="social">
+					<li>
+						<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+							<i class="fa fa-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+							<i class="fa fa-instagram"> </i>
+						</a>
+					</li>
+					@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+					<li>
+						<a class="opentwitter icons-sm tw-ic">
+							<i class="fa fa-twitter"> </i>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+            <li id="links">
+                <ul class="collapsible collapsible-accordion ">
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r" href="@Url.Action("Index", "Pages")">
+                            <i class="fa fa-home"></i> Home
+                            <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                        </a>
+                     
+                    </li>
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fa fa-hand-pointer-o"></i> My Bookings History
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                        </a>
+                        <!-- <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">For bloggers</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">For authors</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </li>
+                     @{Html.RenderPartial("Profile");}
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-phone"></i> Contact us
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+								</li>
+								<li>
+									<a href="tel:08139851110" class="waves-effect">Call us</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+            <!-- SideNav slide-out button -->
+            <div class=" paddo" style="">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="fa fa-bars" style="color:white"></i>
+                </a>
+
+            </div>
+            <!-- Breadcrumb-->
+            <!-- <div class="breadcrumb-dn mr-auto ">
+                <p>Material Design for Bootstrap</p>
+            </div> -->
+
+
+            <div class="middle" style="">
+                <h5 class="white-text"> Booking Status</h5>
+            </div>
+            <!-- <div class="text-right">
+                    <a href="javascript:history.back()" class="button-collapse2">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+            </div> -->
+
+
+
+        </nav>
+
+        <!-- /.Navbar -->
+    </header>
+    <!--/.Double navigation-->
+    <!--Main Layout-->
+
+    <main style="">
+        <div id="header2" class="fixed pushers2  container-fluid " style=" padding-top: 3%">
+            <!-- <div class="switch switch-blue" style="border-radius:20px; ">
+                <input type="radio" class="switch-input " name="view2" onclick="show1();" value="week2" id="week2" checked>
+                <label for="week2" class="switch-label switch-label-off">One Way</label>
+                <input type="radio" class="switch-input" name="view2" onclick="show2();" value="month2" id="month2">
+                <label for="month2" class="switch-label switch-label-on" style="margin-left:-5%;">Round Trip</label>
+                <span class="switch-selection"></span>
+
+            </div> -->
+            <!-- <div style="height: 2000px"></div> -->
+        </div>
+
+
+
+    </main>
+</section>
+
+
+
+
+<section id="body">
+
+
+    <div class="ticket">
+        <header>
+            <div class="company-name">
+                <i class="fa fa-calendar" aria-hidden="true"></i> {{rvm.convertDate(vm.bookingDetails.DepartureDate.split('T')[0])}}
+            </div>
+            <div class="gate">
+                <!-- <div>
+                Teminal
+            </div>
+            <div>
+                Ajah
+            </div> -->
+            </div>
+        </header>
+        <section class="element">
+            <div class="bus">
+                <div class="bus-name">
+                    {{vm.bookingDetails.RouteName.split('==>')[0]}}
+                </div>
+                <div class="bus-code" ng-if="false">
+                    LGA
+                </div>
+                <div class="bus-label">
+                    Departing
+                </div>
+                <div class="time">
+                    {{vm.bookingDetails.DepartureTime}}
+                </div>
+            </div>
+
+
+
+			<div class="bus">
+				<i class="fa fa-bus" aria-hidden="true"></i>
+
+			</div>
+
+
+            <div class="bus">
+                <div class="bus-name">
+                    {{vm.bookingDetails.RouteName.split('==>')[1]}}
+                </div>
+                <div class="bus-code" ng-if="false">
+                    LGA
+                </div>
+                <div class="dep-arr-label">
+                    Arriving
+                </div>
+                <div class="time">
+                    N/A
+                </div>
+            </div>
+        </section>
+        <section class="place">
+            <div class="flex-container">
+                <div>
+                    <h6> Name</h6>
+                    <p>
+                        {{vm.bookingDetails.FullName}}
+                    </p>
+                </div>
+                <div>
+                    <h6>Booking Status</h6>
+                    <p>
+                        {{vm.bookingDetails.BookingStatus == 1?'Approved':'Not Approved'}}
+                    </p>
+                </div>
+                <div>
+                    <h6>Seat number</h6>
+                    {{vm.bookingDetails.SeatNumber}}
+                </div>
+                <div ng-if="false">
+                    <h6>Seat Status</h6>
+                    <p>14</p>
+                </div>
+
+                <div>
+                    <h6>Phone</h6>
+                    <p>{{vm.bookingDetails.PhoneNumber}}</p>
+                </div>
+                <div>
+
+                    <h6>Sex</h6>
+                    <p>{{vm.bookingDetails.Gender == 0?'Male':'Female'}}</p>
+                </div>
+                <div>
+                    <h6>Tickets</h6>
+                    <p>{{vm.bookingDetails.NoOfTicket}}</p>
+                </div>
+                <div>
+                    <h6>refcode</h6>
+                    <p>
+                        {{vm.bookingDetails.BookingReferenceCode}}
+                    </p>
+                </div>
+                <div>
+                    <h6>Amount</h6>
+                    <p>
+                        {{vm.bookingDetails.Amount}}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</section>
+ </div>

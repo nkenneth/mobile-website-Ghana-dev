@@ -1,0 +1,148 @@
+﻿@*modal is here*@
+
+<div class="modal fade show" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:none;padding-right: 17px;" ng-controller="login as vm">
+    <div class="modal-dialog cascading-modal modal-danger" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Modal cascading tabs-->
+            <div class="modal-c-tabs">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs tabs-2 red darken" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab" aria-selected="true">
+                            <i class="fa fa-user mr-1"></i> Login
+                        </a>
+                    </li>
+                    @*<li class="nav-item waves-effect waves-light">
+                            <a class="nav-link " data-toggle="tab" href="#panel8" role="tab" aria-selected="false">
+                                <i class="fa fa-user-plus mr-1"></i> Register
+                            </a>
+                        </li>*@
+                </ul>
+
+                <!-- Tab panels -->
+                <div class="tab-content">
+                    <!--Panel 7-->
+                    <div class="tab-pane fade active show" id="panel7" role="tabpanel">
+
+                        <!--Body-->
+                        <div class="modal-body mb-1">
+                            <form name="loginForm">
+                                <div class="md-form form-sm" ng-hide="vm.forgotPassword">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="username1" class="form-control" name="username1" ng-model="vm.user.username" required>
+                                    <label for="username1">Your email or phone number</label>
+                                </div>
+
+                                <div class="md-form form-sm" ng-if="vm.forgotPassword">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" ng-model="vm.phoneNumber" required>
+                                    <label for="phoneNumber">Phone number</label>
+                                </div>
+
+                                <div class="md-form form-sm" ng-hide="vm.forgotPassword">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="password1" class="form-control" name="password1" ng-model="vm.user.password" required>
+                                    <label for="password1">Your password</label>
+                                </div>
+                                <div class="text-center mt-2" ng-hide="vm.forgotPassword">
+                                    @*<button class="btn btn-danger btn-rounded waves-effect waves-light" ng-click="vm.login('@Session["page"] as String')" ng-disabled="!loginForm.username.$valid">*@
+									<button class="btn btn-danger btn-rounded waves-effect waves-light" ng-click="vm.login('@Session["page"] as String')" >
+
+										Log in
+										@*<i class="fa fa-sign-in ml-1"></i>*@
+									</button>
+                                </div>
+                                <div class="text-center mt-2" ng-show="vm.forgotPassword">
+                                    <button class="btn btn-danger btn-rounded waves-effect waves-light" ng-click="vm.getActivationCode()" ng-disabled="!loginForm.phoneNumber.$valid">
+                                        Get Activation Code
+                                        <i class="fa fa-sign-in ml-1"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer" style="display:block;">
+                            <div class="options  pull-left ">
+                                <!-- <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p> -->
+                                <p>
+                                    @*Forgot*@
+                                    <a href="@Url.Action("SignUp", "Pages")" class="red-text">Sign up</a>
+                                </p>
+                            </div>
+                            <div class="options pull-right mt-1">
+                                <!-- <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p> -->
+                                <p>
+                                    Forgot
+                                    <a href="#" ng-click="vm.forgotPassword = true" class="red-text">Password?</a>
+                                </p>
+                            </div>
+                            <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button> -->
+                        </div>
+
+                    </div>
+                    <!--/.Panel 7-->
+                    <!--Panel 8-->
+                    <div class="tab-pane fade in show" id="panel8" role="tabpanel">
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="md-form form-sm">
+                                <i class="fa fa-envelope prefix"></i>
+                                <input type="text" id="form24" class="form-control">
+                                <label for="form24">Your email</label>
+                            </div>
+
+                            <div class="md-form form-sm">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="form25" class="form-control">
+                                <label for="form25">Your password</label>
+                            </div>
+
+                            <div class="md-form form-sm">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="form26" class="form-control">
+                                <label for="form26">Repeat password</label>
+                            </div>
+
+                            <div class="text-center form-sm mt-2">
+                                <button class="btn btn-danger waves-effect btn-rounded waves-light">
+                                    Sign up
+                                    <i class="fa fa-sign-in ml-1"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <div class="container">
+                                <div class="row">
+                                    <p class="col-12">
+                                        Already have an account?
+                                        <a href="#" class="red-text">Log In</a>
+                                    </p>
+                                </div>
+                                <div class="row">
+
+                                    <a type="button" href="index.html" class="btn-rounded col-12 btn btn-outline-danger waves-effect ml-auto">Continue without Login</a>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.Panel 8-->
+                </div>
+
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+</div>
+@*modal ends*@
+

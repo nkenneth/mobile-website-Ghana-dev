@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "FlutterWavePay";
+}
+
+<h2>FlutterWavePay</h2>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>--%>
+
+    <script type="text/javascript" src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+
+    <script>
+        var readyStateCheckInterval = setInterval(function () {
+            if (document.readyState === "complete") {
+                clearInterval(readyStateCheckInterval);
+
+                 getpaidSetup({
+                        customer_email: '<%= customer_email.Text %>',
+                        amount: '<%=amount.Text%>',
+                        currency: 'NGN',
+                        country: 'NG',
+                        payment_method: 'card',
+                            txref: '<%=txref.Text %>',
+                        PBFPubKey: '<%=PBFPubKey.Text %>',
+                        integrity_hash : '<%=GetSetupRequestHash%>',
+                        // normalize: '<%= normalize.Text %>',
+                     redirect_url: '<%= redirect_url.Text %>',
+                     redirect_no_json: '<%=redirect_no_json.Text%>',
+                        onclose: function loadUrl() {
+                            window.location.assign('<%= redirect_url.Text %>');
+                        }
+                    }
+              );
+            }
+        }, 10);
+    </script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+    <asp:Literal ID="customer_email" runat="server" Visible="False"></asp:Literal>
+    <asp:Literal ID="amount" runat="server" Visible="False"></asp:Literal>
+    <asp:Literal ID="txref" runat="server" Visible="False"></asp:Literal>
+    <asp:Literal ID="normalize" runat="server" text="1" Visible="False"></asp:Literal>
+    <asp:Literal ID="PBFPubKey" runat="server" Visible="False"></asp:Literal>
+    <asp:Literal ID="redirect_url" runat="server" Visible="False"></asp:Literal>
+    <asp:Literal ID="redirect_no_json" runat="server" text="1" Visible="False"></asp:Literal>
+
+    <p>
+        <br />
+    </p>
+    <div class="row main down-20 no-margin">
+        <div class="container">
+            <div class="col-sm-12 text-center">
+                <img src="img/Processing.gif" class="text-center" />
+                <span style="font-size: 20px;">
+                    <p>
+                        Redirecting to payment gateway. It might take a few seconds.
+                        <br />
+                        Please do not refresh the page or click the "Back" or "Close" button of your browser.
+                    </p>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

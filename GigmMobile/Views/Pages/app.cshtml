@@ -1,0 +1,236 @@
+﻿@{
+	ViewBag.Title = "App";
+}
+@*terms and conditions*@
+
+
+
+<link href="~/Content/terminal.css" rel="stylesheet" />
+
+
+
+<div ng-controller="TerminalsController" ng-cloak>
+	<section class="main z-depth-1-half">
+		<!--Double navigation-->
+		<header class="">
+			<!-- Sidebar navigation -->
+			<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+				<!-- Logo -->
+				<li>
+					<div class="logo-wrapper waves-light">
+						<a href="@Url.Action("Home", "Pages")">
+							<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+						</a>
+					</div>
+				</li>
+				<!--/. Logo -->
+				<!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+								<a class="icons-sm gplus-ic">
+									<i class="fa fa-google-plus"> </i>
+								</a>
+							</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/Social-->
+				<!--Search Form-->
+				<!-- <li>
+					<form class="search-form" role="search">
+						<div class="form-group waves-light">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+				</li> -->
+				<!--/.Search Form-->
+				<!-- Side navigation links -->
+				<li id="links">
+					<ul class="collapsible collapsible-accordion ">
+						<li>
+							<a class="collapsible-header waves-effect arrow-r" href="/">
+								<i class="fa fa-home"></i> Home
+								<!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+							</a>
+							<!-- <div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#" class="waves-effect">Submit listing</a>
+									</li>
+									<li>
+										<a href="#" class="waves-effect">Registration form</a>
+									</li>
+								</ul>
+							</div> -->
+						</li>
+						@{
+							Html.RenderPartial("Profile");
+						}
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+
+
+
+						<li>
+							<a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-info"></i> Bus Terminal info
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/. Side navigation links -->
+				<div class="sidenav-bg mask-strong"></div>
+			</ul>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+				<!-- SideNav slide-out button -->
+
+
+
+				<div class="paddo" style="">
+					<a href="#" data-activates="slide-out" class="button-collapse">
+						<i class="fa fa-bars" style="color:white"></i>
+					</a>
+
+				</div>
+
+
+
+
+				<div class="middle">
+					<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+					<h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">Terms & Conditions</h5>
+				</div>
+				<div class="text-right">
+					<a href="/" class="button-collapse2">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+				</div>
+
+
+
+			</nav>
+
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
+		<!--Main Layout-->
+
+
+	</section>
+
+
+	<div class="contentView">
+		<div class="header-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<h3>Travelling in your pocket with our awesome app</h3>
+					</div>
+					<div class="col-md-4 img-wrapper hidden-sm hidden-xs">
+						@*<img src="webassets/img/bus_features.png">*@
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="app-img">
+							<img src="https://gigm.com/img/Group-app.png" class="img-responsive">
+						</div>
+
+					</div>
+					<div class="col-md-4">
+						<div class="app-list">
+							<ul>
+								<li>Download on Android and IOS</li>
+								<li>Simple 3 step booking</li>
+								<li>Check Trip History</li>
+								<li>Hire a Bus</li>
+								<li>Rate your Trips / Drivers</li>
+							</ul>
+						</div>
+						<div class="download-app app-page">
+							<h3>Download now</h3>
+
+							<a href="https://play.google.com/store/apps/details?id=com.gigm" target="_blank" id="android-app-link" class="appicon app_and"></a>
+
+							<a href="https://itunes.apple.com/ng/app/gigm/id1103940362?mt=8" target="_blank" id="ios-app-link" class="appicon app_ios"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

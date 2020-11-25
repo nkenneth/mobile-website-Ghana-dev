@@ -1,0 +1,532 @@
+﻿@{
+	ViewBag.Title = "faq";
+}
+@*<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>*@
+
+
+
+<style>
+
+	.card {
+		    padding: 5%;
+    margin-bottom: 2%;
+	}
+	.collapsed {
+		font-size: .8em;
+	}
+	a {
+    color: #2e2e2e;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8em;
+}
+	a:focus, a:hover {
+    text-decoration: none;
+    font-size: .8em;
+}
+
+	a:hover {
+    color: #ce3333;
+    text-decoration: underline;
+}
+</style>
+
+
+
+
+<div ng-controller="booking as vm"  ng-cloak>
+	<section class="main z-depth-1-half">
+		<!--Double navigation-->
+		<header class="">
+			<!-- Sidebar navigation -->
+			<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+				<!-- Logo -->
+				<li>
+					<div class="logo-wrapper waves-light">
+						<a href="@Url.Action("Home", "Pages")">
+							<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+						</a>
+					</div>
+				</li>
+				<!--/. Logo -->
+				<!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/Social-->
+				<!--Search Form-->
+				<!-- <li>
+					<form class="search-form" role="search">
+						<div class="form-group waves-light">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+				</li> -->
+				<!--/.Search Form-->
+				<!-- Side navigation links -->
+				<li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                                <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                            </a>
+                            <!-- <div class="collapsible-body">
+            <ul>
+                <li>
+                    <a href="#" class="waves-effect">Submit listing</a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">Registration form</a>
+                </li>
+            </ul>
+        </div> -->
+                        </li>
+                        @{
+        Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+                        <li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+						<li>
+							<!--/. Sidebar navigation -->
+							<a href="@Url.Action("Enterprise","Pages")" style="height:100%" class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-check" style="margin-right: 8px;"></i> Become An Enterprise <p style="margin-left:11.5%; margin-top: -5%;">Partner</p>
+							</a>
+						</li>
+                    </ul>
+				</li>
+				<!--/. Side navigation links -->
+				<div class="sidenav-bg mask-strong"></div>
+			</ul>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+				<!-- SideNav slide-out button -->
+
+
+
+				<div class="paddo" style="">
+					<a href="#" data-activates="slide-out" class="button-collapse">
+						<i class="fa fa-bars" style="color:white"></i>
+					</a>
+
+				</div>
+				<!-- Breadcrumb-->
+				<!-- <div class="breadcrumb-dn mr-auto ">
+					<p>Material Design for Bootstrap</p>
+				</div> -->
+
+
+				<div class="middle">
+					<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+					<h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">Manage Booking FAQs</h5>
+				</div>
+				<div class="text-right">
+					<a href="/" class="button-collapse2">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+				</div>
+
+
+
+			</nav>
+
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
+		<!--Main Layout-->
+
+
+	</section>
+
+	<section id="form">
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 gigm-faq" id="main">
+				
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What is online booking?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+								<div class="panel-body">
+									Online booking is a convenient way of booking your trips over the internet. Using GIGM online services you can- request a particular seat &amp; pay online by your credit or debit card using our secure server.
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What are the steps to booking online?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+								<div class="panel-body">
+									Please click on this link for directions on <a href="How-To-Book-A-Bus.aspx" target="_blank"> how to book online</a>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title">
+									<a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> How do I change details of my booking after paying online?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree" aria-expanded="true" style="">
+								<div class="panel-body">
+									Please contact our Online booking support on 08172011591
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingFour">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> Can I check availability and fares without actually purchasing a ticket?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
+								<div class="panel-body">
+									Yes; You do not need to pay or provide your card details to check availability and fares. We only require your payment details if you choose to complete a booking.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingFive">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> How do I know my ticket has been booked and paid for?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false">
+								<div class="panel-body">
+									Once you have confirmed your trip, personal and payment details, deductions will be made from your account and a summary of this information will be displayed along with your booking reference. SMS / email notifications stating it as a SUCCESSFUL TRANSACTION will also be sent to the email address/mobile number provided by you during the booking process. The booking reference indicates that your reservation has been confirmed.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingSix">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> If I book online, how do I get my ticket?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false">
+								<div class="panel-body">
+									If you make a reservation online, you will receive an email communicating details of your trip. Kindly present a print out of this email or show the reference code for your boarding ticket to be issued to you at the terminal.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingSeven">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> Where are your locations?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven" aria-expanded="false">
+								<div class="panel-body">
+									Please click on the <a href="https://gigm.com/Terminals.aspx" target="_blank">link</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingEight">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What routes do your buses ply?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight" aria-expanded="false">
+								<div class="panel-body">
+									Kindly click <a href="https://gigm.com/Schedule.aspx" target="_blank">link</a> for more information
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingNine">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What is time for departure?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine" aria-expanded="false">
+								<div class="panel-body">
+									Kindly click  for more information
+									Please see our terminal schedule at <a href="https://gigm.com/Schedule.aspx" target="_blank">link</a> on the GIGM website
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingTen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What payment methods are available when booking online and at your terminals?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen" aria-expanded="false">
+								<div class="panel-body">
+									MasterCard, Visa, Verve cards are acceptable means of payment on our online platform and POS at the terminals. We are working towards adding more payment options to our online platform.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingEleven">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> Where can I find my/the booking reference number?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseEleven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEleven" aria-expanded="false">
+								<div class="panel-body">
+									It is displayed on the notification sent to the email your registered with after your booking and payment has been made. It is often times alpha-numeric and occasionally only numeric; for priority bus booking, it starts with the PS- followed by the 6 numeric or alpha-numeric characters
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingTwelve">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What happens when I experience problems while booking online?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwelve" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwelve" aria-expanded="false">
+								<div class="panel-body">
+									Kindly contact our online booking support on 08172011591, any of our customer care lines as listed on the GIGM website for assistance or send email to <a href="mailto:contact@gigm.com">contact@gigm.com</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingThirteen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What should I do if I lose my booking reference number?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThirteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThirteen" aria-expanded="false">
+								<div class="panel-body">
+									Kindly contact our online booking support staff on 08172011591 or any of our customer care lines and emails as listed on the GIGM website for assistance.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingFourteen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> Can I cancel my booking after payment and do you do refunds?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFourteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourteen" aria-expanded="false">
+                                <div class="panel-body">
+                                    We have a no refund policy. All payments are final. However, the tickets are valid for a thirty day period from date of purchase.
+                                </div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingFifteen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What happens if I lose an item in the bus or terminal premises?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFifteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFifteen" aria-expanded="false">
+								<div class="panel-body">
+									It is your responsibility to monitor your items when travelling with our buses and through our facilities. However, we will assist in trying to locate the items left behind in the bus cabin or Terminal premises if we are contacted immediately. Please see our website for the contact number of various terminals.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingSixteen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> Why is your seat no 2 permanently blocked on your booking site and always not issued even when available at the terminal?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseSixteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSixteen" aria-expanded="false">
+								<div class="panel-body">
+									The seat no 2 in our vehicles are generally reserved for Luggage. It is only at the event of it not being utilized for luggage that it is then sold to a guest with preference given to anyone who may have indicated interest for the seat initially.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingSeventeen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> Can I pay to the Captain or Field Executive for my excess luggage?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseSeventeen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeventeen" aria-expanded="false">
+								<div class="panel-body">
+									All payments are to be made over the counter to the Ticketer after declaring your luggage size. Usually an extra seat (s) is/ are paid for. This must be receipted as evidence of payment.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingEighteen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEighteen" aria-expanded="false" aria-controls="collapseEighteen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What happens if I miss my bus after purchasing ticket via your online platform or walk in pre-booking prior to trip?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseEighteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEighteen" aria-expanded="false">
+                                <div class="panel-body">
+                                    Guests check-in closes 30 minutes before departure time. Failure to meet this time for any reason will attract an administrative of one thousand naira (N1000) for rescheduling. Please note that rescheduled tickets are subject to schedule, bus type and seat availability. The reschedule fee applies, pre or post departure day and time.
+                                </div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="panel-heading" role="tab" id="headingNineteen">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNineteen" aria-expanded="false" aria-controls="collapseNineteen">
+										<i class="fa fa-plus-circle" aria-hidden="true"></i> What baggage allowance are my entitled to?
+									</a>
+								</h4>
+							</div>
+							<div id="collapseNineteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNineteen" aria-expanded="false">
+                                <div class="panel-body">
+                                    Guests are entitled to one medium sized luggage. Should luggage exceed the acceptable limit, you may be required to pay for an additional seat(s) to comfortably accommodate the baggage or send the excess luggage via our sister company GIGL. This is critical to maintain the service and safety and standards of GIGM.
+                                </div>
+							</div>
+						</div>
+
+
+						<div class="alert alert-info">
+							<p>
+								<strong>Please note the following:</strong><br>
+								Unclaimed properties are generally kept for 30 days before it is disposed of (except perishables which are discarded by next day to prevent contamination). If the lost property is perishable property, or becomes objectionable or a health risk before the end of the day it was lost or forgotten, we reserve the right to destroy or dispose of it at any time. <br>
+								Kindly endeavor to call the terminal manager immediately. You can reach <a href="https://gigm.com/Terminals.aspx" target="_blank">all our terminals as listed on the GIGM website</a>. Please note this may be subject to change in accordance with modifications in our policies.
+								If you are to claim any item or lost property, you will be required to satisfy us that the item belongs to you.
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	@*<div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+		<img src="~/img/spinner.gif" class="img-fluid flex-center">
+	</div>*@
+	@{
+		Html.RenderPartial("AuthModal");
+	}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

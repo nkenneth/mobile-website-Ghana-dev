@@ -1,0 +1,577 @@
+﻿@{
+
+    ViewBag.Title = "PaymentConfirmation";
+}
+<style>
+    .payment-success .box-icon-center {
+        margin: 0 auto;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        font-size: 42px;
+        z-index: 2;
+        position: relative;
+        text-align: center;
+        display: block;
+        color: #fff;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s;
+        margin-top: 20px;
+    }
+
+    .payment-success .box-icon-success {
+        background: #51a351;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+        .payment-success .box-icon-success:after {
+            content: '\f00c';
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+    .payment-success .box-icon-failure {
+        background: #f00;
+        border-radius: 50%;
+    }
+
+        .payment-success .box-icon-failure:after {
+            content: '\f00d';
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+    .payment-success .mb30 {
+        margin-bottom: 30px !important;
+    }
+
+    .payment-success h2 {
+        font-weight: 300;
+        color: #565656;
+        line-height: 1.3em;
+    }
+
+    .payment-success h5 {
+        font-size: 18px;
+        font-weight: 300;
+        color: #565656;
+        line-height: 1.3em;
+    }
+
+    .payment-success .list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .payment-success .order-payment-list > li {
+        padding: 10px 15px;
+        border-bottom: 1px dashed #ccc;
+    }
+
+        .payment-success .order-payment-list > li:first-child {
+            border-top: 1px dashed #ccc;
+        }
+
+        .payment-success .order-payment-list > li h5, .payment-success .order-payment-list > li p {
+            margin-bottom: 0;
+        }
+
+            .payment-success .order-payment-list > li h5 .fa {
+                margin-right: 10px;
+            }
+
+        .payment-success .order-payment-list > li small {
+            margin-left: 35px;
+            color: #181818;
+            font-size: 10px;
+            line-height: 1.4em;
+        }
+
+    .payment-success .text-lg {
+        color: #686868;
+        font-size: 16px;
+        line-height: 1.98em;
+        font-weight: 300;
+    }
+</style>
+
+
+<section class="main z-depth-1-half">
+	<!--Double navigation-->
+	<header class="">
+		<!-- Sidebar navigation -->
+		<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+			<!-- Logo -->
+			<li>
+				<div class="logo-wrapper waves-light">
+					<a href="@Url.Action("Home", "Pages")">
+						<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+					</a>
+				</div>
+			</li>
+			<!--/. Logo -->
+			<!--Social-->
+			<li>
+				<ul class="social">
+					<li>
+						<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+							<i class="fa fa-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+							<i class="fa fa-instagram"> </i>
+						</a>
+					</li>
+					@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>boo
+					</a>
+				</li>*@
+					<li>
+						<a class="opentwitter icons-sm tw-ic">
+							<i class="fa fa-twitter"> </i>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<!--/Social-->
+			<!--Search Form-->
+			<!-- <li>
+				<form class="search-form" role="search">
+					<div class="form-group waves-light">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+				</form>
+			</li> -->
+			<!--/.Search Form-->
+			<!-- Side navigation links -->
+			<li id="links">
+				<ul class="collapsible collapsible-accordion ">
+					<li>
+						<a class="collapsible-header waves-effect arrow-r" href="/">
+							<i class="fa fa-home" aria-hidden="true"></i>  Home
+							<!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+						</a>
+						<!-- <div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="#" class="waves-effect">Submit listing</a>
+								</li>
+								<li>
+									<a href="#" class="waves-effect">Registration form</a>
+								</li>
+							</ul>
+						</div> -->
+					</li>
+					@{
+						Html.RenderPartial("Profile");
+					}
+					<li>
+						<a class="collapsible-header waves-effect arrow-r">
+							<i class="fa fa-phone"></i> Contact us
+							<i class="fa fa-angle-down rotate-icon"></i>
+						</a>
+						<div class="collapsible-body">
+							<ul>
+								<li>
+									<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+								</li>
+								<li>
+									<a href="tel:08139851110" class="waves-effect">Call us</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<!--/. Side navigation links -->
+			<div class="sidenav-bg mask-strong"></div>
+		</ul>
+		<!--/. Sidebar navigation -->
+		<!-- Navbar -->
+		<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+			<!-- SideNav slide-out button -->
+
+
+
+			<div class="paddo" style="">
+				<a href="#" data-activates="slide-out" class="button-collapse">
+					<i class="fa fa-bars" style="color:white"></i>
+				</a>
+
+			</div>
+			<!-- Breadcrumb-->
+			<!-- <div class="breadcrumb-dn mr-auto ">
+				<p>Material Design for Bootstrap</p>
+			</div> -->
+
+
+			<div class="middle">
+				<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+				<h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">SIGN IN / SIGN UP</h5>
+			</div>
+			<div class="text-right">
+				<a href="javascript:history.back()" class="button-collapse2">
+					<i class="fa fa-chevron-left"></i>
+				</a>
+			</div>
+
+
+
+		</nav>
+
+		<!-- /.Navbar -->
+	</header>
+	<!--/.Double navigation-->
+	<!--Main Layout-->
+
+
+</section>
+
+
+
+<div ng-controller="passengerDetails as vm">
+
+    @if (@ViewBag.Status == false)
+    {
+        <div ID="failed">
+            <div class="row pax">
+                <div class="col-xs-12">
+
+                    <div class="row shadow-box">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 class="bold"><i class="material-icons" style="color: red;">&#xE000;</i> Transaction Failed</h3>
+
+                                    <h3>
+                                        Reason:@ViewBag.Status @Session["transactionDetails"]
+                                        <Label Text="" ID="lblerrormsg"></Label>
+                                    </h3>
+
+                                    <Label ID="lbljourney" Text=""></Label><br />
+                                    <p>
+                                        <br />
+                                    </p>
+
+                                    Possible reasons:
+                                    <p>1.   Card not enabled for online transactions (Please visit your bank to enroll your card for internet transactions)</p>
+                                    <p>2.  Bank currently unavailable</p>
+                                    <p>3.  Your card is not funded.</p>
+
+
+
+
+                                    <button type="button" class="btn btn-danger view-seat red-background" onclick="location.href='Default.aspx'">Try again </button>
+                                    <p>
+                                        <br />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+@if (@ViewBag.Status != null && ViewBag.Status == true)
+{
+    <div ID="success">
+        <div class="col-sm-12" id="confirmation" style="padding: 0px;">
+            <div class="container payment-success">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="text-center">
+                            <br />
+                            <img src="/img/success.gif" width="100" />
+                        </div>
+
+                        <h5 class="text-center confirmtext">
+
+                            Dear
+                            <text ID="lblguestName" Text="">@Model.BookingRequest.FirstName</text>, your payment was successful!
+                        </h5>
+                        <h5 class="text-center mb30">Booking details has been sent to your email</h5>
+                        <h5 class="text-center mb30">
+                            Reference number:
+                          <b style="font-weight:bold; "><Label ID="paxref" style="font-size:1.1em" Text="" Font-Bold="true">@Model.BookingResponse.BookingReferenceCode</Label></b>  
+                        </h5>
+                        <ul class="order-payment-list list mb30" id="bookingDetailsMainDiv">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-9 col-xs-12">
+                                        <h5 class="flex-center">
+                                            <i class="fa fa-bus" aria-hidden="true"></i>
+                                            <strong>Booking Details</strong>
+                                            <Label ID="lbltripinfo" Text=""></Label>
+                                        </h5>
+                                
+
+                                       
+
+                                    </div>
+                              
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="row">
+
+
+									<div class="col-md-3 col-xs-12">
+										<p class="text-left mob">
+											<span class="text-lg">
+												<strong>Departure date:</strong>
+												<label id="tripdate">@Model.BookingResponse.DepartureDate</label>
+											</span>
+										</p>
+									</div>
+
+									<div class="col-md-3 col-5">
+										<p class="text-left mob">
+                                            <span class="text-lg">
+                                                <strong>Price:</strong>
+                                                <br />
+                                                {{vm.currency}}
+                                                <Label ID="lbltotalamt">@Model.BookingResponse.Amount</Label>
+                                            </span>
+										</p>
+									</div>
+									<div class="col-md-3 col-7">
+										<p class="bold" id="lblPromoDiscountHead" visible="false">
+                                            <span class="text-lg">
+                                                <strong>Promo Discount:</strong>
+                                                <br />
+
+                                                {{vm.currency}}
+                                                <Label ID="lblPromoDiscount" Font-Size="Large" Text="">@Model.BookingRequest.Discount</Label>
+                                            </span>
+</p>
+									</div>
+
+							
+
+                                    <div class="col-md-4 col-xs-12">
+                                        <h5>
+                                            <i class="fa fa-road" aria-hidden="true"></i>
+                                            <strong>Bus Type:</strong>
+                                            <Label ID="lblbustypesuc" Text="">{{vm.departureTrip.VehicleName}}</Label>
+                                        </h5>
+                                    </div>
+                                    <div class="col-md-5 col-xs-12">
+                                        <h5>
+                                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                            Phone No.:
+                                            <Label ID="lblpaxphone">@Model.BookingRequest.PhoneNumber</Label>
+                                        </h5>
+                                    </div>
+									<div class="col-md-3 col-xs-12">
+										<div ID="PickUpPointPanel">
+											<span class="text-left mb30">
+												<strong> PickUp Point & Time: </strong>
+												<Label ID="pickUpDisplay" Text="" Font-Bold="true">{{vm.data.pickup.PickUpPointAndTime}}</Label>
+											</span>
+										</div>
+									</div>
+                                    <div class="col-md-3 col-xs-12">
+                                        <p class="text-left mob">
+                                            <span class="text-lg">
+                                                <strong>Seat No:</strong>
+                                                <Label ID="lblSeatNo" Text="">@Model.BookingResponse.SeatNumber</Label>
+                                            </span>
+                                        </p>
+                                    </div>
+								
+                                </div>
+                                @*<div class="row">
+                                    <p style="padding-left: 15px;">
+                                        <span class="text-lg">
+                                            <Label ID="otherseats" Text="">@Model.BookingRequest.SeatRegistrations</Label>
+                                            @Session["OtherSeats"].ToString()
+                                        </span>
+                                    </p>
+                                </div>*@
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+    </div>
+@if (ViewBag.HireService != null)
+{
+<div ng-controller="busBookerPay as vm">
+   
+    <div ID="success" ng-show="true">
+        <div class="col-sm-12" id="confirmation" style="padding: 0px;">
+            <div class="container payment-success">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="text-center">
+                            <br />
+                            <img src="/img/success.gif" width="100" />
+                        </div>
+
+                        <h2 class="text-center confirmtext">
+
+                            Dear,
+                            @if ((int)Session["roundTripHire"] == 0)
+                            {
+                               <Label ID="lblguestName" Text="">@Model.BookingRequest.FullName</Label>
+                            }
+                           else
+                           {
+                                <Label ID="lblguestName" Text="">@Model.BookingRequestReturn.FullName</Label>
+                            }
+                        </h2>
+                        <h5 class="text-center mb30">Booking details has been sent to your email</h5>
+                        <h5 class="text-center mb30">
+                            Reference number:
+                            <Label ID="paxref" Text="" Font-Bold="true">@Model.HirePayResponse.RefCode</Label>
+                        </h5>
+                        <ul class="order-payment-list list mb30" id="bookingDetailsMainDiv">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-9 col-xs-12">
+                                        <h5>
+                                            <i class="fa fa-bus" aria-hidden="true"></i>
+                                            <strong>Trip details:</strong>
+                                            <Label ID="lbltripinfo" Text="">Pickup Date</Label>
+                                        </h5>
+                                        <p>
+                                            @if ((int)Session["roundTripHire"] == 0)
+                                            {
+                                                  <small id="tripdate">@Model.BookingRequest.OnewayPickupDate</small>
+                                            }
+                                           else
+                                           {
+                                                  <small id="tripdate">@Model.BookingRequestReturn.OnewayPickupDate</small>
+                                           }
+                                            
+                                        </p>
+
+                                        <Label ID="PickUpPointPanel">
+                                            <h5 class="text-center mb30">
+                                                PickUp Point :
+                                                @if ((int)Session["roundTripHire"] == 0)
+                                                {
+                                                     <Label ID="pickUpDisplay" Text="" Font-Bold="true">@Model.BookingRequest.OnewayPickupLocation</Label>
+                                                }
+                                                else
+                                                {
+                                                    <Label ID="pickUpDisplay" Text="" Font-Bold="true">@Model.BookingRequestReturn.OnewayPickupLocation</Label>
+                                                }
+                                            </h5>
+                                        </Label>
+
+                                    </div>
+                                  
+                                    @*<h5 class="bold" id="lblPromoDiscountHead" visible="false">
+                                            <small>Promo Discount:</small>
+                                            - &#x20A6;
+                                            <Label ID="lblPromoDiscount" Font-Size="Large" Text="">@Model.BookingRequest.Discount</Label>
+                                        </h5>*@
+                                </div>
+                            </li>
+
+                            <li>
+
+
+                                <div class="row" ng-repeat="bus in vm.selectedBusses">
+
+                                    <div class="col-md-4 col-xs-1">
+                                        <h5>
+                                            <i class="fa fa-road" aria-hidden="true"></i>
+                                            <strong>Bus Type:</strong>
+                                            <Label ID="lblbustypesuc" Text="">{{bus.BusName}}</Label>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-12">
+                                        <p class="text-right text-centermob">
+                                            <span class="text-lg">
+                                                <strong>Price:</strong>
+                                                <Label ID="lblSeatNo" Text=""> {{vm.currency}} {{bus.Price}}</Label>
+                                            </span>
+                                        </p>
+                                    </div>
+
+
+                                    <div class="col-md-3 col-xs-12">
+                                        <p class="text-right text-centermob">
+                                            <span class="text-lg">
+                                                <strong>Quantity:</strong>
+                                                <Label ID="lblSeatNo" Text="">{{bus.Quantity}}</Label>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-xs-12">
+                                    <p class="text-right text-centermob">
+                                        <span class="text-lg">
+                                            
+                                            <Label ID="lbltotalamt">Total Amount</Label>
+                                            <Label ID="lbltotalamt">  {{vm.currency}}@Model.HirePayResponse.Amount</Label>
+                                        </span>
+                                    </p>
+                                </div>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row down-20 hidden">
+            <div class="col-sm-8 text-right">
+                <br />
+                <button type="button" class="btn btn-lg btn-danger red-background" onclick="printContent('confirmation');">Print <i class="material-icons">&#xE8AD;</i></button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    function stringToDate(_date, _format, _delimiter) {
+        var formatLowerCase = _format.toLowerCase();
+        var formatItems = formatLowerCase.split(_delimiter);
+        var dateItems = _date.split(_delimiter);
+        var monthIndex = formatItems.indexOf("mm");
+        var dayIndex = formatItems.indexOf("dd");
+        var yearIndex = formatItems.indexOf("yyyy");
+        var month = parseInt(dateItems[monthIndex]);
+        month -= 1;
+        var formatedDate = new Date(dateItems[yearIndex], month, dateItems[dayIndex]);
+        return formatedDate;
+    }
+    $(document).ready(function () {
+    });
+    function printContent(el) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + el).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+

@@ -1,0 +1,300 @@
+/* @import url("https://fonts.googleapis.com/css?family=Rubik"); */
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Oswald", sans-serif !important;
+  font-size: 62.5%;
+  --grey: rgb(88, 85, 85);
+  --bg-grey: rgb(247, 242, 242);
+  --color-grey: rgb(180, 176, 176);
+  --primary-color: #6cbcbb;
+  --primary-color-light: #7fbebde0;
+  --primary-color-dark: #2b6d6c;
+  --primary-color--modifier: #11ece9e7;
+  --secondary-color: #e31d00;
+  --secondary-color-modifier: #be1f47ea;
+  --color-default: #fff;
+  --color-default-inverse: #000;
+  --bx-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  font-size: 1.6rem;
+  overflow-y: scroll;
+}
+
+nav {
+  position: relative;
+  box-shadow: var(--bx-shadow);
+  height: 5rem;
+}
+
+nav > div > a:hover {
+  color: var(--secondary-color-modifier);
+}
+
+.navbar-brand img {
+  position: absolute;
+  top: 0;
+  width: 7rem;
+  height: 7rem;
+  z-index: 999;
+}
+
+@media (max-width: 425px) {
+  .navbar-brand img {
+    width: 5rem;
+    height: 7rem;
+  }
+}
+
+.login-link,
+.toggle-nation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.toggle-nation {
+  background: var(--bg-grey);
+  border-radius: 2.5rem;
+  width: 9rem;
+  padding: 0.8rem 2.5rem !important;
+  /* text-align: center; */
+}
+
+.login-link i {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+.details {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.details > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.ng-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.8rem;
+}
+
+.top-wrapper,
+.responsive-header {
+  display: none;
+}
+
+.left-wrapper {
+  width: 100%;
+  height: calc(100vh + 20rem);
+  background-color: var(--primary-color);
+  clip-path: polygon(0 0, 48% 0, 63% 100%, 0 100%);
+  overflow: hidden;
+}
+
+.logo {
+  width: 58rem;
+  height: 58rem;
+  position: absolute;
+  top: -6rem;
+  left: 3rem;
+}
+
+.banner {
+  position: absolute;
+  top: 25rem;
+  left: 10rem;
+}
+
+.banner h1 {
+  font-weight: 900;
+  font-size: 6rem;
+  color: var(--color-default);
+  letter-spacing: 0.8rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.banner p {
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--color-default);
+}
+
+.banner-header {
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: var(--color-default);
+  font-style: italic;
+  text-align: center;
+}
+
+.ambassador {
+  color: var(--color-default);
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-align: center;
+  background: var(--secondary-color);
+  padding: 0.7rem;
+  border-radius: 3px;
+}
+
+.ambassador h2 {
+  color: var(--primary-color-light);
+  font-weight: 900;
+  font-size: 4rem;
+  letter-spacing: 0.7rem;
+}
+
+.points {
+  margin-top: 6rem;
+  text-align: justify;
+}
+.points p {
+  font-weight: 300;
+}
+
+.students {
+  width: 60rem;
+  height: 30rem;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 93.3%;
+  left: -2rem;
+  /* bottom: 0; */
+}
+
+.clouds {
+  position: absolute;
+  top: 8rem;
+  right: 10rem;
+}
+
+form {
+  position: absolute;
+  top: 30rem;
+  right: 20rem;
+  width: 35rem;
+  font-size: 1.8rem;
+}
+
+input::placeholder,
+.btn__lg {
+  font-size: 1.3rem;
+}
+
+input {
+  font-size: 1.8rem !important;
+  font-family: inherit !important;
+  color: var(--grey) !important;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+.form-control__lg {
+  padding: 2rem 1rem;
+}
+
+.green-border {
+  border: 1px solid var(--primary-color);
+}
+
+@media (max-width: 1200px) {
+  form {
+    right: 12rem;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 50%;
+  }
+  .logo {
+    width: 38rem;
+    height: 38rem;
+    top: 3rem;
+    left: 6rem;
+  }
+
+  .banner {
+    top: 25rem;
+    left: 5rem;
+  }
+
+  .clouds {
+    top: 15rem;
+    width: 20rem;
+  }
+
+  form {
+    width: 23rem;
+    right: 10rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media (max-width: 599px) {
+  .left-wrapper {
+    display: none;
+  }
+
+  .clouds {
+    display: none;
+  }
+
+  .top-wrapper {
+    display: block;
+    width: 100%;
+    height: 40rem;
+    background-image: url(../img/campus-hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 15%;
+  }
+
+  .right-wrapper {
+    height: 80vh;
+  }
+
+  form {
+    width: 90%;
+    top: 75%;
+    right: 3rem;
+  }
+
+  .btn__lg {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    border-radius: 3px;
+  }
+
+  .responsive-header {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: -6rem;
+  }
+}

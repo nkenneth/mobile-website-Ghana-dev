@@ -1,0 +1,200 @@
+div.bhoechie-tab-menu div.list-group>a.active:after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  /* display: none; */
+  top: 50%;
+  margin-top: -13px;
+  border-left: 0;
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid transparent;
+  border-left: 10px solid #5A55A3;
+}
+div.bhoechie-tab-container {
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 0 !important;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  margin-left: 0;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  background-clip: padding-box;
+  opacity: 0.97;
+  filter: alpha(opacity=97);
+}
+
+div.bhoechie-tab-menu div.list-group>a.active:after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    margin-top: 0;
+    border-left: 0;
+    border-bottom: 13px solid transparent;
+    border-top: 0 solid transparent;
+    border-left: 0 solid #5A55A3;
+    height: 100%;
+    border: .1em solid black;
+    
+}
+
+div.bhoechie-tab-menu div.list-group>a {
+  margin-bottom: 0;
+  border: 0;
+  /* padding: 2em; */
+}
+
+div.bhoechie-tab-menu div.list-group>a.active, div.bhoechie-tab-menu div.list-group>a.active .glyphicon, div.bhoechie-tab-menu div.list-group>a.active .fa {
+  background-color: #ffffff;
+
+  background-image: #5A55A3;
+  color: #000000;
+}
+
+.bhoechie-tab-menu img {
+  margin: 2em 0 0;
+  margin-bottom: 1em;
+}
+
+.bhoechie-tab-content .radio .active {
+  border: 2px solid lightgray;
+  background: lightgray;
+  border-radius: 20px;
+  padding: .5em 1em .5em 1em;
+}
+
+.bhoechie-tab-content select, #date , button , input {
+
+  padding: 1em;
+  background: #f1f1f1;
+  border: none;
+  width: 100%;
+}
+
+.bhoechie-tab-content #date {
+  padding: 1.7em;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: #d0d0d0;
+  border-color: #ccc0;
+  padding: 1em;
+  width: 50%;
+}
+div.bhoechie-tab-menu div.list-group>a {
+  margin-bottom: 0;
+  border: 0;
+  background: #f9f9f9 !important;
+  /* padding: 2em; */
+}
+a.list-group-item, button.list-group-item {
+  color: #555;
+  font-weight: bold;
+}
+
+.banner-static {
+  background: #000 url(../img/banner.png);
+  padding-top: 190px;
+  overflow: hidden;
+  background-size: cover;
+  height: 1000px;
+}
+
+.header {
+  position: absolute;
+  padding: 35px 0 35px 0;
+  background: #ffffff;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+}
+
+.header-navigation ul.navigation-box {
+  float: left;
+  /* display: flex; */
+  margin: 1em;
+  margin-left: 5em;
+  /* margin: 1em; */
+  vertical-align: middle;
+}
+
+@media screen and (min-width:1440px){
+  .container{
+    width: 90%;
+  }
+}
+
+@media screen and (min-width:1600px){
+  .container{
+    width: 80%;
+  }
+}
+
+@media screen and (min-width:1800px){
+  .container{
+    width: 75%;
+  }
+}
+
+.artimg {
+  margin: auto;
+  height: 250px;
+  padding: 5em;
+}
+
+.title {
+  margin-top: -3em;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 4%);
+    transition: 0.3s;
+    border: .1rem solid #f1eeee96;
+    border-radius: 0;
+    height: 450px;
+    background: white;
+    padding: 1em;
+}
+
+.cards .col-lg-3 , .col-lg-4{
+  /* width: 25%; */
+  margin:0;
+  padding: 0;
+}
+
+.cards {
+  background: #F7F7F7;
+    padding: 2em 0 5em 0;
+}
+
+.why {
+  background: url(../img/phoneback.png) no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  padding: 5em 0 5em 0;
+}
+
+.why ul {
+  padding: 1.5em;
+}
+
+.why li {
+  padding: .5em;
+  font-weight: bold;
+}
+
+.why img {
+  margin: auto;
+}
+
+
+.cards .col-lg-4 .card {
+  padding: 3em;
+}

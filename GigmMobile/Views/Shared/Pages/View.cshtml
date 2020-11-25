@@ -1,0 +1,284 @@
+﻿@{
+	ViewBag.Title = "View";
+}
+@*<h2>@ViewBag.Title.</h2>
+	<h3>@ViewBag.Message</h3>*@
+
+
+
+<style>
+	.card {
+		padding: 5%;
+		margin-bottom: 2%;
+	}
+
+	.collapsed {
+		font-size: .8em;
+	}
+
+	a {
+		color: #2e2e2e;
+		text-decoration: none;
+		cursor: pointer;
+		font-size: .8em;
+	}
+
+		a:focus, a:hover {
+			text-decoration: none;
+			font-size: .8em;
+		}
+
+		a:hover {
+			color: #ce3333;
+			text-decoration: underline;
+		}
+
+	.tw-ic {
+		color: black !important;
+	}
+
+		.tw-ic i {
+			margin-left: 5%;
+		}
+
+			.tw-ic i:before {
+				content: "\f003";
+				padding-right: 5px;
+			}
+
+	.peach-gradient {
+		/*background: -webkit-linear-gradient(50deg,#FFD86F,#FC6262);*/
+		background: linear-gradient(40deg,#EF3A37,#e23d41) !important;
+	}
+
+	.fa-search:before {
+		content: "\f002";
+		/* margin-right: 10px; */
+		margin: 10px;
+	}
+
+	.card.card-cascade {
+		width: 90%;
+		margin: auto;
+		margin-bottom: 5%;
+	}
+</style>
+
+
+
+
+<div ng-controller="TerminalsController" ng-cloak>
+	<section class="main z-depth-1-half">
+		<!--Double navigation-->
+		<header class="">
+			<!-- Sidebar navigation -->
+			<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+				<!-- Logo -->
+				<li>
+					<div class="logo-wrapper waves-light">
+						<a href="@Url.Action("Home", "Pages")">
+							<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+						</a>
+					</div>
+				</li>
+				<!--/. Logo -->
+				<!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/Social-->
+				<!--Search Form-->
+				<!-- <li>
+					<form class="search-form" role="search">
+						<div class="form-group waves-light">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+				</li> -->
+				<!--/.Search Form-->
+				<!-- Side navigation links -->
+				<li id="links">
+					<ul class="collapsible collapsible-accordion ">
+						<li>
+							<a class="collapsible-header waves-effect arrow-r" href="/">
+								<i class="fa fa-home"></i> Home
+								<!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+							</a>
+							<!-- <div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#" class="waves-effect">Submit listing</a>
+									</li>
+									<li>
+										<a href="#" class="waves-effect">Registration form</a>
+									</li>
+								</ul>
+							</div> -->
+						</li>
+						@{
+							Html.RenderPartial("Profile");
+						}
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-envelope-o"></i> Contact US
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="#" class="waves-effect">Write a message</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<!--/. Side navigation links -->
+				<div class="sidenav-bg mask-strong"></div>
+			</ul>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+				<!-- SideNav slide-out button -->
+
+
+
+				<div class="paddo" style="">
+					<a href="#" data-activates="slide-out" class="button-collapse">
+						<i class="fa fa-bars" style="color:white"></i>
+					</a>
+
+				</div>
+				<!-- Breadcrumb-->
+				<!-- <div class="breadcrumb-dn mr-auto ">
+					<p>Material Design for Bootstrap</p>
+				</div> -->
+
+
+				<div class="middle">
+					<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+					<h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">Bus Terminals</h5>
+				</div>
+				<div class="text-right">
+					<a href="/" class="button-collapse2">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+				</div>
+
+
+
+			</nav>
+
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
+		<!--Main Layout-->
+
+
+	</section>
+	<!-- Material input -->
+	<div class="md-form" style="margin:auto; width: 90%; margin-top:5%;">
+		<i class="fa fa-search prefix" style="font-size: 20px; padding-top:5%;"></i>
+		<input type="text" id="form1" class="form-control" ng-model="test">
+		<label for="form1">Search</label>
+	</div>
+
+
+	@*<ul ng-repeat="(key, value) in players | filter:test | groupBy: 'State'">
+			State:
+			<li ng-repeat="player in value">
+				Terminal: {{ player.Terminal }}
+			</li>
+		</ul>*@
+
+
+	<div class="card card-cascade" ng-repeat="(key, value) in players | filter:test | groupBy: 'State'">
+
+		<!--Card image-->
+		<div class="view gradient-card-header peach-gradient">
+			<h2 class="h2-responsive">{{ key }}</h2>
+
+		</div>
+		<!--/Card image-->
+		<!--Card content-->
+		<div class="card-body text-center" ng-repeat="player in value">
+			<b>{{ player.Terminal }}</b>
+			<p class="card-text">
+				{{player.Address}}
+			</p>
+			<hr>
+			<!--Twitter-->
+			<a class="tw-ic"><i class="fa fa-envelope-o"> </i>{{player.Emails}} </a>
+			<!--Linkedin-->
+			<a class="tw-ic"><i class="fa fa-phone"> </i>{{player.Phone}}</a>
+
+		</div>
+		<!--/.Card content-->
+
+	</div>
+
+
+	@{
+		Html.RenderPartial("AuthModal");
+	}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

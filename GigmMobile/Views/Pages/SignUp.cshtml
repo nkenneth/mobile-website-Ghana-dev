@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+}
+<header class="">
+    <ul id="slide-out" style="" class="side-nav fixed sn-bg-1 custom-scrollbar">
+        <!-- Logo -->
+        <li>
+            <div class="logo-wrapper waves-light">
+                <a href="/">
+                    <img src="/img/gigm-logo.png" class="img-fluid flex-center">
+                </a>
+            </div>
+        </li>
+        <!--/. Logo -->
+        <!--Social-->
+		<li>
+			<ul class="social">
+				<li>
+					<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+						<i class="fa fa-instagram"> </i>
+					</a>
+				</li>
+				@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+				<li>
+					<a class="opentwitter icons-sm tw-ic">
+						<i class="fa fa-twitter"> </i>
+					</a>
+				</li>
+			</ul>
+		</li>
+        <!--/Social-->
+        <!--Search Form-->
+        <!-- <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group waves-light">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </li> -->
+        <!--/.Search Form-->
+        <!-- Side navigation links -->
+        <li id="links">
+            <ul class="collapsible collapsible-accordion ">
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r" href="Pages/Booking">
+                        <i class="fa fa-chevron-right"></i> Bus Booking
+                        <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                    </a>
+
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-hand-pointer-o"></i> My Bookings History
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+                    <!-- <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="waves-effect">For bloggers</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="waves-effect">For authors</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-eye"></i> My Profile
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="#" class="waves-effect">Login</a>
+                            </li>
+                            <li>
+                                <a href="#" class="waves-effect">Signup</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+				<li>
+					<a class="collapsible-header waves-effect arrow-r">
+						<i class="fa fa-phone"></i> Contact us
+						<i class="fa fa-angle-down rotate-icon"></i>
+					</a>
+					<div class="collapsible-body">
+						<ul>
+							<li>
+								<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+							</li>
+							<li>
+								<a href="tel:08139851110" class="waves-effect">Call us</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+            </ul>
+        </li>
+        <!--/. Side navigation links -->
+        <div class="sidenav-bg mask-strong"></div>
+    </ul>
+
+</header>
+<!--Section: Live preview-->
+<section class="form-dark">
+
+    <!--Form without header-->
+    <div class="" ng-controller="login as vm">
+        <div class="text-white  py-5 px-5 ">
+
+            <!--Header-->
+            <div class="text-center">
+                <h3 class="black-text mb-5 mt-4 font-bold"><strong>SIGN</strong> <a class="red-text font-bold"><strong> UP</strong></a></h3>
+            </div>
+            <form name="signUpForm">
+                <!--Body-->
+                <div class="md-form">
+                    <input type="text" id="name" class="form-control" ng-model="vm.newUser.Name" required>
+                    <label for="name">Full Name</label>
+                </div>
+
+                <div class="md-form form-group form-inline ">
+                    <input type="radio" name="gender" required value="0" ng-model="vm.newUser.gender" class="form-control form-check-input" id="chkChenderMale" />
+                    <label for="chkChenderMale">Male</label>
+                    <input type="radio" name="gender" required value="1" ng-model="vm.newUser.gender" class="form-control form-check-input" id="chkChenderFemale" />
+                    <label for="chkChenderFemale">Female</label>
+                </div>
+
+                <!--Body-->
+                <div class="md-form form-group">
+                    <input type="text" id="mobile" class="form-control" ng-model="vm.newUser.PhoneNumber" numbers-only name="mobile" required>
+                    <label for="mobile">Mobile</label>
+                </div>
+                <div class="md-form form-group">
+                    <input type="email" id="email" class="form-control" ng-model="vm.newUser.Email" name="email" required>
+                    <label for="mobile">Email</label>
+                </div>
+                <div class="md-form ">
+                    <input type="password" id="Form-pass6" class="form-control" ng-model="vm.newUser.Password" required>
+                    <label for="Form-pass6">Your password</label>
+                </div>
+                <div class="md-form pb-3">
+                    <input type="password" id="Form-pass5" class="form-control" ng-model="repeatPassword" required>
+                    <label for="Form-pass5">Repeat password</label>
+
+                    <div class="form-group">
+                        <input type="checkbox" id="terms" name="terms" ng-model="terms" required>
+                        <label for="terms" class="black-text">Accept the<a href="#" class="red-text font-bold"> Terms and Conditions</a></label>
+                    </div>
+                </div>
+                @*<div class="md-form form-group">
+                    <input type="text" maxlength="8" id="refferalCode" class="form-control" ng-model="vm.newUser.ReferralCode" name="refferalCode">
+                    <label for="refferalCode">Email</label>
+                </div>*@
+                <!--Grid row-->
+                <div class="row d-flex align-items-center mb-4">
+
+                    <!--Grid column-->
+                    <div class="text-center mb-3 col-md-12">
+                        <button type="button" ng-click="vm.signUp(1)" class="btn btn-danger btn-block btn-rounded z-depth-1" ng-disabled="signUpForm.$invalid">Sign Up</button>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+                <!--Grid column-->
+                <div class="col-md-12">
+
+                    <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="javascript:history.back()" class="red-text ml-1 font-bold"> Log in</a></p>
+                </div>
+                <!--Grid column-->
+            </form>
+        </div>
+    </div>
+    <!--/Form without header-->
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+</section>
+<!--Section: Live preview-->
+

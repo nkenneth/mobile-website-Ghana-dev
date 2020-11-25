@@ -1,0 +1,70 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--Section: Live preview-->
+<section class="form-dark">
+
+    <!--Form without header-->
+    <div class="" ng-controller="login as vm">
+        <div class="text-white  py-5 px-5 ">
+
+            <!--Header-->
+            <div class="text-center">
+                <h3 class="black-text mb-5 mt-4 font-bold"><strong>SIGN</strong> <a class="red-text font-bold"><strong> UP</strong></a></h3>
+            </div>
+
+            <!--Body-->
+            <div class="md-form">
+                <input type="text" id="name" class="form-control">
+                <label for="name">Full Name</label>
+            </div>
+
+            <div class="md-form">
+                <select class="mdb-select colorful-select dropdown-danger form-control white-text" ng-options="option.PickupPointName for option in vm.pickup.options track by option.PickupPointId" ng-model="vm.pickup.selectedOption" name="gender" id="pickupLocation"></select>
+                @*<label for="gender">Gender</label>*@
+            </div>
+
+            <!--Body-->
+            <div class="md-form form-group">
+                <input type="text" id="mobile" class="form-control" numbers-only name="mobile">
+                <label for="mobile">Mobile</label>
+            </div>
+            <div class="md-form ">
+                <input type="password" id="Form-pass6" class="form-control white-text">
+                <label for="Form-pass6">Your password</label>
+            </div>
+            <div class="md-form pb-3">
+                <input type="password" id="Form-pass5" class="form-control white-text">
+                <label for="Form-pass5">Repeat password</label>
+
+                <div class="form-group">
+                    <input type="checkbox" id="checkbox6">
+                    <label for="checkbox6" class="black-text">Accept the<a href="#" class="red-text font-bold"> Terms and Conditions</a></label>
+                </div>
+            </div>
+
+
+            <!--Grid row-->
+            <div class="row d-flex align-items-center mb-4">
+
+                <!--Grid column-->
+                <div class="text-center mb-3 col-md-12">
+                    <button type="button" class="btn btn-danger btn-block btn-rounded z-depth-1">Sign in</button>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+            <!--Grid column-->
+            <div class="col-md-12">
+                <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="red-text ml-1 font-bold"> Log in</a></p>
+            </div>
+            <!--Grid column-->
+
+        </div>
+    </div>
+    <!--/Form without header-->
+
+</section>
+<!--Section: Live preview-->

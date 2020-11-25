@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<banks>
+  <Bank name="GTB">
+    <contact phone="08067948497" />
+  </Bank>
+  <Bank name="FBN">
+    <contact phone="08093070824" />
+  </Bank>
+</banks>

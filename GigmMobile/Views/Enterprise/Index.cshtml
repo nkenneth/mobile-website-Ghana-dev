@@ -1,0 +1,828 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+	.double-nav .button-collapse {
+    display: none !important;
+    position: relative;
+    font-size: 1.4rem;
+    margin-top: 2px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+    @@media (min-width: 768px) {
+        .modal-dialog {
+            width: 800px !important;
+            margin: 30px auto;
+            -webkit-font-smoothing: antialiased;
+        }
+        /*.modal.center .modal-dialog {-webkit-transform: translate3d(0,0,0); }
+
+
+
+
+            .modal.in .modal-dialog,
+    .modal.fade .modal-dialog {
+    -webkit-transform: inherit !important;
+    -moz-transform: inherit !important;
+    -o-transform: inherit !important;
+    transform: inherit !important;
+    }*/
+    }
+
+    .d-flexy {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .d-flexy .item:nth-child(2) {
+            font-size: 1.5em;
+            color: white;
+            margin-top: 2%;
+        }
+
+    .fade {
+        opacity: 0;
+        -webkit-transition: opacity 0.05s linear;
+        -moz-transition: opacity 0.05s linear;
+        -ms-transition: opacity 0.05s linear;
+        -o-transition: opacity 0.05s linear;
+        transition: opacity 0.05s linear;
+        background: rgba(0, 0, 0, 0.52);
+    }
+
+    .modal-dialog img {
+        width: 100%;
+    }
+
+    .modal-fade {
+        transition: transform .003s ease-out;
+    }
+
+    .modal-footer {
+        padding: 15px;
+        text-align: right;
+        background: #FEFEFE;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    body {
+        display: none;
+    }
+
+    .row-flex {
+        display: flex;
+        justify-content: space-between
+    }
+
+        .row-flex .item-2 {
+            flex-basis: 10%;
+        }
+
+    .add-user {
+        background-color: #000000b0 !important;
+        color: white !important;
+        font-size: .8rem !important;
+        padding: .85rem 2.13rem !important;
+        margin: 6px !important;
+        border-radius: 2px !important;
+        border: 0 !important;
+        -webkit-transition: .2s ease-out;
+        transition: .2s ease-out;
+        text-transform: uppercase;
+        white-space: normal !important;
+        cursor: pointer;
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    }
+
+
+    a:not([href]):not([tabindex]) {
+        color: inherit;
+        text-decoration: none;
+        box-shadow: none;
+        background: rgba(255,255,255,0);
+        padding-bottom: 0%;
+        border: 0;
+        border-bottom: 1px solid rgba(0,0,0,.25);
+    }
+
+    [type=radio]:checked + label:after {
+        border-color: #cb373a;
+        background-color: #cb373a;
+        z-index: 0;
+        -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+        transform: scale(1.02);
+    }
+		.nav-desk {
+			display: none;
+		}
+	@@media screen and (min-width: 800px) {
+		.nav-desk {
+			display: block;
+		}
+		.header {
+			display: none;
+		}
+		body {
+	background-image: url(../../newmenu/ep-back.jpg) !important;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+		}
+		.card-imger {
+			display: none;
+		
+			position: absolute;
+			z-index: 200;
+			width: 50% !important;
+			margin: auto !important;
+		}
+	.custom-modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0px !important;
+}
+		/*.custom-modal-body > button {
+			position: absolute;
+			margin-left: 78.5%;
+			margin-top: -9%;
+		}*/
+		.custom-modal-body > button {
+    position: absolute;
+    margin-left: -95%;
+    margin-top: 51%;
+}
+	.modal-backdrop {
+  
+    background-color: rgba(0, 0, 0, 0.69);
+}
+		#myModal2 > .modal-dialog {
+		
+			width: 80% !important;
+			max-width: 70% !important;
+		
+		}
+		.card {
+			width: 90%;
+			margin: auto;
+		}
+		.custom-sub-btn {
+			width: 40%;
+			margin: auto;
+			margin-top: 3em;
+		}
+	}
+	.navbar-buttons button {
+    position: relative;
+    border: none;
+    padding: 0.9rem 2.3rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ed482f;
+    border-radius: 50px;
+    background-color: #eeecec;
+    text-align: center;
+}
+	.navbar-brand {
+		position: absolute;
+	}
+	.loader {
+    background-color: rgba(0,0,0,.7);
+    position: fixed;
+    width: 100%;
+    display: block;
+    height: 100%;
+    top: 0;
+}
+	.loader>img {
+    max-width: 100%;
+    max-height: 20%;
+    margin: auto;
+    margin-top: 20%;
+    align-self: center;
+}
+</style>
+
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+	Open modal
+</button>*@
+
+<!-- The Modal -->
+<div class="modal" id="myModal2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal body -->
+			<div class="modal-body custom-modal-body">
+				<img class="card-img-top" src="~/app/Assetscampus/img/ep.jpg" style="width: 100%;
+    " alt="Card image cap">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Get Started</button>
+			</div>
+		</div>
+	</div>
+</div>               
+
+
+<div ng-controller="partnerEnquiry as vm" ng-cloak>
+	<section class="main z-depth-1-half">
+		<!--Double navigation-->
+		<header class="header">   
+			<!-- Sidebar navigation -->
+			<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+				<!-- Logo -->
+				<li>
+					<div class="logo-wrapper waves-light">
+						<a href="@Url.Action("Home", "Pages")">
+							<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+						</a>
+					</div>
+				</li>
+				<!--/. Logo -->
+				<!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+								<a class="icons-sm gplus-ic">
+									<i class="fa fa-google-plus"> </i>
+								</a>
+							</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li id="links">
+					<ul class="collapsible collapsible-accordion ">
+						<li>
+							<a class="collapsible-header waves-effect arrow-r" href="/">
+								<i class="fa fa-home"></i> Home
+							</a>
+						</li>
+						@{
+                            Html.RenderPartial("Profile");
+						}
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-info"></i> Bus Terminal info
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/. Side navigation links -->
+				<div class="sidenav-bg mask-strong"></div>
+			</ul>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+				<!-- SideNav slide-out button -->
+
+
+
+				<div class="paddo" style="">
+					<a href="#" data-activates="slide-out" class="button-collapse">
+						<i class="fa fa-bars" style="color:white"></i>
+					</a>
+
+				</div>
+				<!-- Breadcrumb-->
+				<!-- <div class="breadcrumb-dn mr-auto ">
+					<p>Material Design for Bootstrap</p>
+				</div> -->
+
+
+				<div class="middle">
+					@*<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>*@
+					<h5 class="text-left text-white" style="padding-left:5px;     text-shadow: 2px 2px #5a3434;" href="#" data-toggle="modal" data-target="#modalLRForm">Become a Partner</h5>
+				</div>
+				<div class="text-right">
+					<a href="javascript:history.back()" class="button-collapse2">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+				</div>
+
+
+
+			</nav>
+
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
+		<!--Main Layout-->
+
+
+	</section>
+	<!--Navbar-->
+	<nav class="navbar navbar-expand-lg nav-desk" style="background-color:white;  padding:1em 25% 1em 25% !important;">
+
+		<!-- Navbar brand -->
+		<a class="navbar-brand" href="https://gigm.com" style="margin-top: -1%;">
+
+			<img src="https://m.gigm.com/AssetsAmbassadors/assets/img/gigm-logo.png" alt="GIGM Logo" title="GIGM.com" />
+		</a>
+		<!-- Collapse button -->
+		@*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+				aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>*@
+
+		<!-- Collapsible content -->
+		<div class="collapse navbar-collapse" id="basicExampleNav">
+
+			<!-- Links -->
+			<ul class="navbar-nav mr-auto">
+				@*<li class="nav-item active">
+					<a class="nav-link" href="#">
+						Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>*@
+
+			
+
+			</ul>
+			<!-- Links -->
+
+			<li class="navbar-buttons">
+				<!-- <button class="rewards">pickup rewards</button> -->
+				<button class="rewards rewards--flag">
+					<img src="/AssetsAmbassadors/assets/img/nigeria.png" alt="Nigeria Flag">
+					Nigeria
+				</button>
+			</li>
+		</div>
+		<!-- Collapsible content -->
+
+	</nav>
+	<!--/.Navbar-->
+
+	
+    <!-- Card -->
+    <div class="card card-imger" style="width:95%; margin:auto; margin-top:5%; ">
+
+        <!-- Card image -->
+        <div class="view overlay" style="border-radius:10px;">
+
+            <img class="card-img-top" src="~/app/Assetscampus/img/ep.jpg" style="width: 135%;
+    margin-left: -5%;" alt="Card image cap">
+            <a href="#!">
+
+
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+        @*<div class="card-body">
+
+
+            </div>*@
+
+    </div>
+    <!-- Card -->
+    @*<div class="d-flex" style="flex-wrap:wrap">
+            <img src="http://i66.tinypic.com/swwot2.jpg" class="" style="flex-basis:100%; width:100%; height: 100%;" />
+            <button class="btn btn-danger" style="flex-basis:95%; margin:auto;">Sign up</button>
+        </div>*@
+
+
+    <!--Section: Live preview-->
+    <section class="container" style="margin-top:5%">
+
+
+
+
+
+
+        <!--Form without header-->
+
+        <form name="enquiry">
+		<article style="text-align:left; margin:auto">(<text style="color:red;">*</text>) Fields are required</article>	
+            <div class="card " id="card1" style="margin-top:5%;">
+
+                <!-- Card image -->
+
+                <div class="card-header danger-color" role="tab" id="headingOne1">
+                    <a data-toggle="collapse" class="d-flexy" data-parent="#accordionEx" href="" aria-expanded="true"
+                       aria-controls="collapseOne1">
+                        <h5 class="item white-text  text-center py-2">
+                            <strong>Contact Details</strong>
+                        </h5>
+                        <i class="item fa fa-angle-down rotate-icon"></i>
+                    </a>
+                </div>
+                <!-- Card content -->
+
+                <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+
+                    <div class="card-body ">
+
+                        <!--Body-->
+                        <div class="md-form" ng-if="false">
+                            <input type="text" name="name" id="name" class="form-control" ng-model="vm.partnerEnquiry.Name" required>
+                            <label for="name">Full Name <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.name.$invalid && (!enquiry.name.$pristine || submited)" class="red-text">Your name is required pls</p>
+                        </div>
+
+                        <!--Body-->
+                        <div class="md-form">
+                            <input type="text" name="name" id="name" class="form-control" ng-model="vm.partnerEnquiry.FirstName" required>
+                            <label for="name">First Name <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.firstname.$invalid && (!enquiry.firstname.$pristine || submited)" class="red-text">first name is required pls</p>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="text" name="name" id="middlename" class="form-control" ng-model="vm.partnerEnquiry.MiddleName" required>
+                            <label for="name">Middle Name <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.middlename.$invalid && (!enquiry.middlename.$pristine || submited)" class="red-text">middle name is required pls</p>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="text" name="lastname" id="lastname" class="form-control" ng-model="vm.partnerEnquiry.LastName" required>
+                            <label for="name">Last Name <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.lastname.$invalid && (!enquiry.lastname.$pristine || submited)" class="red-text">last name is required pls</p>
+                        </div>
+                        <div class="md-form">
+                            <input type="text" name="phoneNumber" id="number" maxlength="11" minlength="11" class="form-control" numbers-only ng-model="vm.partnerEnquiry.PhoneNumber">
+                            <label for="number">Phone Number <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.phoneNumber.$invalid && (!enquiry.phoneNumber.$pristine || submited)" class="red-text">Your valid phone number is required pls</p>
+                        </div>
+                        <div class="md-form">
+                            <input type="email" id="email" class="form-control" name="email" ng-model="vm.partnerEnquiry.Email" required>
+                            <label for="email">Email Address <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.email.$invalid && (!enquiry.email.$pristine || submited)" class="red-text">Your valid email address is required pls</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+			@*<button class="btn btn-danger" id="next">Next</button>*@
+ 
+
+
+            <div class="card card2" style="margin-top:5%; opacity: .2">
+
+
+                <div class="card-header danger-color" role="tab" id="headingOne1">
+                    <a data-toggle="collapse" class="d-flexy" data-parent="#accordionEx2" href="" aria-expanded="true"
+                       aria-controls="collapseOne2">
+                        <h5 class="item white-text  text-center py-2">
+                            <strong>Partner Type <span style="color:red;">*</span></strong>
+                        </h5>
+                        <i class="item fa fa-angle-down rotate-icon"></i>
+                    </a>
+                </div>
+
+                @*<h5 class="card-header danger-color  white-text text-center py-4">
+                        <strong></strong>
+                    </h5>*@
+                <!-- Card image -->
+                <!-- Card content -->
+                <div id="collapseOne2" class="collapse show" role="tabpanel" aria-labelledby="headingOne2" data-parent="#accordionEx2">
+
+                    <div class="card-body">
+                        <div class="form-check md-form">
+                            <input type="radio" name="partnerType" class="form-check-input" checked="checked" id="partnerType1" ng-click="vm.setPartnerType('individual')">
+                            <label class="form-check-label" for="partnerType1">Individual Partner - You own a vehicle and want to drive it as a Captain (Driver) within GIGM</label>
+                        </div>
+                        <div class="form-check md-form">
+                            <input type="radio" class="form-check-input" name="partnerType" id="partnerType2" ng-click="vm.setPartnerType('coporate')">
+                            <label class="form-check-label" for="partnerType2">Corporate Partner -You own vehicles and would like to put them for profitable use on the GIGM platform</label>
+                        </div>
+                        @*<div class="md-form">
+                                <input type="text" name="CompanyRcNumber" id="CompanyRcNumber" class="form-control" ng-model="vm.partnerEnquiry.CompanyRcNumber">
+                                <label for="name">Company Registration (RC) Number</label>
+                                <p ng-show="enquiry.CompanyRcNumber.$invalid && (!enquiry.CompanyRcNumber.$pristine || submited)" class="red-text">RC Number required</p>
+                            </div>*@
+                        @*<div class="form-check">
+                            <input type="checkbox" ng-model="vm.requireFinance" id="requireFinance" class="form-check-input" />
+                            <label for="requireFinance">Require bank financing?</label>
+                        </div>*@
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="card card3" style="margin-top:5%; opacity: .2">
+
+
+                <div class="card-header danger-color" role="tab" id="card-header3">
+                    <a data-toggle="collapse" class="d-flexy" data-parent="#accordionEx3" href="" aria-expanded="true"
+                       aria-controls="collapseOne3">
+                        <h5 class="item white-text  text-center py-2">
+                            <strong>More Details</strong>
+                        </h5>
+                        <i class="item fa fa-angle-down rotate-icon"></i>
+                    </a>
+                </div>
+
+
+                @*<h5 class="card-header danger-color  white-text text-center py-4">
+                        <strong>More Details</strong>
+                    </h5>*@
+
+                <!-- Card image -->
+                <!-- Card content -->
+
+
+                <div id="collapseOne3" class="collapse show" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx3">
+
+                    <div id="card-body3" class="card-body">
+						<div class="md-form" ng-if="vm.partnerType == 'individual'" style="visibility:collapse; display:none">
+							<input type="text" name="CompanyName" id="bname" ng-init="vm.partnerEnquiry.CompanyName ='individual'" class="form-control" ng-model="vm.partnerEnquiry.CompanyName">
+							<label for="bname">Business Name <span style="color:red;">*</span></label>
+						</div>
+
+
+                        <div class="md-form" ng-if="vm.partnerType == 'coporate'">
+                            <input type="text" name="CompanyName" id="bname"   class="form-control" ng-init="vm.partnerEnquiry.CompanyName =''" ng-model="vm.partnerEnquiry.CompanyName">
+                            <label for="bname">Business Name <span style="color:red;">*</span></label>
+                        </div>
+
+						<div class="md-form" ng-if="vm.partnerType == 'individual'" style="visibility:collapse; display:none;">
+							<input type="text" name="BusinessAddress" id="BusinessAddress"  ng-init="vm.partnerEnquiry.businessAddress ='individual'" class="form-control" ng-model="vm.partnerEnquiry.businessAddress">
+							<label for="BusinessAddress">Business Address <span style="color:red;">*</span></label>
+							<p ng-show="enquiry.businessAddress.$invalid && (!enquiry.businessAddress.$pristine || submited)" class="red-text">Business Address is required</p>
+						</div>
+
+                        <div class="md-form" ng-if="vm.partnerType == 'coporate'">
+                            <input type="text"  name="BusinessAddress" id="BusinessAddress" ng-init="vm.partnerEnquiry.businessAddress =''" class="form-control" ng-model="vm.partnerEnquiry.businessAddress" >
+                            <label for="BusinessAddress">Business Address <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.businessAddress.$invalid && (!enquiry.businessAddress.$pristine || submited)" class="red-text">Business Address is required</p>
+                        </div>
+
+
+						<div class="md-form" ng-if="vm.partnerType == 'individual'" style="visibility:collapse; display:none;">
+							<input type="text" name="companyrcnumber" id="companyrcnumber" ng-init="vm.partnerEnquiry.CompanyRcNumber ='individual'" class="form-control" ng-model="vm.partnerEnquiry.CompanyRcNumber">
+							<label for="CompanyRcNumber">Company Rc Number <span style="color:red;">*</span></label>
+							<p ng-show="enquiry.CompanyRcNumber.$invalid && (!enquiry.CompanyRcNumber.$pristine || submited)" class="red-text">Company Rc Number is required</p>
+						</div>
+
+                        <div class="md-form" ng-if="vm.partnerType == 'coporate'" >
+                            <input type="text" name="companyrcnumber" id="companyrcnumber" ng-init="vm.partnerEnquiry.CompanyRcNumber =''" class="form-control" ng-model="vm.partnerEnquiry.CompanyRcNumber" >
+                            <label for="CompanyRcNumber">Company Rc Number <span style="color:red;">*</span></label>
+                            <p ng-show="enquiry.CompanyRcNumber.$invalid && (!enquiry.CompanyRcNumber.$pristine || submited)" class="red-text">Company Rc Number is required</p>
+                        </div>
+
+                        <div class="md-form">
+                            <select name="state" id="state" class="mdb-select dropdown-danger white-text" ng-options="option.option for option in  vm.state.availableOptions track by option.option" ng-model="vm.state.selectedOption"></select>
+                        </div>
+
+                        <div class="md-form">
+                            <select name="InspectionLocation" id="inspectionLocation" class="mdb-select dropdown-danger white-text" ng-options="option.option for option in  vm.inspectionLocation.availableOptions track by option.option" ng-model="vm.inspectionLocation.selectedOption"></select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-4 mb-4 text-center card4" style="opacity: .2" ng-if="!vm.requireFinance">
+                <article ng-repeat="vehicle in vehicles" class="mb-2 mt-2">
+                    <div id="card-header4" class="card" style=" ">
+                        <article ng-click="toggle()" class="card-header  danger-color text-center py-4" ng-model="myCheck">
+                            <article class="row-flex">
+                                <span class="item-2 text-white" style="    flex-basis: 40%;
+    text-align: left;">Add Vehicle - {{ $index + 1 }}</span>
+                                <a ng-if="vehicles.length > 1" class="item-2" style="color: white; font-weight: bold;"
+                                   ng-click="removeVehicle(vehicle)">X</a>
+                            </article>
+                        </article>
+
+                        <div id="card-body4" ng-hide="state" class="card-body  p-3">
+                            <!-- first -->
+                            <div class="md-form mt-3">
+                                <label for="count">Enter Number of vehicles</label>
+                                <input typeof="number" name="count" id="count" ng-model="vehicle.Count" placeholder="" type="text" class="form-control mb-4">
+                            </div>
+
+                            <div class="md-form mt-3">
+                                <select class="browser-default form-control mb-4" id="colour" ng-model="vehicle.Colour">
+                                    <option value="">Select Colour <span style="color:red;">*</span></option>
+                                    <option ng-repeat="colour in colours" value="{{colour}}">{{colour}}</option>
+                                </select>
+                            </div>
+
+                            <div class="md-form mt-3">
+                                <select class="browser-default form-control mb-4" id="make" ng-change="vm.onChange(vehicle.VehicleMake)" ng-model="vehicle.VehicleMake">
+                                    <option value="">Select Make <span style="color:red;">*</span></option>
+                                    <option ng-selected="{{selectedMake == "JET"}}" ng-repeat="make in makes" value="{{make}}">{{make}}</option>
+                                </select>
+                            </div>
+                            <!-- next -->
+                            <div class="md-form mt-3">
+                                <select class="browser-default form-control mb-4" id="model" ng-model="vehicle.VehicleModel">
+                                    <option value="">Select Model <span style="color:red;">*</span></option>
+                                    <option ng-repeat="model in models" value="{{model}}">{{model}}</option>
+                                </select>
+                            </div>
+
+                            <div class="md-form mt-3">
+                                <select id="date" class="browser-default form-control mb-4" ng-model="vehicle.Date">
+                                    <option value="">Select Year <span style="color:red;">*</span></option>
+                                    <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                                </select>
+                            </div>
+
+                            <div class="md-form mt-3">
+                                <label for="mileage">Mileage cannot be more than 90,000 <span style="color:red;">*</span></label>
+                                <input typeof="number" class="form-control mb-4" id="mileage" placeholder="" ng-model="vehicle.Mileage" type="text" />
+                            </div>
+                            <!-- next -->
+
+                            <a ng-click="addVehicle()" class="add-user waves-effect waves-light" ng-if="vm.partnerType == 'coporate'">Add More Vehicles</a>
+
+                        </div>
+                    </div>
+                </article>
+                {{}}
+            </div>            <div class="mt-4 text-center">
+                <div class="text-center mb-3 col-md-12">
+                    <button type="button" ng-click="vm.saveEnquiry()" data-target="#myModal" ng-disabled="enquiry.$invalid"
+                            data-toggle="modal" class="btn btn-danger btn-block custom-sub-btn z-depth-1">
+                        Submit
+                    </button>
+                </div>
+                <!--Grid column-->
+            </div>
+        </form>
+
+        <!--/Form without header-->
+
+    </section>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <script>
+
+
+		$(window).scroll(function () {
+			//if ($(window).scrollTop() >= 15) {
+			//	$('.card1').fadeIn('slow');
+			//}
+			if ($(window).scrollTop() >= 200) {
+				//$('.card2').fadeIn('slow');
+				$('.card2').animate({ 'opacity': 1 }, 1000);
+			}
+			if ($(window).scrollTop() >= 400) {
+				$('.card3').animate({ 'opacity': 1 }, 1000);
+				//$('.card3').fadeIn('slow');
+			}
+			if ($(window).scrollTop() >= 500) {
+				//$('.card4').fadeIn('slow');
+				$('.card4').animate({ 'opacity': 1 }, 1000);
+
+			}
+			
+		});
+		$(window).resize(function () {
+			$('.sidebar').height($(window).height());
+		});
+		$('.sidebar').height($(window).height());
+
+
+
+		$('#next').click(function () {
+			$('#card1').fadeOut(400)
+		});
+
+
+        $('.card-header').click(function () {
+            $(this).parent().find('.card-body').toggle('slow');
+            //console.log(this);
+        });
+
+        $(".btn-danger").click(function () {
+            console.log("clicked");
+            $('#myModal').modal('show');
+
+        });
+        $(document).ready(function () {
+        	//$('#basicExampleModal').modal('show');
+
+        	$('body').show();
+
+
+        	$(window).resize(function () {
+        		// This will fire each time the window is resized:
+        		if ($(window).width() >= 1024) {
+        			// if larger or equal
+        			$('#myModal2').modal('show');
+
+        		} else {
+        			// if smaller
+        			$('#myModal2').modal('hide');
+
+        		}
+        	}).resize();
+
+            $('#myModal').modal('show');
+            $('#myModal').modal({ backdrop: 'static', keyboard: false });
+
+
+
+
+
+        });
+
+
+        //$(window).on('load',function(){
+
+        //});
+    </script>
+
+
+
+
+    <!-- Modal -->
+    <!--Section: Live preview-->
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70); " ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+
+    </div>
+	@*<div class="loader" style="background-color:rgba(0, 0, 0, 0.70); " >
+		<img src="~/img/spinner.gif" class="img-fluid flex-center">
+
+	</div>*@
+</div>
+
+<script>
+
+    app.controller('partnerEnquiry', function ($scope) {
+        // $scope.users = [
+        //     {}
+        // ];
+
+        //$scope.addUser = function() {
+        //    var newUser = {};
+        //    $scope.users.push(newUser);
+        //}
+
+        //$scope.removeUser = function(user) {
+        //    var index = $scope.users.indexOf(user);
+        //    $scope.users.splice(index,1);
+        //}
+    });
+</script>

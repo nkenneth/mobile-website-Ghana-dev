@@ -1,0 +1,398 @@
+/* @import url("https://fonts.googleapis.com/css?family=Rubik"); */
+@import url("https://fonts.googleapis.com/css?family=Gothic+A1|Pathway+Gothic+One|Sawarabi+Gothic");
+
+@import url("https://fonts.googleapis.com/css?family=Anton|Baloo|Fredoka+One|Rubik");
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Gothic A1", sans-serif !important;
+  font-size: 62.5%;
+  --grey: rgb(88, 85, 85);
+  --bg-grey: rgb(247, 242, 242);
+  --color-grey: rgb(180, 176, 176);
+  --primary-color: #6cbcbb;
+  --primary-color-light: #7fbebde0;
+  --primary-color-dark: #2b6d6c;
+  --primary-color--modifier: #11ece9e7;
+  --secondary-color: #e31d00;
+  --secondary-color-modifier: #be1f47ea;
+  --color-default: #fff;
+  --color-default-inverse: #000;
+  --bx-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  font-size: 1.6rem;
+  overflow: hidden;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  width: 100%;
+  position: relative;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+  height: 5rem;
+  z-index: 10;
+}
+
+nav > div > a:hover {
+  color: var(--secondary-color-modifier);
+}
+
+.navbar-brand2 img {
+  position: absolute;
+  top: 0;
+  width: 7rem;
+  height: 7rem;
+  z-index: 999;
+}
+
+@media (max-width: 425px) {
+  .navbar-brand2 img {
+    width: 5rem;
+    height: 7rem;
+  }
+}
+
+.login-link,
+.toggle-nation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.toggle-nation {
+  background: var(--bg-grey);
+  border-radius: 2.5rem;
+  width: 9rem;
+  padding: 0.8rem 2.5rem !important;
+  /* text-align: center; */
+}
+
+.login-link i {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+.details {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.details > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.ng-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.8rem;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.top-wrapper,
+.responsive-header {
+  display: none;
+}
+
+.left-wrapper {
+  width: 60%;
+  height: 100%;
+  background-color: var(--primary-color);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);
+  margin-right: -5rem;
+}
+
+.campus {
+  font-family: "Baloo", sans-serif;
+  width: 50%;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+  font-weight: 900;
+  /* text-align: center; */
+  margin-left: 3rem;
+}
+
+.students img {
+  width: 60rem;
+  height: 40rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: -5rem;
+  margin-bottom: -10rem;
+}
+
+.logo {
+  width: 30rem;
+  /* height: 10rem; */
+  margin-left: 20rem;
+  margin-top: 5rem;
+}
+
+.banner {
+  margin-left: 20rem;
+  color: var(--color-default);
+}
+
+.banner-header {
+  word-spacing: 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  width: 60%;
+  margin-left: 2rem;
+}
+
+.banner h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+}
+
+.banner__uni,
+.points {
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.banner__uni {
+  margin-top: 1rem;
+  font-weight: 900;
+  font-family: "Rubik", cursive;
+}
+
+.ambassador {
+  font-family: "Baloo", cursive;
+  width: 30rem;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 3px;
+  text-align: center;
+  letter-spacing: 0.3rem;
+}
+
+.ambassador h2 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--primary-color);
+}
+
+.clouds {
+  /* margin-top: -30rem; */
+  width: 30rem;
+  /* height: 5rem; */
+  position: absolute;
+  top: 3rem;
+}
+
+.right-wrapper {
+  background-color: var(--color-default);
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin-left: -5rem;
+}
+
+.right-wrapper__container {
+  width: 80%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+}
+
+form {
+  width: 35rem;
+  font-size: 1.8rem;
+}
+
+input::placeholder,
+.btn__lg {
+  font-size: 1.3rem;
+}
+
+input {
+  font-size: 1.8rem !important;
+  font-family: inherit !important;
+  color: var(--grey) !important;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+.form-control__lg {
+  padding: 2rem 1rem;
+}
+
+.green-border {
+  border: 1px solid var(--primary-color);
+}
+
+@media only screen and (max-width: 50em) {
+  .holder {
+    margin-left: -10rem;
+  }
+
+  .logo {
+    width: 30rem;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .ambassador h2 {
+    font-size: 3rem;
+  }
+
+  .points {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 50%;
+  }
+
+  form {
+    width: 100%;
+    justify-items: stretch;
+  }
+  .holder {
+    margin-left: -10rem;
+  }
+  .banner h1 {
+    font-size: 5rem;
+  }
+
+  .ambassador h2 {
+    font-size: 3rem;
+  }
+
+  .points {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .holder,
+  .logo {
+    margin-left: -5rem;
+  }
+}
+
+@media (max-width: 769px) {
+  html {
+    font-size: 45%;
+  }
+
+  .holder,
+  .logo {
+    margin-left: 10rem;
+  }
+  .logo,
+  .banner {
+    margin-left: -5rem;
+  }
+  form {
+    width: 30rem;
+  }
+  .campus {
+    font-size: 10rem;
+  }
+}
+
+.btn__lg {
+  border-radius: 3px;
+}
+
+@media (max-width: 599px) {
+  .left-wrapper {
+    display: none;
+  }
+
+  .clouds {
+    display: none;
+  }
+
+  .top-wrapper {
+    display: block;
+    width: 100%;
+    height: 40rem;
+    background-image: url(../img/campus-hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 15%;
+  }
+
+  .right-wrapper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem !important;
+  }
+
+  input,
+  input::placeholder {
+    font-size: 1.8rem;
+  }
+
+  .btn__lg {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    font-size: 1.8rem;
+  }
+
+  .responsive-header {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: -6rem;
+  }
+
+  .right-wrapper__container {
+    width: 100%;
+  }
+}

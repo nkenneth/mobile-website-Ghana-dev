@@ -1,0 +1,306 @@
+﻿@{
+	Layout = "~/Views/Shared/_AmbassadorsLayout.cshtml";
+}
+
+<style>
+	.button-group span {
+		margin-left: 0;
+		font-size: 1.3rem;
+		/* margin-top: 2em; */
+	}
+
+	.left-wrapper {
+		background-position: 70% 20%;
+		/*background: url('../../AssetsAmbassadors/assets/img/img@3x.jpg') no-repeat;
+		background-size: cover;*/
+	}
+
+	.gignation {
+		display: none;
+	}
+
+	.box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(0,0,0,0.9);
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		z-index: 2000;
+	}
+
+		.box .loader {
+			border: 16px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 5px dotted red;
+			/*border-bottom: 16px dotted red;*/
+			width: 120px;
+			height: 120px;
+			-webkit-animation: spin 6s linear infinite; /* Safari */
+			animation: spin 6s linear infinite;
+		}
+
+	/* Safari */
+	@@-webkit-keyframes spin {
+		0% {
+			-webkit-transform: rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: rotate(360deg);
+		}
+	}
+
+	@@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+</style>
+<div class="box">
+	@*<img src="~/AssetsAmbassadors/assets/img/G-LOGO.png" style="max-width:10%;" />*@
+	<img src="~/AssetsAmbassadors/assets/img/G-LOGO.gif" style="max-width:10%; border:2px solid #e21d00; border-radius:10px;" />
+	@*<div class="loader"></div>*@
+</div>
+<nav class="navbar">
+	<a href="https://gigm.com" class="navbar-brand">
+		<img src="~/AssetsAmbassadors/assets/img/gigm-logo.png" alt="GIGM Logo" />
+	</a>
+
+	<ul class="navbar-list" id="responsiveMenu">
+		<li class="navbar-items">
+			<a href="#">gigm experience</a>
+			<div class="dropdown-items">
+				<div class="dropdown-items__top">
+					<ul class="dropdown-items__top__list">
+						<h4>explore</h4>
+						<li>
+							<a href="https://gigm.com/Learning-Academy.aspx">learning academy</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Travels-Tours.aspx">tour packages</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Safety.aspx">travel safety</a>
+						</li>
+						<!-- <li><a href="#">campus direct</a></li> -->
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>more with gigm</h4>
+						<li>
+							<a href="https://gigm.com/hire-vehicle.aspx">bus hire</a>
+						</li>
+						<li><a href="https://gigm.com/#">priority services</a></li>
+						<li>
+							<a href="http://giglogistics.ng/">logistics platform</a>
+						</li>
+						<li>
+							<a href="http://mtest2.gigm.com/pages/campus">campus ambassador</a>
+						</li>
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>who we are</h4>
+						<li><a href="https://gigm.com/About-Us.aspx">about us</a></li>
+						<li><a href="https://gigm.com/Awards.aspx">awards</a></li>
+						<li><a href="https://gigm.com/Careers.aspx">careers</a></li>
+					</ul>
+				</div>
+				<div class="dropdown-items__bottom t-1"></div>
+			</div>
+		</li>
+		<li class="navbar-items">
+			<a href="https://gigm.com/pickupservice.aspx">pickup service</a>
+		</li>
+		<li class="navbar-items">
+			<a href="#"> quick information</a>
+			<div class="dropdown-items">
+				<div class="dropdown-items__top">
+					<ul class="dropdown-items__top__list">
+						<h4>customer service</h4>
+						<li><a href="https://gigm.com/Faq.aspx">FAQs</a></li>
+						<li>
+							<a href="https://gigm.com/Luggage-Allowance.aspx">luggage allowance</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Terms-and-Conditions.aspx">terms and conditions</a>
+						</li>
+						<li>
+							<a href="https://gigm.com/Customer-Care.aspx">customer care</a>
+						</li>
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>travel info</h4>
+						<li><a href="https://gigm.com/Terminals.aspx">terminals</a></li>
+						<!-- <li><a href="#">bus routes</a></li> -->
+						<!-- <li><a href="#">ticket details</a></li> -->
+					</ul>
+					<ul class="dropdown-items__top__list">
+						<h4>experience our app</h4>
+						<li>
+							<a href="https://gigm.com/gigm-mobile-app.aspx">get the mobile app</a>
+						</li>
+					</ul>
+				</div>
+				<div class="dropdown-items__bottom t-2"></div>
+			</div>
+		</li>
+		<li class="navbar-items">
+			<a href="https://gigm.com/enterprisepartners.aspx">become an enterprise partner</a>
+		</li>
+		<il class="navbar-buttons">
+			<!-- <button class="rewards">pickup rewards</button> -->
+			<button class="rewards rewards--flag">
+				<img src="~/AssetsAmbassadors/assets/img/nigeria.png" alt="Nigeria Flag" />
+				Nigeria
+			</button>
+		</il>
+		<!-- <li class="navbar-items navbar-items--avatar">
+		  <a href="#" id="logout">
+			<i class="fas fa-user-circle"></i>
+			Logout
+		  </a>
+		</li> -->
+	</ul>
+	<div class="nav-toggler">
+		<button class="intl">
+			<img src="~/AssetsAmbassadors/assets/img/nigeria.png" alt="Nigeria Flag" />
+			Nigeria
+		</button>
+		<!-- <button class="hamburger hamburger--spin" type="button">
+		  <span class="hamburger-box">
+			<span class="hamburger-inner"></span>
+		  </span>
+		</button> -->
+	</div>
+</nav>
+<div class="wrapper">
+	<div class="left-wrapper">
+		<img src="~/AssetsAmbassadors/assets/img/gignation@3x.png"
+			 alt="GiG Nation banner"
+			 class="gignation" />
+	</div>
+	<div class="banner">
+		<img src="~/AssetsAmbassadors/assets/img/gignation-dark.png"
+			 alt="GiG Nation banner"
+			 class="v-toggle" />
+	</div>
+	<div class="right-wrapper">
+		<div class="text-box">
+			<h1>
+				<span>Thank you</span> for choosing to become our Ambassador
+			</h1>
+			<p class="verified">
+				Your Email has now been verified, Kindly login below
+			</p>
+
+		</div>
+
+		<form id="form1">
+			<div class="form-group">
+				<label for="#">Email or Phone Number</label>
+				<input type="text" required name="email" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="#">password</label>
+				<input type="password" required name="Password" class="form-control" />
+			</div>
+
+			<div class="button-group">
+				<button id="buttoner" type="submit" class="btn red">Sign in</button>  <br /> <br />
+				<span> 
+
+					<a href="@Url.Action("Register","Ambassadors")">
+						sign up to be an ambassador! <i class="fas fa-arrow-right"></i>
+					</a>
+				</span>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+<script>
+	const hamburger = document.querySelector(".hamburger");
+	const navbarList = document.querySelector(".navbar-list");
+
+	hamburger.addEventListener("click", function () {
+		this.classList.toggle("is-active");
+		navbarList.classList.toggle("show");
+	});
+
+</script>
+<script>
+	$(".box").hide();
+</script>
+<script>
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	function _get(parameter, URL) {
+		var reg = new RegExp('[?&]' + parameter + '=([^&#]*)', 'i');
+		var string = reg.exec(URL);
+		return string ? string[1] : undefined;
+	};
+
+	var hashCode = _get("?", url);
+	localStorage.setItem("HashCode", hashCode);
+	console.log("The hash code is" + localStorage.getItem("HashCode"));
+</script>
+
+
+<script>
+	$(document).ready(function () {
+		console.log("ready!");
+		$('.box').show();
+	
+			$.ajax(
+	{
+		type: 'post',
+		url: 'https://client.thegigmobility.com/api/CampusAmbassador/verifybyemail',
+		data: {
+			//"Email": localStorage.getItem("emailVerify"),
+			"HashedVerifyData": localStorage.getItem("HashCode")
+		},
+		headers: {
+			'accept': 'application/json',
+		//		'Authorization': 'Bearer pcTEoyHL_8v0gRwdhJtqWDzft2S6yaeC63p0EBc5SbCInoy2h27a9mdW9MS-o6pjWMhe9UzxVIp6mzkwpQBQp7zJVtCRmyCjgdyHpmb4ZLQ0u844q-k63vcUvESDhQwX-VMOx7BJAqBbqNsof5m1kJwyHYBu0P8x7UKRgjxOalTxXd5UVWy8czwEHENE0vRGLYP8Zdqlm77QUwXkAvle5UsApi45dxvOQma0IAXHLi-XpoZDIbqQs7SRqo9-WCpPhnV1CfZWgDyzKubULvsEmKXgGJBrGOjI-nL2idAXVViFVHsOahDCAD6OQCNYTgSYl_bc8-EfGvHw6E0MAff6VXTA9mxTEk1AcTzhyJpO8sqbu3pOzUzwiQiI_WiktzShmYdVP0FXaAiNZMOdFXyXL38YP4FV6Vf4dxvZb7zbxN4sJkE98H-8TumRjTVDWjPEnxzsr5l4HIvgzx5opPbaRg'
+			'Authorization': 'Bearer i35gGm6IyOZ17oqk7lkXzVpTim-cTnk_WMwq15AeXqy0ms33YSVeojZmXer5EeZ7GoIeSS61905ti-2sMJDjnyCDVCVpV7gfs8oWv6yOnCsDehVH83eV-wkCL_S-hvBb-ph7HyuVfoZv6HhtgJspVv0OAuDOo_27OU0zex__WGpB-XLjYBsqaeZM5gQmut9FIv2Wt3zSeEv9KY2l_gSSxCBJQCjtyJMNo4_gwrlWYHZ5vPAil7dhDvHPJjoDMAWVXnDmNYREQHg2Zp-x9XGoYRPnabsL5ak6iLPHGxmX7_i4BftmkIt8jLI-o0TEmsb-RhxBQs0LiOWolmDRv_D5AvToKx3FYLUPJSgazp9eimG4B9yQhr8DtXjTqF6UhUmV5JuGjihiMxIims-PdiYB1ZqKPm4XFl75Br8Yhs05QaoYyIq4iEZjApxKrX_Z-Cd4wWuFcVtRAPCwPT7QTR_Tvg'
+		},
+		success: function (response) {
+			$('.box').hide();
+			console.log(response);
+			swal({
+				title: response.ShortDescription,
+				text: response.Object.RequestMessage,
+				icon: "success"
+			})
+		},
+		error: function () {
+			$('.box').hide();
+
+			swal({
+				title: response.ShortDescription,
+				// text: response.ShortDescription,
+
+
+				icon: "warning"
+			}).then(function () {
+				window.location.replace("login");
+			});
+		}
+	}
+	);
+		
+	});
+</script>
+<script src="~/AssetsAmbassadors/js/loginserviceV4.js"></script>

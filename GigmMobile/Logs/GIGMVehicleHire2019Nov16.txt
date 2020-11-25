@@ -1,0 +1,3 @@
+2019-Nov-16-11:34:33:134
+Object reference not set to an instance of an object.::   at GigmMobile.Controllers.PagesController.PaymentConfirmation() in C:\Users\DEVELOPER\Source\Repos\mobile-website\GigmMobile\Controllers\PagesController.cs:line 295
+

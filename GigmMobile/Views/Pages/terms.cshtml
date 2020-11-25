@@ -1,0 +1,287 @@
+﻿@{
+	ViewBag.Title = "Terms";
+}
+@*<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>*@
+
+
+
+<link href="~/Content/terminal.css" rel="stylesheet" />
+
+
+
+<div ng-controller="TerminalsController"  ng-cloak>
+	<section class="main z-depth-1-half">
+		<!--Double navigation-->
+		<header class="">
+			<!-- Sidebar navigation -->
+			<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+				<!-- Logo -->
+				<li>
+					<div class="logo-wrapper waves-light">
+						<a href="@Url.Action("Home", "Pages")">
+							<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+						</a>
+					</div>
+				</li>
+				<!--/. Logo -->
+				<!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/Social-->
+				<!--Search Form-->
+				<!-- <li>
+					<form class="search-form" role="search">
+						<div class="form-group waves-light">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+				</li> -->
+				<!--/.Search Form-->
+				<!-- Side navigation links -->
+				<li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                                <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                            </a>
+                            <!-- <div class="collapsible-body">
+            <ul>
+                <li>
+                    <a href="#" class="waves-effect">Submit listing</a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">Registration form</a>
+                </li>
+            </ul>
+        </div> -->
+                        </li>
+                        @{
+        Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+
+
+
+                        <li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+                    </ul>
+				</li>
+				<!--/. Side navigation links -->
+				<div class="sidenav-bg mask-strong"></div>
+			</ul>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+				<!-- SideNav slide-out button -->
+
+
+
+				<div class="paddo" style="">
+					<a href="#" data-activates="slide-out" class="button-collapse">
+						<i class="fa fa-bars" style="color:white"></i>
+					</a>
+
+				</div>
+		
+
+
+
+				<div class="middle">
+					<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+					<h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">Terms & Conditions</h5>
+				</div>
+				<div class="text-right">
+					<a href="/" class="button-collapse2">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+				</div>
+
+
+
+			</nav>
+
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
+		<!--Main Layout-->
+
+
+	</section>
+
+
+
+	<div class="contentView">
+		@*<div class="header-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<h1>Terms and Conditions</h1>
+					</div>
+					<div class="col-md-4 img-wrapper hidden-sm hidden-xs">
+						<img src="webassets/img/bus_features.png">
+					</div>
+				</div>
+			</div>
+		</div>*@
+
+
+		<div class="content-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="about-list">
+							<p class="leadCustom">Check-in</p>
+							<p>Check in closes 30 minutes before the estimated time of departure. To ensure timely departure, we recommend that guests honour this as departure time will not be extended and a fee of one thousand Naira (N1000) will be applicable for reschedule due to lateness or no show. In a situation where the fare of the new trip is higher than the old trip, the guest will also be required to pay the differential. Note that all reschedules/ re-routing requests are subject to vehicle and seat availability on desired route. Also, note that in the event of change due to re-routing, guest is not guaranteed a preferred seat choice.</p>
+
+							<p class="leadCustom">Bookings and Reservation</p>
+							<p>Bookings and reservations made in advance are subject to availability of vehicles. In the event that we are unable to fulfill your reservation, affected guest will either be refunded or rescheduled to another departure time at no cost.</p>
+
+							<p class="leadCustom">Luggage Allowance</p>
+							<p>All guests are entitled to one medium sized luggage <a href="https://gigm.com/Luggage-Allowance.aspx" target="_blank">(30”x22”x15) per ticket</a>. For comfort and safety purposes, we are unable to accommodate any luggage with dimensions exceeding this standard. In cases where specific guest(s) luggage exceeds this requirement, affected guests will be asked to either send the excess luggage via our sister company, GIG Logistics or purchase an extra seat to accommodate it.</p>
+							<p>We recommend the use of flexible traveling boxes as plastic boxes are not acceptable on our buses. This is because theses boxes are not only fragile, they are also quite difficult to manipulate which poses a challenge during luggage loading activities.</p>
+							<p>Owing to the embargo placed by the Nigeria Customs on the importation of some food commodities, guests are advised to refrain from carrying rice as our allowable limit per bus 50kg bag of rice per bus. Fragile item such as electronics, laptops and other valuable items are not to be placed in the trunk of our vehicles, but carried as hand luggage. Please note that hazardous materials such as but not limited to - gas cylinders (empty or with content), generators, building materials, fuel in gallons, agrochemicals, herbicides, pesticides; etc. are not permissible on our vehicles. Please contact GIG Logistics for conveyance of these materials.</p>
+							<p>Guests are also advised to monitor their luggage till their final destination.</p>
+
+							<p class="leadCustom">Refund Policy</p>
+							<p>GIGM.com has a no refund policy for all tickets duly purchased from any of its sales channels. Guests with unused tickets are advised to use them as soon as possible as ticket validity is restricted to one month from date of purchase after which the ticket becomes invalid. To utilize unused tickets within the validity period, kindly send an email to <a href="mailto:contact@gigm.com">contact@gigm.com</a>&gt; with new itinerary before proposed travel date.</p>
+							<p>Note that all reschedules/ re-routing requests are subject to vehicle and seat availability on desired route. Also, note that in the event of change due to re-routing, guest is not guaranteed a preferred seat choice.</p>
+
+							<p class="leadCustom">Managing Reservations (Rescheduling and Rerouting)</p>
+							<p>
+								Guests who experience payment related issues and require refunds are advised to contact their banks directly. This excludes bank transfer transactions. Refund request originating from bank transfers can be processed by sending an email to
+								<a href="mailto:contact@gigm.com">contact@gigm.com</a>. Once we confirm that funds were acquired and the account number to be credited has been provided by the guest, a refund will be made within seven (7) to ten (10) working days.
+							</p>
+
+							<p class="leadCustom">Error debits on online transactions</p>
+							<p>Guests are advised to contact their banks should they require a refund due to double debits, debits without value on card transactions or USSD payments without value using our online booking platform. Refund request originating from bank transfers can be processed by sending an email to contact@gigm.com. Once we confirm that funds were acquired and the account number to be credited presented, refund will be made within seven (10) working days.</p>
+
+							<p class="leadCustom">Price Changes</p>
+							<p>Prices are subject to change without prior notice to guests due to unforeseen economic circumstances.</p>
+
+							<p class="leadCustom">Child Fare Rate</p>
+							<p>We care about the safety of children and have provided discounts on tickets purchased on our online and over the counter platforms at 50% and 30% respectively. However, please note the following:</p>
+							<ul>
+								<li>The Child fare rate only applies to children between the ages of 2-10.</li>
+								<li>Children within this range cannot travel unaccompanied by an adult.</li>
+								<li>Child fare rates can only be assessable upon the presentation of a valid means of identification for the child (ren) on the planned day of travel failure of which will result in discount cancellation.</li>
+								<li>An adult is only allowed a maximum of three child fare rates per booking.</li>
+							</ul>
+
+							<p class="leadCustom">Animals and pets onboard </p>
+							<p>GIGM.com conveys humans and not animals or pets.</p>
+
+							<p class="leadCustom">Carriage of unaccompanied children</p>
+							<p>GIGM.com can only provide transportation for unaccompanied children between the ages of 10 to 15 on the condition that the parent or guardian of the minor completes and submits our unaccompanied minor form which can be obtained from any of our terminals nation-wide before the commencement of the trip.</p>
+
+							<p class="leadCustom">Smoking Policy</p>
+							<p>Smoking is prohibited while on board</p>
+
+							<p class="leadCustom">Sale of Tickets</p>
+							<p>Please note that GIGM bus tickets are not transferable and cannot be resold to anyone else.</p>
+
+							<p class="leadCustom">Departure time</p>
+							<p>While we will do all within our control to ensure we comply with communicated departure times, in cases where unforeseen circumstances occur, please note that we are at liberty to alter the departure time without prior notice or compensation. This may have an effect on seat selection and bus type.</p>
+
+							<p class="leadCustom">Ticket Validity</p>
+							<p>Purchased but un-used tickets not used to travel have a validity of one (1) month from date of purchase, as long as the amount paid for the cancelled journey is not less than the cost of the proposed journey, in the event that it is, you will be required to pay the difference.</p>
+
+							<p class="leadCustom">Lost/Forgotten Items</p>
+							<p>Guests are advised to monitor their luggage while at our terminals or in our vehicles.Should any item be stolen, lost or forgotten, we will not be held liable. Found but unclaimed properties will be kept for a maximum of 30 days before it is disposed of (except perishable items which will be discarded the same day if unclaimed to prevent contamination)</p>
+
+							<p class="leadCustom">In transit Breakdown</p>
+							<p>As a company, we recognise the importance of preventive maintenance and we practice it religiously to reduce and possibly eliminate in transit breakdowns. However in the event that it does happen, guests are requested to contact our call centre using 08139851110. For swift action, our patrol teams are also strategically located to provide a replacement vehicle within the shortest possible time. In situations where an alternative vehicle is provided by GIGM to complete the trip, please note that tickets cannot be reused.</p>
+
+							<br>
+							<p>For queries and enquiries on issues not addressed above, kindly reach our care team via email or mobile using <a href="mailto:contact@gigm.com">contact@gigm.com</a> or 08139851110.</p>
+							<p class="leadCustom">Kindly note the above terms and conditions.</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

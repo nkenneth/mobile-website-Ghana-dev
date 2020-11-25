@@ -1,0 +1,750 @@
+﻿@{
+	ViewBag.Title = "faq";
+}
+@*<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>*@
+
+
+
+<style>
+
+	.card {
+		    padding: 5%;
+    margin-bottom: 2%;
+	}
+	.collapsed {
+		font-size: .8em;
+	}
+	a {
+    color: #2e2e2e;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8em;
+}
+	a:focus, a:hover {
+    text-decoration: none;
+    font-size: .8em;
+}
+
+	a:hover {
+    color: #ce3333;
+    text-decoration: underline;
+}
+	.swal-overlay--show-modal {
+    opacity: 1;
+    display: none;
+    pointer-events: auto;
+}
+</style>
+
+
+
+
+<div ng-controller="booking as vm"  ng-cloak>
+	<section class="main z-depth-1-half">
+		<!--Double navigation-->
+		<header class="">
+			<!-- Sidebar navigation -->
+			<ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+				<!-- Logo -->
+				<li>
+					<div class="logo-wrapper waves-light">
+						<a href="@Url.Action("Home", "Pages")">
+							<img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+						</a>
+					</div>
+				</li>
+				<!--/. Logo -->
+				<!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!--/Social-->
+				<!--Search Form-->
+				<!-- <li>
+					<form class="search-form" role="search">
+						<div class="form-group waves-light">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+				</li> -->
+				<!--/.Search Form-->
+				<!-- Side navigation links -->
+				<li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                                <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                            </a>
+                            <!-- <div class="collapsible-body">
+            <ul>
+                <li>
+                    <a href="#" class="waves-effect">Submit listing</a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">Registration form</a>
+                </li>
+            </ul>
+        </div> -->
+                        </li>
+                        @{
+        Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+                        <li>
+                            <a href="@Url.Action("Terminal","Pages")" class="collapsible-header waves-effect arrow-r">
+                                <i class="fa fa-info"></i> Bus Terminal info
+                            </a>
+                        </li>
+						<li>
+							<!--/. Sidebar navigation -->
+							<a href="@Url.Action("Enterprise","Pages")" style="height:100%" class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-check" style="margin-right: 8px;"></i> Become An Enterprise <p style="margin-left:11.5%; margin-top: -5%;">Partner</p>
+							</a>
+						</li>
+                    </ul>
+				</li>
+				<!--/. Side navigation links -->
+				<div class="sidenav-bg mask-strong"></div>
+			</ul>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+				<!-- SideNav slide-out button -->
+
+
+
+				<div class="paddo" style="">
+					<a href="#" data-activates="slide-out" class="button-collapse">
+						<i class="fa fa-bars" style="color:white"></i>
+					</a>
+
+				</div>
+				<!-- Breadcrumb-->
+				<!-- <div class="breadcrumb-dn mr-auto ">
+					<p>Material Design for Bootstrap</p>
+				</div> -->
+
+
+				<div class="middle">
+					<h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+					<h5 class="text-left text-white" style="padding-left:5px" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">Pickup</h5>
+				</div>
+				<div class="text-right">
+					<a href="/" class="button-collapse2">
+						<i class="fa fa-chevron-left"></i>
+					</a>
+				</div>
+
+
+
+			</nav>
+
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
+		<!--Main Layout-->
+
+
+	</section>
+
+	<section id="form">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="about-list">
+						@*<p class="leadCustom">Check-in</p>*@
+						<p>
+							GIGM pick up service is a stress free bus service for the smart traveller.
+
+							GIGM pick up service serves the cities of Lagos, Benin, Asaba and Abuja and serves as easier access to your travel plans and vehicles.
+
+							The policies and procedures outlined in this Service Guide will ensure that GIGM pick up service operates successfully for you.
+
+							Make your trip stress free. Let our buses come to you at no extra cost while booking your bus on our mobile app and website.
+
+						</p>
+
+						<p class="leadCustom">Pick up service Availability and Hours </p>
+						<p>
+							Our Pick-Up service operates in the morning hours to Fixed Routes for your travel dates. Specific times vary by geographic area. There is no Pick-Up service on New Year’s Day and Christmas Day. Pick-Up Service ends early on Christmas Eve.
+
+							Kindly note that these locations for the Pick-Up Service are for the pilot stage and will increase over the coming months. You most opt for pickup when booking online.
+						</p>
+
+						<p class="leadCustom">Routes and Pick up Locations</p>
+
+
+
+						<table class="table table-hover table-bordered results">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th class="col-md-4 col-xs-4">Terminal</th>
+									<th class="col-md-7 col-xs-7">Pick up point</th>
+								</tr>
+								<tr class="warning no-result">
+									<td colspan="4"><i class="fa fa-warning"></i> No result</td>
+								</tr>
+							</thead>
+							<tbody id="list">
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Aba</td>
+									<td>
+										<ul>
+											<li>1. Leno petroleum Nig. Ltd, along Aba - Port Harcourt ExpressWay Aba. </li>
+											<li> 2. Nigerian Navy Finance and Logistics College, Owerrinta</li>
+											<li>3. Royal Cruise Restaurant By Isiala Ngwa Junction.</li>
+											<li>4. Royal Supermarket. 91, Aba-Owerri Road, Aba.</li>
+
+
+
+										</ul>
+									</td>
+
+								</tr>
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Ajah</td>
+									<td>
+										<ul>
+
+											<li>1. Lekki 1 Admiralty Way by First Bank </li>
+											<li> 2.	Jakande Mobil Filling Station</li>
+											<li>3.	Ikota Mega Chicken </li>
+											<!-- <li>4.	Ajah Terminal </li> -->
+											<li>4. Ziuss filling station, Ibeju Lekki.</li>
+											<li>5.	Sango Tedo Nero Bus stop </li>
+											<li>6.	Lakowe Total Filling Station</li>
+											<li>7. Bunvic Invest. Filling station by Epe junction</li>
+											<li>8. Ikate Bus stop by traffic light</li>
+											<li>9. New road junction, after Igboefon traffic light by Eti-osa local Government secretariat</li>
+											<li>10. Pinnacle Filling station by 2nd roundabout, Marwa</li>
+											<li>11. Fowobi Filling Station Ijebu Itele along Shagamu-Benin expressway, Ijebu ode </li>
+											<li>12. Oando Filling Station, Chisco Bus-Stop(Former 4th Roundabout) Along Lekki-Epe Expressway, Lekki</li>
+											<li>13. Total Filling Station, Eleko Beach Junction, Along Lekki-Epe Expressway, Ibeju Lekki</li>
+											<li>14. Front of Mayfair garden estate opposite debase oil and gas filling station, Ibeju Lekki.</li>
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Asaba (Onitsha)</td>
+									<td>
+										<ul>
+
+											<li>1. Holiday Resort Hotel, Onitsha</li>
+											<li> 2. ANIOMA FILLING STATION, TRAFFIC LIGHT OFF EXPRESS RD BY EZENNEYI JUNCTION</li>
+											<li> 3. Iluobe Filling Station,  Issele Uku Junction. Delta State</li>
+											<li> 4. Rainoil Filling Station, Summit Junction Along Asaba- Benin Expressway</li>
+											<!-- <li> 5. RainOil Filling Station by Coker Juction After Road Safety Office, Asaba</li> -->
+											<li>5. Railoil Filling Station, Coker Junction Asaba.</li>
+											<!-- <li>6. Amukpe roundabout, Sapele.</li> -->
+											<li>6. Tony chuks filling station, Umunede Junction.</li>
+											<li>7. Ziuss filling station, Along Asaba-Benin expressway after old immigration office.</li>
+											<li>8. Hensmor Nig. Ltd Uromi Junction, Benin/Asaba Expressway, Agbor.</li>
+											<li>9. Laga Petroleum and Gas Ltd Agbor Junction, along Agbor-Benin Expressway.</li>
+											<li>10. Ifedico Oil and Gas Station, Onitsha Ugbo Junction along Onitcha Ugbo - Benin Expressway.</li>
+										</ul>
+									</td>
+
+								</tr>
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Auchi</td>
+									<td>
+										<ul>
+
+											<li>1. Ekpoma Terminal,Ekpoma</li>
+											<li> 2. Elizac Fast Food,Irrua</li>
+											<li> 3. Paragon Filling Station,Okpella</li>
+											<li>4. Old Danco Filling Station, Benin-Auchi Road.</li>
+											<li>5. NNPC Filling Station, Opposite Irrua Specialist Teaching Hospital, Irrua.</li>
+											<li>6. Jettu Junction, Along Auchi-Okene Expressway.</li>
+											<li>7. Iluobe Filling Station, Agbede.</li>
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Benin (Akpakpava)</td>
+									<td>
+										<ul>
+											<li>
+												1.	Otopec Filling Station ITV Glass House Airport
+
+											</li>
+											<li>
+												2.	 Road Forte Oil Sapele Road by Hallmark
+
+											</li>
+											<li>3. Danco Filling Station by Mat-Ice, Ekehuan Road</li>
+
+
+
+										</ul>
+									</td>
+
+								</tr>
+
+								<tr>
+									<th scope="row">*</th>
+
+									<td>Benin (Uselu)</td>
+									<td>
+										<ul>
+											<li>1.	Otopec Filling Station  ITV Glass House Airport Road </li>
+											<li> 2.	Forte Oil Sapele Road by Hallmark </li>
+											<li>3.	Danco Filling Station by Mat-Ice, Ekehuan Road</li>
+											<li>4.	Showboy Filling Station opposite Okada Town Junction, along Benin-Lagos ExpresswayMowe NNPC Filling station</li>
+											<!-- <li>5. Zius oil Isihor</li> -->
+											<li>5. Zius Oil New Lagos Road</li>
+											<li>6. Forte Oil, Isihor </li>
+											<li>7. Total Filling Station, New Benin</li>
+											<li>8. Uniben main gate by the pedestrian bridge</li>
+										</ul>
+									</td>
+
+								</tr>
+
+								<tr>
+
+
+
+									<th scope="row">*</th>
+									<td>Cele/Okota</td>
+									<td>
+										<ul>
+											<li>
+												1.  MOBIL FILLING STATION GBAGADA
+
+
+											</li>
+											<li>
+												2.	MOBIL FILLING STATION MAGODO
+
+											</li>
+											<li>
+												3.	OANDO FILLING STATION BERGER
+
+											</li>
+											<!-- <li>4.	IRRUA (ELIZAC FAST FOOD)
+
+						 </li> -->
+
+
+
+										</ul>
+									</td>
+
+
+								</tr>
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Ekpoma</td>
+									<td>
+										<ul>
+
+
+											<li>1. IRUEKPEN (TOTAL FILLING STATION)</li>
+											<!-- <li> 2. Under the fly over, Enugu night mile
+						</li> -->
+											<li>2. IRRUA (ELIZAC FAST FOOD)</li>
+
+
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Enugu</td>
+									<td>
+										<ul>
+
+
+											<!-- <li>Mega Chicken by Apple Junction</li> -->
+											<li>1. NNPC Filling Station, Nike Lake Road Abakpanike.</li>
+											<li>2. Chili's Food Limited. 2a/2b Nike Lake Road. Nowas Transekulu</li>
+											<li>3. Under the fly over, Enugu night mile.</li>
+
+
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Festac (mazamaza)</td>
+									<td>
+										<ul>
+
+
+											<li>
+												1. NNPC filling Station by Second Rainbow along Mile2 express road
+											</li>
+											<!-- <li> 2. NGAB Filling station Berger
+
+						</li> -->
+											<li>2. NNPC filling station, by Rainbow along mile 2 express road.</li>
+
+
+										</ul>
+									</td>
+
+								</tr>
+								<tr>
+									<th scope="row">*</th>
+									<td>Iyana Ipaja</td>
+									<td>
+										<ul>
+											<!-- <li>1.	PEN CINEMA (Tastee Fried Chicken)
+						</li> -->
+											<li>1. Mobil Filling Station Ijaye road by Wemco road Ogba.</li>
+											<li>
+												2.	Omole Estate (1st Gate)
+											</li>
+											<li>
+												3.	Berger NGAB Filling station
+											</li>
+											<li>
+												4.	Mowe NNPC Filling station
+											</li>
+											<li>5. Total Filling Station, along Sagamu-Benin expressway, Sagamu.</li>
+
+
+										</ul>
+									</td>
+
+								</tr>
+								<tr>
+									<th scope="row">*</th>
+
+
+									<td>Jibowu</td>
+									<td>
+										<ul>
+											<li>1.	Maryland Oando Filling Station</li>
+											<li>2.	Magodo Mobil Filling Station </li>
+											<li>3.	Berger Oando Mowe</li>
+											<li>4.	Mowe NNPC Filling Station by Lotto Bus stop.</li>
+											<!-- <li>5.	Coisco Nig Ltd Ogbaku</li> -->
+											<li>5. Total Filling Station, along Sagamu-Benin expressway, Sagamu </li>
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+								<tr>
+									<th scope="row">*</th>
+
+
+
+
+
+
+									<td>Port Harcourt</td>
+									<td>
+
+
+
+										<ul>
+											<!-- <li>1.	FACFOG PLAZA  East/West Road Choba
+
+						</li> -->
+											<li>1. YKC Filling Station, by Woji roundabout, Woji.</li>
+											<li>
+												2.	Kilimanjaro Restaurant  Agip road, Agip roundabout, Rumeme.
+
+
+
+											</li>
+											<!-- <li>3.	Machison Oil Filling Station opposite First bank, Rumuaghaolu road, Rumuokoro roundabout
+
+
+
+						 </li> -->
+											<li>3. Perpetual Fast Food, Igwuruta Roundabout, Along Port Harcourt International Airport Road Igwuruta.</li>
+											<li>
+												4.
+												Pepperoni Restaurant, Winppy Junction by Ada George road
+
+											</li>
+											<!-- <li>
+						5.	3cHub by Warri street, Umuahia Town
+
+						</li> -->
+											<li>
+												5. Total Filling Station opposite CIWA, Portharcourt-Aba road.
+											</li>
+											<li>
+												6. Richpon Fuel Station by Rukpokwu roundabout.
+											</li>
+											<li>
+												7. Big Treat Bakery Rupokpu Round about.
+											</li>
+
+										</ul>
+									</td>
+
+								</tr>
+
+
+								<tr>
+									<th scope="row">*</th>
+
+
+
+
+
+
+									<td>Umuahia</td>
+									<td>
+
+
+
+
+										<ul>
+											<li>
+												1.	Hoeffers fast food, Akanu Ibiam Road, by Government House Road.FACFOG PLAZA  East/West Road Choba
+
+											</li>
+											<li>
+												2.	Sabuga filling station,Okigwe by Enugu Express
+											</li>
+											<!-- <li>3.	Arab Junction by Berger Roundabout</li> -->
+											<li>3. 3cHub by Umuahia Town.</li>
+
+
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+
+
+
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Utako</td>
+									<td>
+										<ul>
+											<li>
+												1. Arab Junction by Berger Roundabout
+
+											</li>
+											<li>
+												2.	Pin Wonyin Junction by MRS Filling Station
+											</li>
+											<!-- <li>3.	Lugbe Car Wash by Conoil Filling Station
+						 </li> -->
+											<li>3. University Junction/SDP Junction Gwagwalada</li>
+											<li>
+												4.	Giri Junction by NNPC Mega Station
+											</li>
+											<li>5.	Bakka Oil Filling Station Gwagwalada</li>
+											<li>6.	Conoil Filling Station by River park estate Lugbe</li>
+											<li>7.	Madayana Filling Station, Abaji</li>
+											<li>8.	UBA Foods, Along Abuja-Lokoja Expressway, Lokoja</li>
+
+
+
+										</ul>
+									</td>
+
+
+								</tr>
+
+
+
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Uyo</td>
+									<td>
+										<ul>
+											<li>1. Obikason Filling station Ikot Epene RD Itak</li>
+											<!-- <li> 2. Amukpe Roundabout, Sapele</li> -->
+											<li>2. Kemson Oil filling station, Ikot Ekpene</li>
+
+										</ul>
+									</td>
+
+								</tr>
+
+								<tr>
+									<th scope="row">*</th>
+									<td>Warri</td>
+									<td>
+										<ul>
+											<!-- <li>1.	Tony Greenfield Filling  Station before Igbogene junctionSapele-Amukpe roundabout. Sapele
+
+						</li> -->
+											<li>1. Sapele-Amukpe roundabout, Sapele.</li>
+											<!-- <li> 2.	Kimiowei Oil Ltd Kaiama
+
+						</li> -->
+
+
+										</ul>
+									</td>
+
+								</tr>
+								<tr>
+									<th scope="row">*</th>
+									<td>Yenagoa</td>
+									<td>
+										<ul>
+											<li>
+												1.	Tony Greenfield Filling  Station before Igbogene junction
+
+											</li>
+
+
+
+										</ul>
+									</td>
+
+								</tr>
+
+
+
+
+
+
+
+							</tbody>
+						</table>
+
+
+
+
+
+
+
+
+
+						<p>All GIGM captains wear uniforms that clearly identify them as GIGM personnel. Captains receive training in defensive driving, First Aid and customer relations. They also receive passenger sensitivity training to help them understand and respond to passengers’ needs should they have difficulty boarding. </p>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	
+	</section>
+
+	@*<div class="loader" style="background-color:rgba(0, 0, 0, 0.70)" ng-if="vm.loading || rvm.loading">
+		<img src="~/img/spinner.gif" class="img-fluid flex-center">
+	</div>*@
+	@{
+		Html.RenderPartial("AuthModal");
+	}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

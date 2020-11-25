@@ -1,0 +1,382 @@
+﻿<ul id="slide-out" style="" class="side-nav fixed sn-bg-1 custom-scrollbar">
+    <!-- Logo -->
+    <li>
+        <div class="logo-wrapper waves-light">
+            <a href="#">
+                <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-fluid flex-center">
+            </a>
+        </div>
+    </li>
+    <!--/. Logo -->
+    <!--Social-->
+    <li>
+        <ul class="social">
+            <li>
+                <a class="icons-sm fb-ic">
+                    <i class="fa fa-facebook"> </i>
+                </a>
+            </li>
+            <li>
+                <a class="icons-sm pin-ic">
+                    <i class="fa fa-pinterest"> </i>
+                </a>
+            </li>
+            <li>
+                <a class="icons-sm gplus-ic">
+                    <i class="fa fa-google-plus"> </i>
+                </a>
+            </li>
+            <li>
+                <a class="icons-sm tw-ic">
+                    <i class="fa fa-twitter"> </i>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!--/Social-->
+    <!--Search Form-->
+    <!-- <li>
+                <form class="search-form" role="search">
+                    <div class="form-group waves-light">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </li> -->
+    <!--/.Search Form-->
+    <!-- Side navigation links -->
+    <li id="links">
+        <ul class="collapsible collapsible-accordion ">
+            <li>
+                <a class="collapsible-header waves-effect arrow-r">
+                    <i class="fa fa-chevron-right">@Html.ActionLink("Booking", "Booking", "Home")</i> Bus Booking - {{People}}
+                    <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                </a>
+
+            </li>
+            <li>
+                <a class="collapsible-header waves-effect arrow-r">
+                    <i class="fa fa-hand-pointer-o"></i> My Bookings History
+                    <i class="fa fa-angle-down rotate-icon"></i>
+                </a>
+                <!-- <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="#" class="waves-effect">For bloggers</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">For authors</a>
+                                </li>
+                            </ul>
+                        </div> -->
+            </li>
+            <li>
+                <a class="collapsible-header waves-effect arrow-r">
+                    <i class="fa fa-eye"></i> My Profile
+                    <i class="fa fa-angle-down rotate-icon"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="#" class="waves-effect">Login</a>
+                        </li>
+                        <li>
+                            <a href="#" class="waves-effect">Signup</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a class="collapsible-header waves-effect arrow-r">
+                    <i class="fa fa-envelope-o"></i> Contact US
+                    <i class="fa fa-angle-down rotate-icon"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="#" class="waves-effect">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="waves-effect">Write a message</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <!--/. Side navigation links -->
+    <div class="sidenav-bg mask-strong"></div>
+</ul>
+<section class="main2 fixed-top ">
+    <!--Double navigation-->
+    <header class="">
+        <!-- Sidebar navigation -->
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+            <!-- SideNav slide-out button -->
+            <div class=" paddo" style="">
+                <a href="#" data-activates="slide-out" class="button-collapse">
+                    <i class="fa fa-bars" style="color:red"></i>
+                </a>
+            </div>
+            <!-- Breadcrumb-->
+            <!-- <div class="breadcrumb-dn mr-auto ">
+                <p>Material Design for Bootstrap</p>
+            </div> -->
+
+
+            <div class="middle2" style="">
+                <a href="#">
+                    <img src="https://gigm.com/webassets/img/gigm-logo.png" class="img-cus">
+                </a>
+            </div>
+
+
+
+        </nav>
+
+        <!-- /.Navbar -->
+    </header>
+    <!--/.Double navigation-->
+    <!--Main Layout-->
+
+
+</section>
+
+<main style="z-index: 0;" ng-controller="home as vm">
+    <div class="container position">
+        <div class="row">
+
+            <a class="col-6 text-center gray" ui-sref="booking">
+                <div class="col-12 padded" style="">
+                    <img src="http://gbeta.gigm.com/michael/gigm/planecopy1.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+                </div>
+                <div class="col-12 fonted" style="">Book a bus - {{vm.People[0].Code}}</div>
+            </a>
+            <div class="col-6 text-center waves-effect ">
+
+                <a href="booking" style="color:black; text-decoration:none;">
+                    <div class="col-12 padded" style="">
+                        <img src="http://gbeta.gigm.com/michael/gigm/planecopy2.png" style="width:50%; margin:auto" class="img-fluid flex-center">
+                    </div>
+                    <div class="col-12 fonted" style=""> Hire a bus</div>
+
+                </a>
+            </div>
+            <div class="col-6 text-center waves-effect">
+
+
+                <a href="" data-toggle="modal" data-target="#orangeModalSubscription" style="color:black; text-decoration:none; outline:none;">
+                    <div class="col-12 padded" style=" ">
+                        <img src="http://gbeta.gigm.com/michael/gigm/planecopy3.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+                    </div>
+                    <div class="col-12 fonted" style=""> Booking Status</div>
+
+                </a>
+
+            </div>
+            <div class="col-6 text-center gray ">
+
+
+                <div class="col-12 padded" style="">
+                    <img src="http://gbeta.gigm.com/michael/gigm/planecopy4.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+                </div>
+                <div class="col-12 fonted" style=""> FAQs</div>
+
+
+
+
+            </div>
+
+
+            <div class="col-6 text-center gray ">
+
+
+
+                <div class="col-12 padded" style=" " data-toggle="modal" data-target="#modalLRForm">
+                    <img src="http://gbeta.gigm.com/michael/gigm/planecopy5.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+                </div>
+                <div class="col-12 fonted" style=""> Login / Signup</div>
+
+
+            </div>
+            <div class="col-6 text-center waves-effect">
+
+                <a href="tel:08139851110">
+                    <div class="col-12 padded" style=" ">
+                        <img src="http://gbeta.gigm.com/michael/gigm/planecopy6.png" style="width:45%; margin:auto" class="img-fluid flex-center">
+                    </div>
+                    <div class="col-12 fonted" style=" color:black"> Contact us</div>
+
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="modal fade show" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:none;padding-right: 17px;">
+        <div class="modal-dialog cascading-modal modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabs-2 red darken" role="tablist">
+                        <li class="nav-item waves-effect waves-light">
+                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab" aria-selected="true">
+                                <i class="fa fa-user mr-1"></i> Login
+                            </a>
+                        </li>
+                        <li class="nav-item waves-effect waves-light">
+                            <a class="nav-link " data-toggle="tab" href="#panel8" role="tab" aria-selected="false">
+                                <i class="fa fa-user-plus mr-1"></i> Register
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade active show" id="panel7" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body mb-1">
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form22" class="form-control">
+                                    <label for="form22">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form23" class="form-control">
+                                    <label for="form23">Your password</label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-danger btn-rounded waves-effect waves-light">
+                                        Log in
+                                        <i class="fa fa-sign-in ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <!-- <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p> -->
+                                    <p>
+                                        Forgot
+                                        <a href="#" class="red-text">Password?</a>
+                                    </p>
+                                </div>
+                                <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button> -->
+                            </div>
+
+                        </div>
+                        <!--/.Panel 7-->
+                        <!--Panel 8-->
+                        <div class="tab-pane fade in" id="panel8" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form24" class="form-control">
+                                    <label for="form24">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form25" class="form-control">
+                                    <label for="form25">Your password</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form26" class="form-control">
+                                    <label for="form26">Repeat password</label>
+                                </div>
+
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-danger waves-effect btn-rounded waves-light">
+                                        Sign up
+                                        <i class="fa fa-sign-in ml-1"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="container">
+                                    <div class=" row">
+                                        <p class="col-12">
+                                            Already have an account?
+                                            <a href="#" class="red-text">Log In</a>
+                                        </p>
+                                    </div>
+                                    <div class="row">
+
+                                        <a type="button" href="index.html" class="btn-rounded col-12 btn btn-outline-danger waves-effect ml-auto">Continue without Login</a>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/.Panel 8-->
+                    </div>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+
+
+</main>
+<!--Main Layout-->
+
+
+
+
+
+
+<div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-danger" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h4 class="modal-title white-text w-100 font-bold py-2">Booking Status</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+
+
+                <div class="md-form">
+                    <i class="fa fa-key prefix grey-text"></i>
+                    <input type="email" id="form2" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="form2">Enter ref code</label>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a href="status.html" type="button" class="btn btn-outline-secondary-modal waves-effect">
+                    Check Status
+                    <i class="fa fa-paper-plane-o ml-1"></i>
+                </a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>

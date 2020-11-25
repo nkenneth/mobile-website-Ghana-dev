@@ -1,0 +1,12 @@
+﻿<input type="hidden" name="selected_seats" value="{{selectedseats}}" id="selected_seats{{busindex}}" ng-if="selectedseats.length > 0" />
+<div class="row" ng-repeat="row in seats track by $index">
+    <div class="col-md-12">
+        <div class="row" style="padding-top:12px;">
+            <div class="col-xs-2 pad-28" style="text-align:center" ng-repeat="column in row track by $index" ng-click="selectseat($parent.$index, $index)">
+                <span class="seatsselect" style="font-weight:bold;  padding:10px;" ng-class="{'invisible': column < 0, 'colorblue': column == 1, 'bus-available': column == 0, 'bus-selected': column == 1, 'unavail': column == 2}">
+                    {{seattexts[$parent.$index][$index]}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

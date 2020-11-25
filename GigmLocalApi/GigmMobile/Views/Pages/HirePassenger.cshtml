@@ -1,0 +1,484 @@
+﻿<style>
+
+    .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1rem 1.25rem 0.01rem;
+    }
+
+    .header .fa-angle-down {
+        margin-left: 50%;
+        font-size: 30px;
+        opacity: .5;
+    }
+
+    #form5 {
+        margin: 12% auto 0 5%;
+        width: 90%;
+    }
+
+    .adjust {
+        margin: 5% auto 0 5% !important;
+    }
+
+    .switch-selection {
+        /* background: #db0c0c !important; */
+        border-radius: 20px;
+        /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4fc9ee), color-stop(100%, white));*/
+        background-image: -webkit-linear-gradient(top, #EF3A37, #b52929) !important;
+        background-image: -moz-linear-gradient(top, #EF3A37, #b52929);
+        background-image: -ms-linear-gradient(top, #EF3A37 #b52929);
+        background-image: -o-linear-gradient(top, #EF3A37, #b52929);
+        background-image: linear-gradient(top, #EF3A37, #b52929);
+        color: white !important;
+    }
+
+    #form4 {
+        margin: 5% auto 0 5% !important;
+        width: 90%;
+    }
+
+    #click-me {
+        display: flex;
+        flex-wrap: nowrap
+    }
+    /*#click-me div {
+            flex-basis: 20%;
+            justify-content:space-between;
+        }
+            #click-me div:nth-child(2) {
+                flex-basis: 60%;
+            }*/
+
+    .switch-input:checked + .switch-label {
+        color: white !important;
+    }
+
+    .passenger-switcher {
+        border-radius: 20px !important;
+        position: relative !important;
+        height: 38px !important;
+        width: 305px !important;
+        margin: 20px auto !important;
+        background: rgba(94, 93, 93, 0.67) !important;
+    }
+</style>
+
+<div ng-controller="busBookerPay as vm">
+
+    <div class="loader" style="background-color:rgba(0, 0, 0, 0.70); " ng-if="vm.loading || rvm.loading">
+        <img src="~/img/spinner.gif" class="img-fluid flex-center">
+    </div>
+
+
+    <section class="main4  z-depth-1-half">
+        <!--Double navigation-->
+        <header class="">
+            <!-- Sidebar navigation -->
+            <ul id="slide-out" class="side-nav  sn-bg-1 custom-scrollbar ">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="/">
+                            <img src="/img/gigm-logo.png" class="img-fluid flex-center">
+                        </a>
+                    </div>
+                </li>
+                <!--/. Logo -->
+                <!--Social-->
+				<li>
+					<ul class="social">
+						<li>
+							<a class="openapp icons-sm fb-ic" data-id="217054755026942">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/gigmotors" class="icons-sm pin-ic">
+								<i class="fa fa-instagram"> </i>
+							</a>
+						</li>
+						@*<li>
+					<a class="icons-sm gplus-ic">
+						<i class="fa fa-google-plus"> </i>
+					</a>
+				</li>*@
+						<li>
+							<a class="opentwitter icons-sm tw-ic">
+								<i class="fa fa-twitter"> </i>
+							</a>
+						</li>
+					</ul>
+				</li>
+                <li id="links">
+                    <ul class="collapsible collapsible-accordion ">
+                        <li>
+                            <a class="collapsible-header waves-effect arrow-r" href="/">
+                                <i class="fa fa-home"></i> Home
+                                <!-- <i class="fa fa-angle-down rotate-icon"></i> -->
+                            </a>
+                        </li>
+                        @{
+                            Html.RenderPartial("Profile");
+                        }
+						<li>
+							<a class="collapsible-header waves-effect arrow-r">
+								<i class="fa fa-phone"></i> Contact us
+								<i class="fa fa-angle-down rotate-icon"></i>
+							</a>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="/Pages/Faq" class="waves-effect">FAQ</a>
+									</li>
+									<li>
+										<a href="tel:08139851110" class="waves-effect">Call us</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+                <div class="sidenav-bg mask-strong"></div>
+            </ul>
+            <!--/. Sidebar navigation -->
+            <!-- Navbar -->
+            <nav class="navbar  navbar-toggleable-md navbar-expand-lg scrolling-navbar custom double-nav">
+                <!-- SideNav slide-out button -->
+                <div class=" paddo" style="">
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="fa fa-bars" style="color:white"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="middle" style="">
+                    <h5 class="text-left text-white" ng-if="rvm.isLoggedIn" ng-click="rvm.getHistory()">Hello, {{rvm.user.FirstName.split(' ')[0]}}</h5>
+                    <h5 class="text-left text-white" ng-if="!rvm.isLoggedIn" href="#" data-toggle="modal" data-target="#modalLRForm">SIGN IN / SIGN UP</h5>
+                </div>
+
+            </nav>
+
+            <!-- /.Navbar -->
+        </header>
+
+        <main style="">
+            <div id="header2" class=" pushers2  container-fluid " style="padding-top: 3%">
+
+            </div>
+
+
+
+        </main>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <section id="form4">
+
+                <div class="container">
+
+                    <div class="row">
+                        <!--Card-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+
+                                <div class="click-me2 header row">
+                                    <div class="col-2">
+                                        <span>
+                                            <img src="https://m.gigm.com/dist-files/img/icons/percentage.png">
+                                        </span>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="smh2">Hire Summary</h5>
+                                    </div>
+                                    @*<a style="display:none"><i class="fa fa-angle-down" ng-click="vm.showHideSummary()"></i></a>*@
+                                    <div class="col-2">
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                </div>
+                                <div class="in" id="trippanel2">
+                                    <div class="payment-breakdown-body">
+                                        <div class="body breakdown-body">
+                                            <div class="body-title">
+                                                <h4>
+                                                    {{vm.data.departure.RouteName}}
+                                                </h4>
+                                                <ul class="unordered-trip">
+                                                    <li class="trip-date-time">
+                                                        <span id="ContentPlaceHolder2_lblDate">{{vm.data.departure.DepartureDate.replace('/Date(','').replace(')/','').replace(',','') | date}}</span>
+
+                                                        <span id="ContentPlaceHolder2_lbltime">{{vm.data.departure.DepartureTime}}</span>
+                                                    </li>
+                                                    <li class="trip-vehicle">
+                                                        <span id="ContentPlaceHolder2_lblbustype">{{vm.data.departure.VehicleName}}</span>
+                                                    </li>
+
+
+                                                    <li class="per-adultFare">
+                                                        From: {{vm.busPrototype.OnewayPickupLocation}}<br />
+                                                        To: {{vm.busPrototype.OneWayDropoffLocation}}<br />
+                                                        <span>Distance : {{vm.distance}}km</span>
+                                                        <div ng-repeat="bus in vm.selectedBusses">
+                                                            <span id="busSpan" class="item-label">{{bus.BusName}}, ₦{{bus.Price | number : 2}} Qty:{{bus.Quantity}}</span><br />
+                                                        </div>
+                                                    </li>
+                                                    <li class="per-adultFare" ng-if="false">
+                                                        <span class="item-label">Sleep Over Price</span>
+                                                        <strong class="item-price">
+                                                            <span id="ContentPlaceHolder2_lbldiscount" style="font-size:Large;">₦{{vm.fares.sleepOver | number : 2}}</span>
+                                                        </strong>
+                                                    </li>
+                                                    <li class="per-adultFare" ng-if="false">
+                                                        <span class="item-label">Price without Sleep Over</span>
+                                                        <strong class="item-price">
+                                                            <span id="ContentPlaceHolder2_lbldiscount" style="font-size:Large;">₦{{vm.fares.priceWithoutSleepOver | number : 2}}</span>
+                                                        </strong>
+                                                    </li>
+
+                                                    <li class="per-adultFare">
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="total-pay" style="">
+                                            <span class="price-description price-trip">Total to pay</span>
+                                            <span class="price-amt price-trip">
+                                                <span id="ContentPlaceHolder2_lbltotal">₦{{vm.fares.total | number : 2}}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </section>
+
+            <section id="form5">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <!--Title-->
+
+                                <div class="row header click-me3">
+
+
+                                    <div class="col-2 ">
+                                        <span>
+                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-8 ">
+                                        <h5 class="smh2">Booker Details</h5>
+                                    </div>
+                                    <div class="col-2 ">
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="body" id="trip-panel3">
+                                    <div>
+                                        <div class="body-title">
+                                            <h4>Booker</h4>
+                                        </div>
+                                        <div style="margin-bottom:4%">
+                                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            <span>Please enter name as they appear on identification document</span>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-6 ">
+
+                                                <form id="mainGuest" name="mainGuest" class="form">
+
+                                                    <div class="md-form " id="main">
+                                                        <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
+                                                        <input type="hidden" name="PassengerType" value="1" />
+                                                        <input name="Fullname" type="text" ng-model="vm.user.FirstName" id="Fullname" class="form-control lettersonly" required>
+                                                        <label id="label" for="ContentPlaceHolder2_RequiredFieldValidator1">Full name*</label>
+                                                        <p ng-show="mainGuest.Fullname.$invalid && !mainGuest.Fullname.$pristine" class="red-text">Name is required</p>
+                                                    </div>
+                                                    <div class="md-form form-group">
+                                                        <select class="mdb-select colorful-select dropdown-danger" ng-options="option.name for option in vm.gender.availableOptions track by option.id" ng-model="vm.gender.selectedOption" name="gender" id="paxGender" required></select>
+                                                        <label>Gender*</label>
+                                                        <span id="requiredValidator" style="color:Red; display:none">Required</span>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <!--/.Card-->
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="form6">
+                <div class="container">
+                    <div class="row">
+                        <!--Card-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+
+                                <div class="row header click-me">
+                                    <div class="col-1">
+                                        <span>
+                                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-10">
+                                        <h5 class="smh2">Contact details and Payment method</h5>
+                                    </div>
+                                </div>
+
+                                <div class="body" id="trippanel">
+                                    <div class="body-title">
+                                        <h4>Contact details</h4>
+                                    </div>
+
+                                    <div class="">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        <span class="">We need your contact details for booking confirmation</span>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-6 ">
+
+                                            <div class="form">
+                                                <form name="booker" novalidate>
+
+                                                    <div class="md-form former">
+                                                        <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
+                                                        <input name="customer_email" type="email" id="customer_email" ng-maxlength="50" class="form-control lettersonly" ng-model="vm.user.Email" required>
+                                                        <label id="label" for="customer_email">Email Address*</label>
+                                                        <p ng-show="booker.customer_email.$invalid && (!booker.customer_email.$pristine  || submited)" class="red-text">Valid email required</p>
+                                                    </div>
+                                                    <div class="md-form former">
+                                                        <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
+                                                        <input name="customer_phone" maxlength="11" minlength="11" type="text" numbers-only id="customer_phone" ng-maxlength="11" class="form-control lettersonly" ng-model="vm.user.PhoneNumber" required>
+                                                        <label id="label" for="customer_phone">Mobile Phone Number*</label>
+                                                        <p ng-show="booker.customer_phone.$invalid && (!booker.customer_phone.$pristine  || submited)" class="red-text">Phone is required and should be 11 charcters</p>
+                                                    </div>
+                                                    <div class="md-form former">
+                                                        <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
+                                                        <input name="customer_address" type="text" id="customer_address" ng-maxlength="50" class="form-control" ng-model="vm.user.Address" required>
+                                                        <label id="label" for="customer_address">Residential Address*</label>
+                                                        <p ng-show="booker.customer_address.$invalid && (!booker.customer_address.$pristine  || submited)" class="red-text">Address required</p>
+                                                    </div>
+                                                    <div class="md-form former">
+                                                        <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
+                                                        <input name="next_of_kin" minlength="3" type="text" id="next_of_kin" class="form-control lettersonly" ng-model="vm.user.NextOfKinName" required>
+                                                        <label id="label" for="next_of_kin">Next of Kin's Name* </label>
+                                                        <p ng-show="booker.next_of_kin.$invalid && (!booker.next_of_kin.$pristine || submited)" class="red-text">Next of Kin is required.</p>
+                                                    </div>
+                                                    <div class="md-form former">
+                                                        <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
+                                                        <input name="next_of_kin_number" maxlength="11" minlength="11" type="text" numbers-only id="next_of_kin_number" ng-model="vm.user.NextOfKinPhone" class="form-control lettersonly" required>
+                                                        <label id="label" for="next_of_kin_number">Next of Kin's phone number*</label>
+                                                        <p ng-show="booker.next_of_kin_number.$invalid && (!booker.next_of_kin_number.$pristine  || submited)" class="red-text">Next of kin's Phone is required and should be 11 charcters</p>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="body-title">
+                                        <h4>Select payment method</h4>
+                                    </div>
+
+                                    <div class="">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        <span class="">In using this option, please complete transaction within 5 minutes to avoid a timeout and possible loss of chosen seat number.</span>
+                                    </div>
+
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center" style="margin-top:10%; margin-bottom:10%">
+                                            <a ng-click="vm.processPay(5)" id="paystackLink" class="col-12 payment_method unified ">
+                                                <img src="https://m.gigm.com/img/pay-with-paystack2.png" style="width:100%" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="row align-items-start" style="margin-top:5%;">
+                                            <a ng-click="vm.processPay(12)" id="BankTransfer" class="payment_method unified col-12">
+                                                <img src="https://m.gigm.com/img/bankTransfer.png" style="border:0px solid #808080; max-height:45px;" class="img-responsive"><span>&nbsp;&nbsp;&nbsp; Bank Transfer</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="body-title" style="padding-top:10%;">
+                                        <h4>
+                                            <span>Terms and Condition</span>
+                                        </h4>
+                                    </div>
+
+                                    <div class="">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        <span class="">Please note that GIGM.com has a no refund policy. However our tickets are valid for a month.</span>
+                                        <span class="">By proceeding to make payment, you accept the </span><a href="/Pages/terms" target="_blank">Terms and Conditions</a>  of GIGM.com.
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!--/.Card content-->
+                            <!-- Card footer -->
+                            <!-- Card footer -->
+
+                        </div>
+                        <!--/.Card-->
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!--Main Layout-->
+            @{
+                Html.RenderPartial("AuthModal");
+            }
+
+        </div>
+
+        <footer class="footer text-center">
+            <p class="small-text">© GIGM.com 2016. All Right Reserved.</p>
+            <ul class="footer-menu">
+                <li>
+                    <a href="Privacy-Policy.aspx">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Terms", "Pages")">Terms and conditions</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+form {
+  width: 100%;
+  margin-top: 6rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  color: #e21d00;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  @include responsiv-tablet($tablet) {
+    font-size: 1.6rem;
+  }
+}
+
+input {
+  width: 100%;
+  //   height: 57px;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: solid 0.5px #dbd6d6;
+  background-color: #ffffff;
+  margin-bottom: 2.5rem;
+}
