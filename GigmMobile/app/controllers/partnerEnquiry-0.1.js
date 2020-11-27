@@ -43,7 +43,7 @@
 		var d = new Date();
 		var n = d.getFullYear();
 		var i = 0;
-		for (i = 2011; i <= n; i++) {
+		for (i = 2006; i <= n; i++) {
 			$scope.years.push(i);
 		}
 
