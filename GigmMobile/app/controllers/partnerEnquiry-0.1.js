@@ -4,18 +4,31 @@
 
 	var controllerId = 'partnerEnquiry';
 	angular.module('gigm').controller(controllerId,
-        ['common', '$localstorage', '$scope', 'datacontext', partnerEnquiry]);
+		['common', '$localstorage', '$scope', 'datacontext', partnerEnquiry])
 
+		.filter('sumByKey', function () {
+			return function (data, key) {
+				if (typeof (data) === 'undefined' || typeof (key) === 'undefined') {
+					return 0;
+				}
 
+				var sum = 0;
+				for (var i = data.length - 1; i >= 0; i--) {
+					sum += parseInt(data[i][key]);
+				}
+
+				return sum;
+			};
+		});
 
 
 	function partnerEnquiry(common, $localstorage, $scope, datacontext, $rootScope) {
 		$scope.vehicles = [{}];
 
-
+		var token = "i35gGm6IyOZ17oqk7lkXzVpTim-cTnk_WMwq15AeXqy0ms33YSVeojZmXer5EeZ7GoIeSS61905ti-2sMJDjnyCDVCVpV7gfs8oWv6yOnCsDehVH83eV-wkCL_S-hvBb-ph7HyuVfoZv6HhtgJspVv0OAuDOo_27OU0zex__WGpB-XLjYBsqaeZM5gQmut9FIv2Wt3zSeEv9KY2l_gSSxCBJQCjtyJMNo4_gwrlWYHZ5vPAil7dhDvHPJjoDMAWVXnDmNYREQHg2Zp-x9XGoYRPnabsL5ak6iLPHGxmX7_i4BftmkIt8jLI-o0TEmsb-RhxBQs0LiOWolmDRv_D5AvToKx3FYLUPJSgazp9eimG4B9yQhr8DtXjTqF6UhUmV5JuGjihiMxIims-PdiYB1ZqKPm4XFl75Br8Yhs05QaoYyIq4iEZjApxKrX_Z-Cd4wWuFcVtRAPCwPT7QTR_Tvg";
 
 		//var api_url = BaseUrl();
-		var api_url = "http://client.thegigmobility.com/";
+		var api_url = "https://client.thegigmobility.com/";
 
 		var makeurl = api_url + 'api/vehicle/makes';
 		var modelurl = api_url + 'api/vehicle/models';
@@ -38,13 +51,14 @@
 			method: 'GET',
 			url: makeurl,
 			headers: {
-				Authorization: ''
+				Authorization: 'Bearer ' + token
 			},
 			contentType: "application/json",
 			dataType: 'json',
 			success: function (result) {
 				$.each(result.Object.Items, function (index, make) {
 					//$scope.makes.push(make);
+					console.log(result.Object.Items);
 				});
 			}
 		});
@@ -53,13 +67,15 @@
 			method: 'GET',
 			url: modelurl,
 			headers: {
-				Authorization: ''
+				Authorization: 'Bearer ' + token
 			},
 			contentType: "application/json",
 			dataType: 'json',
 			success: function (result) {
 				$.each(result.Object.Items, function (index, model) {
 					//$scope.models.push(model);
+					console.log(result.Object.Items);
+
 				});
 			}
 		});
@@ -410,6 +426,7 @@
 
 			$scope.submited = true;
 			vm.loading = true;
+
 
 			console.log(vm.partnerEnquiry);
 

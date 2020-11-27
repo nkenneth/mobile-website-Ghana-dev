@@ -149,6 +149,18 @@
 			-moz-box-shadow: 0px 3px 23px -1px rgba(0,0,0,0.85);
 			box-shadow: 0px 3px 23px -1px rgba(0,0,0,0.85);
 		}
+
+	.main4 {
+		background:none;
+		height: 0 !important;
+	}
+	.card-body .payments .paystack {
+		width: 50%;
+	}
+
+	.card-body .payments .card:nth-child(3) {
+		width: 50%;
+	}
 </style>
 
 
@@ -404,19 +416,30 @@
 															<span id="ContentPlaceHolder2_lbldiscount" style="font-size:Large;"> {{vm.currency}} {{vm.fares.totaldiscount | number : 0}}</span>
 														</strong>
 													</li>
+
+
 													<li class="per-adultFare">
+														<span class="price-description price-trip">Total to pay</span>
+														<strong class="item-price">
+															<span class="price-amt price-trip">
+																<span id="ContentPlaceHolder2_lbltotal"> {{vm.currency}} {{vm.fares.totaltopay | number : 0}}</span>
+															</span>
+														</strong>
+													</li>
+													<li class="per-adultFare">
+													
 													</li>
 												</ul>
 											</div>
 
 										</div>
 
-										<div class="total-pay" style="">
+										@*<div class="total-pay" style="">
 											<span class="price-description price-trip">Total to pay</span>
 											<span class="price-amt price-trip">
 												<span id="ContentPlaceHolder2_lbltotal"> {{vm.currency}} {{vm.fares.totaltopay | number : 0}}</span>
 											</span>
-										</div>
+										</div>*@
 									</div>
 								</div>
 
@@ -516,7 +539,7 @@
 
 											<div class="row">
 
-												<div class="col-md-6 ">
+												<div class="col-md-12 ">
 
 													<form id="mainGuest" name="mainGuest" class="form">
 
@@ -576,7 +599,7 @@
 
 											<div class="row">
 
-												<div class="col-md-6 ">
+												<div class="col-md-12 ">
 
 													<form id="_form{{$index+1}}" name="_form{{$index+1}}" class="form">
 														<div class="md-form " id="former">
@@ -638,7 +661,7 @@
 
 											<div class="row">
 
-												<div class="col-md-6 ">
+												<div class="col-md-12 ">
 
 													<form class="form" id="form{{$index+1}}" name="form{{$index+1}}">
 														<div class="md-form " id="former{{$index+1}}">
@@ -734,7 +757,7 @@
 
 										<div class="row">
 
-											<div class="col-md-6 ">
+											<div class="col-md-12 ">
 
 												<div class="form">
 													<form name="booker" novalidate>
